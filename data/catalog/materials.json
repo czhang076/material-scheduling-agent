@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "materials": [
+    {
+      "material_id": "M01",
+      "revision": 1,
+      "title": "字幕功能介绍",
+      "copy_text": "支持添加字幕。",
+      "description": "合成产品介绍，仅验证元数据与文案。",
+      "rights_status": "owned",
+      "supported_channels": [
+        "douyin"
+      ],
+      "tags": [],
+      "source_id": "SYN-M01"
+    },
+    {
+      "material_id": "M02",
+      "revision": 1,
+      "title": "待补版权资料",
+      "copy_text": "介绍字幕编辑功能。",
+      "description": "故意缺少版权状态的合成素材。",
+      "supported_channels": [
+        "douyin"
+      ],
+      "tags": [],
+      "source_id": "SYN-M02"
+    },
+    {
+      "material_id": "M03",
+      "revision": 1,
+      "title": "版权争议示例",
+      "copy_text": "介绍剪辑操作。",
+      "description": "仅用于阻断场景。",
+      "rights_status": "disputed",
+      "supported_channels": [
+        "douyin"
+      ],
+      "tags": [],
+      "source_id": "SYN-M03"
+    },
+    {
+      "material_id": "M04",
+      "revision": 1,
+      "title": "人工核对示例",
+      "copy_text": "介绍健康知识短片的字幕制作。",
+      "description": "医疗标签要求人工接受风险。",
+      "rights_status": "owned",
+      "supported_channels": [
+        "douyin"
+      ],
+      "tags": [
+        "medical"
+      ],
+      "source_id": "SYN-M04"
+    },
+    {
+      "material_id": "M05",
+      "revision": 1,
+      "title": "禁用承诺示例",
+      "copy_text": "100%保证有效",
+      "description": "仅用于文案片段定位。",
+      "rights_status": "owned",
+      "supported_channels": [
+        "douyin"
+      ],
+      "tags": [],
+      "source_id": "SYN-M05"
+    }
+  ]
+}

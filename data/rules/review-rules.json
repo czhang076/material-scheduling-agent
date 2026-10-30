@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "rule_set": {
+    "rule_set_id": "SYN-BRAND-001",
+    "version": "1.0",
+    "rules": [
+      {
+        "rule_id": "R-META-001",
+        "type": "required_fields",
+        "fields": [
+          "title",
+          "copy_text",
+          "rights_status",
+          "supported_channels"
+        ],
+        "severity": "NEEDS_INPUT",
+        "message": "排期前须补齐必要资料"
+      },
+      {
+        "rule_id": "R-RIGHTS-001",
+        "type": "forbidden_values",
+        "field": "rights_status",
+        "values": [
+          "disputed",
+          "unlicensed"
+        ],
+        "severity": "BLOCKED",
+        "message": "版权存在争议或明确无权使用"
+      },
+      {
+        "rule_id": "R-CHANNEL-001",
+        "type": "channel_supported",
+        "field": "supported_channels",
+        "severity": "BLOCKED",
+        "message": "素材不支持请求渠道"
+      },
+      {
+        "rule_id": "R-CLAIM-001",
+        "type": "forbidden_phrases",
+        "fields": [
+          "title",
+          "copy_text"
+        ],
+        "phrases": [
+          "100%保证",
+          "绝对治愈"
+        ],
+        "severity": "BLOCKED",
+        "message": "命中合成品牌规则的禁用承诺"
+      },
+      {
+        "rule_id": "R-MEDICAL-001",
+        "type": "manual_tags",
+        "field": "tags",
+        "values": [
+          "medical"
+        ],
+        "severity": "NEEDS_REVIEW",
+        "message": "需人工核对并明确接受对应风险"
+      }
+    ]
+  }
+}

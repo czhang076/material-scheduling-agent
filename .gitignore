@@ -1,0 +1,42 @@
+# Credentials and machine-local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python and tooling
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Local operational state; reviewed evidence belongs in examples/
+var/
+scratch/
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.sqlite3-journal
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+
+# Editor / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
