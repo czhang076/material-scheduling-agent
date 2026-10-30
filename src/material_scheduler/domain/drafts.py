@@ -1,6 +1,6 @@
 """Pure draft transitions, without persistence or user authentication.
 
-M2 must call these rules inside a transaction with current source observations.
+SQLiteStore calls these rules inside a transaction with current source observations.
 Constructing a Draft here does not mean it has been saved.
 """
 

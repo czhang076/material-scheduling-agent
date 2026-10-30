@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 from typing import Any
 
@@ -80,11 +81,19 @@ def parse_json(value: str) -> Any:
     def invalid_constant(_: str) -> None:
         raise DomainError("INVALID_INPUT", "Non-finite JSON number", path="json")
 
+    def finite_float(source: str) -> float:
+        number = float(source)
+        require(math.isfinite(number), "Non-finite JSON number", "json")
+        return number
+
     try:
         return json.loads(
-            value, object_pairs_hook=pairs, parse_constant=invalid_constant
+            value, object_pairs_hook=pairs, parse_constant=invalid_constant,
+            parse_float=finite_float,
         )
-    except (json.JSONDecodeError, RecursionError) as exc:
+    except DomainError:
+        raise
+    except (ValueError, RecursionError) as exc:
         raise DomainError("INVALID_INPUT", "Malformed JSON", path="json") from exc
 
 

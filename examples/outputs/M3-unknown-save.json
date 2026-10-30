@@ -1,0 +1,308 @@
+{
+  "model_mode": "mock",
+  "real_decision_verified": false,
+  "checkpoints": [
+    {
+      "request_id": "REQ-M3-unknown-save",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-acee8d0bfa5e4c0e852e03820b930ecf",
+            "request_id": "REQ-M3-unknown-save",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T18:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "UNKNOWN",
+            "error_code": "SAVE_OUTCOME_UNKNOWN"
+          },
+          "review_observed_in_session": true,
+          "status": "FAILED",
+          "incomplete_reasons": [
+            "SAVE_OUTCOME_UNKNOWN"
+          ]
+        }
+      ],
+      "observed_at": "2026-10-30T14:20:46.180+00:00",
+      "published": false,
+      "run_id": "RUN-a91dc3a6b82c47898ef16de9ffdb9ef9",
+      "task_status": "PARTIAL",
+      "business_task_status": "PARTIAL",
+      "model": {
+        "mode": "mock",
+        "name": "observation-policy",
+        "version": "1.0"
+      },
+      "stop_reason": "MODEL_FINISHED",
+      "limit_kind": null,
+      "execution_status": "FINISHED",
+      "stats": {
+        "model_rounds": 5,
+        "protocol_errors": 0,
+        "tool_attempts": 5,
+        "tool_dispatches": 5,
+        "tool_executions": 5,
+        "per_item_attempts": {
+          "I01": 4
+        },
+        "elapsed_seconds": 0.08709690000068804,
+        "final_revalidations": 1
+      },
+      "limits": {
+        "per_item_tool_limit": 10,
+        "max_tool_attempts": 11,
+        "max_model_rounds": 15,
+        "run_timeout_seconds": 180,
+        "model_timeout_seconds": 30,
+        "protocol_error_limit": 4
+      },
+      "trace_complete": true,
+      "last_tool_observation": {
+        "ok": true,
+        "tool": "finish",
+        "item_id": null,
+        "data": {
+          "stop_reason": "TOOL_SESSION_FINISHED"
+        },
+        "observed_at": "2026-10-30T14:20:46.171+00:00"
+      },
+      "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+      "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+      "react_verified_with_real_model": false
+    }
+  ],
+  "trusted_confirmation": null,
+  "final_result": {
+    "request_id": "REQ-M3-unknown-save",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M01",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": {
+          "draft_id": "D-acee8d0bfa5e4c0e852e03820b930ecf",
+          "request_id": "REQ-M3-unknown-save",
+          "item_id": "I01",
+          "version": 1,
+          "draft_state": "READY",
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "candidate": {
+            "offer_id": "O18",
+            "offer_revision": 1,
+            "channel": "douyin",
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T18:30:00+08:00"
+          },
+          "pending_confirmations": [],
+          "required_confirmations": [],
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "confirmation": null,
+          "stale_reason": null,
+          "published": false
+        },
+        "review": {
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [],
+          "missing_fields": []
+        },
+        "save_attempt": {
+          "save_status": "UNKNOWN",
+          "error_code": "SAVE_OUTCOME_UNKNOWN"
+        },
+        "review_observed_in_session": true,
+        "status": "FAILED",
+        "incomplete_reasons": [
+          "SAVE_OUTCOME_UNKNOWN"
+        ]
+      }
+    ],
+    "observed_at": "2026-10-30T14:20:46.180+00:00",
+    "published": false,
+    "run_id": "RUN-a91dc3a6b82c47898ef16de9ffdb9ef9",
+    "task_status": "PARTIAL",
+    "business_task_status": "PARTIAL",
+    "model": {
+      "mode": "mock",
+      "name": "observation-policy",
+      "version": "1.0"
+    },
+    "stop_reason": "MODEL_FINISHED",
+    "limit_kind": null,
+    "execution_status": "FINISHED",
+    "stats": {
+      "model_rounds": 5,
+      "protocol_errors": 0,
+      "tool_attempts": 5,
+      "tool_dispatches": 5,
+      "tool_executions": 5,
+      "per_item_attempts": {
+        "I01": 4
+      },
+      "elapsed_seconds": 0.08709690000068804,
+      "final_revalidations": 1
+    },
+    "limits": {
+      "per_item_tool_limit": 10,
+      "max_tool_attempts": 11,
+      "max_model_rounds": 15,
+      "run_timeout_seconds": 180,
+      "model_timeout_seconds": 30,
+      "protocol_error_limit": 4
+    },
+    "trace_complete": true,
+    "last_tool_observation": {
+      "ok": true,
+      "tool": "finish",
+      "item_id": null,
+      "data": {
+        "stop_reason": "TOOL_SESSION_FINISHED"
+      },
+      "observed_at": "2026-10-30T14:20:46.171+00:00"
+    },
+    "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+    "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+    "react_verified_with_real_model": false
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 1,
+    "reservations": 1,
+    "confirmations": 0,
+    "operation_receipts": 1,
+    "audit_events": 2
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-f44e350f987a45a08a054138bc6a2a3d",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "3abe3db993ba0abb338b2eb893036ec789c2bcaf368f017b63c5c43a8889c64e",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-30T14:20:46.043+00:00"
+    },
+    {
+      "event_id": "AUD-e06ad31a842c488db1d83a3a83247c9b",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-M3-unknown-save",
+      "item_id": "I01",
+      "draft_id": "D-acee8d0bfa5e4c0e852e03820b930ecf",
+      "version": 1,
+      "run_id": "RUN-a91dc3a6b82c47898ef16de9ffdb9ef9",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-acee8d0bfa5e4c0e852e03820b930ecf",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T18:30:00+08:00",
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "start": "2030-06-01T18:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-M3-unknown-save",
+          "state": "READY",
+          "version": 1
+        },
+        "operation_id": "OP-7925380d29a94c4cb751b99cfb161f5d"
+      },
+      "created_at": "2026-10-30T14:20:46.150+00:00"
+    }
+  ],
+  "checks": {
+    "task_status": true,
+    "draft_count": true,
+    "never_published": true,
+    "traces_complete": true,
+    "model_mode_explicit": true,
+    "unknown_not_false_success": true
+  }
+}

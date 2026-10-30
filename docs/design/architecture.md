@@ -2,7 +2,7 @@
 
 ## 1. 设计目标
 
-把复杂业务约束收在小而稳定的接口后面，让正常运行、故障注入和评审通过同一接口观察行为。M1/M2 已实现领域、工具及 SQLite；表中的模型/CLI/网页仍是规划。文件名按实际职责调整，不机械照搬。
+把复杂业务约束收在小而稳定的接口后面，让正常运行、故障注入和评审通过同一接口观察行为。M1/M2/M3 已实现领域、工具、SQLite、离线模型接口与循环和 CLI；真实模型/HTTP/网页仍是规划。文件名按实际职责调整，不机械照搬。
 
 ## 2. 模块职责
 
@@ -10,7 +10,7 @@
 |---|---|---|---|
 |`domain/`|`requests.py`, `review.py`, `scheduling.py`, `drafts.py`|请求约束、审核规则、时间冲突、草稿状态迁移|网络调用、CLI、数据库连接|
 |`application/`|`tools.py`, `contracts.py`, `serialization.py`|工具用例、事务编排、用户确认、可信结果组装|模型私有协议、直接输出“已发布”|
-|`agent/`|`runner.py`, `decisions.py`, `tool_catalog.py`, `trace.py`, `prompt.py`|选择动作的循环、执行预算、工具白名单、观察历史与 Trace|自行写草稿、伪造授权|
+|`agent/`|`runner.py`, `decisions.py`, `trace.py`, `prompt.py`|选择动作的循环、执行预算、工具白名单、观察历史与 Trace|自行写草稿、伪造授权|
 |`adapters/`|`sqlite_store.py`, `fixture_loader.py`, `compatible_model.py`, `mock_model.py`, `faults.py`|SQLite、合成资料导入、真实/Mock 模型、故障注入|绕开业务校验修改草稿|
 |`interfaces/`|`cli.py`, 后续 `http.py`, `web/`|CLI 输入输出、本地 HTTP/静态页面、可信用户操作|决定风险可否放行、擅改时间或复制业务逻辑|
 
@@ -88,4 +88,4 @@ CLI 核心完成后接入本地 HTTP 与静态页面，直接复用应用用例�
 
 ## 7. 当前架构交付边界
 
-M1/M2 已实现 domain、ToolSession、纯序列化、合成加载、SQLiteStore 和故障注入。确认事务由 SQLiteStore.confirm 封装，未来 CLI/网页共同调用；application 不依赖具体适配器。Agent/CLI 和网页仍待后续阶段。实际差异与验证见 [M2 验收](../M2-ACCEPTANCE.md)。
+M1/M2 已实现 domain、ToolSession、纯序列化、合成加载、SQLiteStore 和故障注入。确认事务由 SQLiteStore.confirm 封装，未来 CLI/网页共同调用；application 不依赖具体适配器。M3 已补离线循环、提供者接口与 Mock、Trace、CLI/artifacts/evaluation。工具 Schema 从 application.tools.tool_definitions 同源导出，不额外建 tool_catalog.py。真实模型和网页仍待后续阶段；见 [M3 验收](../M3-ACCEPTANCE.md)。

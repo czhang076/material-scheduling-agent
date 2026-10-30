@@ -26,6 +26,31 @@ _ARGUMENTS = {
 }
 
 
+def tool_definitions() -> list[dict]:
+    """The executable directory and JSON schemas share the same field sets."""
+    descriptions = {
+        "read_material": "读取本请求项素材、来源和缺失字段。",
+        "lookup_metadata": "从带来源补充资料填补缺失字段，保留矛盾与缺口。",
+        "check_rules": "审核元数据与文案，返回风险证据及审核快照。",
+        "query_slots": "查询目标或替代时段，不预留容量。",
+        "save_draft": "保存已观察候选；事务复核，自动计算待确认事项。",
+        "finish": "结束选择；业务状态由真实工具与账本生成。",
+    }
+    properties = {
+        "item_id": {"type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[A-Za-z0-9_-]+$"},
+        "rationale": {"type": "string", "minLength": 1, "maxLength": 240},
+        "mode": {"type": "string", "enum": ["requested", "alternatives"]},
+        "limit": {"type": "integer", "minimum": 1, "maximum": 10},
+        "candidate_start": {"type": "string", "minLength": 20, "maxLength": 40},
+    }
+    return [{"type": "function", "function": {
+        "name": name, "description": descriptions[name], "parameters": {
+            "type": "object", "properties": {field: deepcopy(properties[field]) for field in sorted(fields)},
+            "required": sorted(fields), "additionalProperties": False,
+        },
+    }} for name, fields in _ARGUMENTS.items()]
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="milliseconds")
 

@@ -1,6 +1,6 @@
-"""Material review and scheduling domain foundation.
+"""Local material review and scheduling Agent with explicit offline provenance.
 
-This package does not publish content. The Agent runtime is a later milestone.
+This package saves drafts only. Real model configuration remains a later milestone.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"

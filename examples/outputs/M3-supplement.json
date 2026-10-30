@@ -1,0 +1,332 @@
+{
+  "model_mode": "mock",
+  "real_decision_verified": false,
+  "checkpoints": [
+    {
+      "request_id": "REQ-M3-supplement",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M02",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-8e453d2b05d9497892b2c5d2b39786f9",
+            "request_id": "REQ-M3-supplement",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T18:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [],
+            "review_status": "PASS",
+            "review_snapshot_id": "856946177797e9c66733b8416b282079047e27e8154cce291784de7b5efadada",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "856946177797e9c66733b8416b282079047e27e8154cce291784de7b5efadada",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "CREATED",
+            "error_code": null,
+            "operation_id": "OP-6daa73e5e3a545f09d52b94483468e2f",
+            "operation_version": 1
+          },
+          "review_observed_in_session": true,
+          "status": "READY",
+          "incomplete_reasons": []
+        }
+      ],
+      "observed_at": "2026-10-30T14:20:44.709+00:00",
+      "published": false,
+      "run_id": "RUN-f1f574c537694e67ab760223e6749fdc",
+      "task_status": "READY_DRAFTS",
+      "business_task_status": "READY_DRAFTS",
+      "model": {
+        "mode": "mock",
+        "name": "observation-policy",
+        "version": "1.0"
+      },
+      "stop_reason": "MODEL_FINISHED",
+      "limit_kind": null,
+      "execution_status": "FINISHED",
+      "stats": {
+        "model_rounds": 7,
+        "protocol_errors": 0,
+        "tool_attempts": 7,
+        "tool_dispatches": 7,
+        "tool_executions": 7,
+        "per_item_attempts": {
+          "I01": 6
+        },
+        "elapsed_seconds": 0.11446049999904062,
+        "final_revalidations": 1
+      },
+      "limits": {
+        "per_item_tool_limit": 10,
+        "max_tool_attempts": 11,
+        "max_model_rounds": 15,
+        "run_timeout_seconds": 180,
+        "model_timeout_seconds": 30,
+        "protocol_error_limit": 4
+      },
+      "trace_complete": true,
+      "last_tool_observation": {
+        "ok": true,
+        "tool": "finish",
+        "item_id": null,
+        "data": {
+          "stop_reason": "TOOL_SESSION_FINISHED"
+        },
+        "observed_at": "2026-10-30T14:20:44.701+00:00"
+      },
+      "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+      "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+      "react_verified_with_real_model": false
+    }
+  ],
+  "trusted_confirmation": null,
+  "final_result": {
+    "request_id": "REQ-M3-supplement",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M02",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": {
+          "draft_id": "D-8e453d2b05d9497892b2c5d2b39786f9",
+          "request_id": "REQ-M3-supplement",
+          "item_id": "I01",
+          "version": 1,
+          "draft_state": "READY",
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "candidate": {
+            "offer_id": "O18",
+            "offer_revision": 1,
+            "channel": "douyin",
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T18:30:00+08:00"
+          },
+          "pending_confirmations": [],
+          "required_confirmations": [],
+          "review_status": "PASS",
+          "review_snapshot_id": "856946177797e9c66733b8416b282079047e27e8154cce291784de7b5efadada",
+          "confirmation": null,
+          "stale_reason": null,
+          "published": false
+        },
+        "review": {
+          "review_status": "PASS",
+          "review_snapshot_id": "856946177797e9c66733b8416b282079047e27e8154cce291784de7b5efadada",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [],
+          "missing_fields": []
+        },
+        "save_attempt": {
+          "save_status": "CREATED",
+          "error_code": null,
+          "operation_id": "OP-6daa73e5e3a545f09d52b94483468e2f",
+          "operation_version": 1
+        },
+        "review_observed_in_session": true,
+        "status": "READY",
+        "incomplete_reasons": []
+      }
+    ],
+    "observed_at": "2026-10-30T14:20:44.709+00:00",
+    "published": false,
+    "run_id": "RUN-f1f574c537694e67ab760223e6749fdc",
+    "task_status": "READY_DRAFTS",
+    "business_task_status": "READY_DRAFTS",
+    "model": {
+      "mode": "mock",
+      "name": "observation-policy",
+      "version": "1.0"
+    },
+    "stop_reason": "MODEL_FINISHED",
+    "limit_kind": null,
+    "execution_status": "FINISHED",
+    "stats": {
+      "model_rounds": 7,
+      "protocol_errors": 0,
+      "tool_attempts": 7,
+      "tool_dispatches": 7,
+      "tool_executions": 7,
+      "per_item_attempts": {
+        "I01": 6
+      },
+      "elapsed_seconds": 0.11446049999904062,
+      "final_revalidations": 1
+    },
+    "limits": {
+      "per_item_tool_limit": 10,
+      "max_tool_attempts": 11,
+      "max_model_rounds": 15,
+      "run_timeout_seconds": 180,
+      "model_timeout_seconds": 30,
+      "protocol_error_limit": 4
+    },
+    "trace_complete": true,
+    "last_tool_observation": {
+      "ok": true,
+      "tool": "finish",
+      "item_id": null,
+      "data": {
+        "stop_reason": "TOOL_SESSION_FINISHED"
+      },
+      "observed_at": "2026-10-30T14:20:44.701+00:00"
+    },
+    "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+    "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+    "react_verified_with_real_model": false
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 1,
+    "reservations": 1,
+    "confirmations": 0,
+    "operation_receipts": 1,
+    "audit_events": 3
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-5594dfba57f24a9c836086d9dc391b11",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "6dd3206b95506e716f174b4621a6fa39fc57fc307c9aa415c7f70c2cebb0a964",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-30T14:20:44.550+00:00"
+    },
+    {
+      "event_id": "AUD-2b265f29d1764e869071a1f9a145b103",
+      "event_type": "METADATA_ENRICHED",
+      "request_id": "REQ-M3-supplement",
+      "item_id": "I01",
+      "draft_id": null,
+      "version": null,
+      "run_id": "RUN-f1f574c537694e67ab760223e6749fdc",
+      "payload_json": {
+        "field_sources": {
+          "rights_status": [
+            {
+              "provenance": "synthetic local rights register",
+              "revision": 1,
+              "source_id": "EVAL-S02"
+            }
+          ]
+        },
+        "fields": [
+          "rights_status"
+        ],
+        "revision": 2
+      },
+      "created_at": "2026-10-30T14:20:44.628+00:00"
+    },
+    {
+      "event_id": "AUD-db8420c28e514c4e8a39ac9f71fba0e9",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-M3-supplement",
+      "item_id": "I01",
+      "draft_id": "D-8e453d2b05d9497892b2c5d2b39786f9",
+      "version": 1,
+      "run_id": "RUN-f1f574c537694e67ab760223e6749fdc",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-8e453d2b05d9497892b2c5d2b39786f9",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T18:30:00+08:00",
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "start": "2030-06-01T18:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M02",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "6400643a84efa9418117d92a23873494ae5932968723c2b77365a6337813558e",
+              "material_id": "M02",
+              "material_revision": 2,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-M3-supplement",
+          "state": "READY",
+          "version": 1
+        },
+        "operation_id": "OP-6daa73e5e3a545f09d52b94483468e2f"
+      },
+      "created_at": "2026-10-30T14:20:44.681+00:00"
+    }
+  ],
+  "checks": {
+    "task_status": true,
+    "draft_count": true,
+    "never_published": true,
+    "traces_complete": true,
+    "model_mode_explicit": true
+  }
+}

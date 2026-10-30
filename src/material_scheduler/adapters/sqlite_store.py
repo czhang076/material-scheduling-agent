@@ -726,3 +726,14 @@ class SQLiteStore:
                 }
         except (sqlite3.Error, _CommitUncertain) as exc:
             raise DomainError("STORE_UNAVAILABLE", "Cannot inspect ledger counts") from exc
+
+    def source_identity(self) -> dict[str, Any]:
+        """Version metadata only; do not pre-feed material/tool results to a model."""
+        try:
+            with self._transaction() as connection:
+                dataset, generation, _, _ = self._catalog(connection)
+                return {"catalog_generation": generation, "data_revision": dataset.data_revision,
+                        "dataset_sha256": fingerprint(fixture_to_dict(dataset)),
+                        "rule_set_id": dataset.rule_set.rule_set_id, "rule_set_version": dataset.rule_set.version}
+        except (sqlite3.Error, _CommitUncertain) as exc:
+            raise DomainError("STORE_UNAVAILABLE", "Cannot inspect source identity") from exc

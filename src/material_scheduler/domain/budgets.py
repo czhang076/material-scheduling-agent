@@ -1,4 +1,4 @@
-"""Derived limits only; enforcement belongs to the later Agent runtime."""
+"""Validated limit values; AgentRunner enforces counts and cooperative deadlines."""
 
 from dataclasses import dataclass
 

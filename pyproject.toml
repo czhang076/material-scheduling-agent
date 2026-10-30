@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "material-scheduling-agent"
-version = "0.2.0"
-description = "Material review and scheduling drafts with transactional local tools"
+version = "0.3.0"
+description = "Bounded offline scheduling Agent with transactional tools and replayable traces"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 dependencies = []

@@ -1,0 +1,522 @@
+{
+  "evaluation_mode": "mock",
+  "real_decision_verified": false,
+  "all_passed": true,
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "examples/inputs/M3-normal.json",
+      "output": "examples/outputs/M3-normal.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-normal-run1.json",
+          "trace": "examples/traces/M3-normal-run1.jsonl",
+          "manifest": "examples/evaluation/M3-normal-run1-manifest.json",
+          "exit_code": 0,
+          "trace_events": 22
+        }
+      ]
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "NEEDS_INPUT",
+      "actual_task_status": "NEEDS_INPUT",
+      "input": "examples/inputs/M3-missing.json",
+      "output": "examples/outputs/M3-missing.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-missing-run1.json",
+          "trace": "examples/traces/M3-missing-run1.jsonl",
+          "manifest": "examples/evaluation/M3-missing-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 22
+        }
+      ]
+    },
+    {
+      "case": "risk",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "BLOCKED",
+      "actual_task_status": "BLOCKED",
+      "input": "examples/inputs/M3-risk.json",
+      "output": "examples/outputs/M3-risk.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-risk-run1.json",
+          "trace": "examples/traces/M3-risk-run1.jsonl",
+          "manifest": "examples/evaluation/M3-risk-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 14
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "candidate_changes_with_occupancy": true,
+        "original_retained_and_confirmation_required": true,
+        "pending_not_reserved": true
+      },
+      "expected_task_status": "NEEDS_CONFIRMATION",
+      "actual_task_status": "NEEDS_CONFIRMATION",
+      "input": "examples/inputs/M3-conflict.json",
+      "output": "examples/outputs/M3-conflict.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-conflict-run1.json",
+          "trace": "examples/traces/M3-conflict-run1.jsonl",
+          "manifest": "examples/evaluation/M3-conflict-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 26
+        }
+      ]
+    },
+    {
+      "case": "duplicate",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "same_draft_and_version": true,
+        "reused": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "examples/inputs/M3-duplicate.json",
+      "output": "examples/outputs/M3-duplicate.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-duplicate-run1.json",
+          "trace": "examples/traces/M3-duplicate-run1.jsonl",
+          "manifest": "examples/evaluation/M3-duplicate-run1-manifest.json",
+          "exit_code": 0,
+          "trace_events": 22
+        },
+        {
+          "result": "examples/outputs/M3-duplicate-run2.json",
+          "trace": "examples/traces/M3-duplicate-run2.jsonl",
+          "manifest": "examples/evaluation/M3-duplicate-run2-manifest.json",
+          "exit_code": 0,
+          "trace_events": 22
+        }
+      ]
+    },
+    {
+      "case": "save-failure",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "rollback": true,
+        "failed_attempt": true
+      },
+      "expected_task_status": "FAILED",
+      "actual_task_status": "FAILED",
+      "input": "examples/inputs/M3-save-failure.json",
+      "output": "examples/outputs/M3-save-failure.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-save-failure-run1.json",
+          "trace": "examples/traces/M3-save-failure-run1.jsonl",
+          "manifest": "examples/evaluation/M3-save-failure-run1-manifest.json",
+          "exit_code": 4,
+          "trace_events": 26
+        }
+      ]
+    },
+    {
+      "case": "tool-recovery",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "examples/inputs/M3-tool-recovery.json",
+      "output": "examples/outputs/M3-tool-recovery.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-tool-recovery-run1.json",
+          "trace": "examples/traces/M3-tool-recovery-run1.jsonl",
+          "manifest": "examples/evaluation/M3-tool-recovery-run1-manifest.json",
+          "exit_code": 0,
+          "trace_events": 26
+        }
+      ]
+    },
+    {
+      "case": "supplement",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "examples/inputs/M3-supplement.json",
+      "output": "examples/outputs/M3-supplement.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-supplement-run1.json",
+          "trace": "examples/traces/M3-supplement-run1.jsonl",
+          "manifest": "examples/evaluation/M3-supplement-run1-manifest.json",
+          "exit_code": 0,
+          "trace_events": 30
+        }
+      ]
+    },
+    {
+      "case": "changed-occupancy",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "candidate_changes_with_occupancy": true,
+        "original_retained_and_confirmation_required": true,
+        "pending_not_reserved": true,
+        "same_request_replanned_same_draft": true
+      },
+      "expected_task_status": "NEEDS_CONFIRMATION",
+      "actual_task_status": "NEEDS_CONFIRMATION",
+      "input": "examples/inputs/M3-changed-occupancy.json",
+      "output": "examples/outputs/M3-changed-occupancy.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-changed-occupancy-run1.json",
+          "trace": "examples/traces/M3-changed-occupancy-run1.jsonl",
+          "manifest": "examples/evaluation/M3-changed-occupancy-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 26
+        },
+        {
+          "result": "examples/outputs/M3-changed-occupancy-run2.json",
+          "trace": "examples/traces/M3-changed-occupancy-run2.jsonl",
+          "manifest": "examples/evaluation/M3-changed-occupancy-run2-manifest.json",
+          "exit_code": 2,
+          "trace_events": 26
+        }
+      ]
+    },
+    {
+      "case": "confirmation",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "one_user_consent_one_reservation": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "examples/inputs/M3-confirmation.json",
+      "output": "examples/outputs/M3-confirmation.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-confirmation-run1.json",
+          "trace": "examples/traces/M3-confirmation-run1.jsonl",
+          "manifest": "examples/evaluation/M3-confirmation-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 26
+        }
+      ]
+    },
+    {
+      "case": "manual-risk",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "NEEDS_CONFIRMATION",
+      "actual_task_status": "NEEDS_CONFIRMATION",
+      "input": "examples/inputs/M3-manual-risk.json",
+      "output": "examples/outputs/M3-manual-risk.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-manual-risk-run1.json",
+          "trace": "examples/traces/M3-manual-risk-run1.jsonl",
+          "manifest": "examples/evaluation/M3-manual-risk-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 22
+        }
+      ]
+    },
+    {
+      "case": "no-slots",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "INCOMPLETE",
+      "actual_task_status": "INCOMPLETE",
+      "input": "examples/inputs/M3-no-slots.json",
+      "output": "examples/outputs/M3-no-slots.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-no-slots-run1.json",
+          "trace": "examples/traces/M3-no-slots-run1.jsonl",
+          "manifest": "examples/evaluation/M3-no-slots-run1-manifest.json",
+          "exit_code": 2,
+          "trace_events": 22
+        }
+      ]
+    },
+    {
+      "case": "limit",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "explicit_bounded_stop": true
+      },
+      "expected_task_status": "INCOMPLETE",
+      "actual_task_status": "INCOMPLETE",
+      "input": "examples/inputs/M3-limit.json",
+      "output": "examples/outputs/M3-limit.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-limit-run1.json",
+          "trace": "examples/traces/M3-limit-run1.jsonl",
+          "manifest": "examples/evaluation/M3-limit-run1-manifest.json",
+          "exit_code": 5,
+          "trace_events": 14
+        }
+      ]
+    },
+    {
+      "case": "unknown-save",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "unknown_not_false_success": true
+      },
+      "expected_task_status": "PARTIAL",
+      "actual_task_status": "PARTIAL",
+      "input": "examples/inputs/M3-unknown-save.json",
+      "output": "examples/outputs/M3-unknown-save.json",
+      "runs": [
+        {
+          "result": "examples/outputs/M3-unknown-save-run1.json",
+          "trace": "examples/traces/M3-unknown-save-run1.jsonl",
+          "manifest": "examples/evaluation/M3-unknown-save-run1-manifest.json",
+          "exit_code": 4,
+          "trace_events": 22
+        }
+      ]
+    }
+  ],
+  "generated_at": "2026-10-30T14:20:47+00:00",
+  "actual_command": [
+    "E:\\material-scheduling-agent\\.venv\\Scripts\\python.exe",
+    "-m",
+    "material_scheduler",
+    "evaluate",
+    "--data-dir",
+    "data",
+    "--out",
+    "E:\\material-scheduling-agent\\var\\m3-examples\\ee9fcc2833c045449f1b63e01a9f0c54"
+  ],
+  "base_commit": "2d082701f2e014b80b1f62ce3fdbe19c7916a90c",
+  "source_state": "working_tree_source_hashes",
+  "source_hashes_lf_sha256": {
+    "data/catalog/materials.json": "4799ce2b8bc80ca741d60e69c7e2b979650e5bfcedc72783c164090372e27bc4",
+    "data/catalog/supplements.json": "872eece38c0d6d1194e05392c6acb811e5fa2be5d942ba01354df12f77f4af20",
+    "data/requests/normal.json": "95dc6bfa3cd600853401e2b8a38cbfb3eefac44fc87f4ae3d7a2c3d2002dfe5a",
+    "data/rules/review-rules.json": "04f077754117f7eeaf16a65b6351fdf3b059595ae39cfd1a75c4f9b6d70991b7",
+    "data/schedules/existing-bookings.json": "c13feea01cd65582a9b11f1db46e22c240b0f05b687c53d379ac3c183656ea69",
+    "data/schedules/slot-offers.json": "734043a5826f927e7926b03ca771cd4c7ae57fd42289039142d4fe1b8fc0091c",
+    "pyproject.toml": "672380e31f188fa654c0d7be6fc490fee4f6a95a3b12495592c7ec788cf1c47f",
+    "scripts/run_m2_examples.py": "6c2a761beaa261a9fc32f34e1640b4e3e4dc4a300e1cf281f18a5d3f1058e563",
+    "scripts/run_m3_examples.py": "34da8f487e3f284d9af8eaad25782bc73c1922586808233af744562d214659fa",
+    "scripts/verify_m2.py": "9b648fe9c361e2a179a68e2be4b9a90f850e96ea2d64592c0935b28ee53d737b",
+    "scripts/verify_m3.py": "7a008f714b4604370d61c33777e885ce0a7d4cec7ff51f3e993b12f594b4e476",
+    "src/material_scheduler/__init__.py": "3b53a1d1e138b0a1fbcc6b2f57c5853115d17a964dc2c23a4d86997b426eb367",
+    "src/material_scheduler/__main__.py": "e9a49826ba1f0466109d39f61532fd0f204136ba7b6fac5f32fbb4ceed7c0c49",
+    "src/material_scheduler/adapters/__init__.py": "86fda97599a00dc28c82a3715bea3203a0fc407bdc86ce3f3411b2e2981c9530",
+    "src/material_scheduler/adapters/faults.py": "b88da8512363193f9a1189fecfcd76163c185c4f23de925ef3c1b1ac16fc4f3b",
+    "src/material_scheduler/adapters/fixture_loader.py": "0a24cfba4650a9a697f6e803ff6ffb3c8e8bf198ff25b577026879628e876596",
+    "src/material_scheduler/adapters/mock_model.py": "871f42eff74d8738b21b585e444cf94125224f905bdcbf722a434f32d90f00e7",
+    "src/material_scheduler/adapters/sqlite_store.py": "b23f0e015ab1ee9672f8fa518b487e1620607a2b5c3eeec389cce49b6a6c00eb",
+    "src/material_scheduler/agent/__init__.py": "2f1d1a94523db2d335041b019b7628e8875d462157181472978b03fecebedbab",
+    "src/material_scheduler/agent/decisions.py": "8e49fc90f54b5599bc0137c2d927fea8cb1e6dadf7e8887e0094a22fdc0ec9c1",
+    "src/material_scheduler/agent/prompt.py": "1d478d27f2c2f9d3baed2a5f3e21a05f942b280f15f90ee311f0f0bf6e9dce16",
+    "src/material_scheduler/agent/runner.py": "9a38ce61b3619cb43ffe41db4ae4bc21da66dc1d3e0b3f8644a37a289c2680ad",
+    "src/material_scheduler/agent/trace.py": "7c185f4ba40ab7d59c054b9c466b9b30fca8a6d28adf38f9fe775d89b4f99ff7",
+    "src/material_scheduler/application/__init__.py": "815b01b1279d8a19fdbe2754dfafacc52be1bb4e17cd3d55c61031e0aeea6dc7",
+    "src/material_scheduler/application/contracts.py": "6c6b4210722eb08bcf59f7a0b981f0963f038140926aa1c07c457dff2dc0b306",
+    "src/material_scheduler/application/serialization.py": "20cd5b2da9abb8cc5206105d8afb0354183d9936e37b9cc42cdcc8df1f752ddb",
+    "src/material_scheduler/application/tools.py": "a7d9ea124319f6272dd43dc622803ccc6951ea763c94f7d9212dd920093eb375",
+    "src/material_scheduler/domain/__init__.py": "9efbf9c8520a45949480ca68365d28f52901fb7c395f6b9b538de2aa530ccba5",
+    "src/material_scheduler/domain/budgets.py": "9c660d09429de8075cb4fba265c4ede3b85ad57bc7af39597303609a045b0d08",
+    "src/material_scheduler/domain/catalog.py": "a6c8fcddeeb148752e6cc346c624c63eaa7ae1a61cfe7e98f8f3aed01d635af5",
+    "src/material_scheduler/domain/drafts.py": "d3698fa9e3add0007d72dcfc430b9aed565d7582a5a5a41bc6cdf5e939e2e1c1",
+    "src/material_scheduler/domain/requests.py": "87312fa85789b25c87bab232d115dcd155bdd824f9be72fe2206c300cddb6462",
+    "src/material_scheduler/domain/review.py": "8caceba086dc456d8690bc76c674a2ee8ee541bad6e534daf56d20dce5223456",
+    "src/material_scheduler/domain/scheduling.py": "977240bfd4ccc96aab67ea4952f41c5f69389bdf8ca1a57809cf15b5ae06bb9d",
+    "src/material_scheduler/domain/time.py": "f76379882ec4cb31960180ee58db0861ae47e78ebf13ac9c66dda4ca721e45f0",
+    "src/material_scheduler/domain/validation.py": "423695a7f6bb8c9dc86ad362837cad24379a7249b5dd5009b8b7bc136631ae37",
+    "src/material_scheduler/interfaces/__init__.py": "9391899e7d5fb46e86bd2409988df1ff89043db1ed86c7620f853b8accf76e21",
+    "src/material_scheduler/interfaces/artifacts.py": "bbad9e01e02cd8a2ca9728493a2c74e95a96a88565538cbb2e03e11789c76ed5",
+    "src/material_scheduler/interfaces/cli.py": "aae0e567ba44e2141398497bc94b435f8cb8de0f1a875a7f4cef396fec44a01c",
+    "src/material_scheduler/interfaces/evaluation.py": "d65612f367e14c3647b4f72c061f20abbd4ca94192fe5833327f76fb6b9225db",
+    "tests/__init__.py": "d213db273e2dcafcb75f1b75defd55a204815bb737586e889d2a5663040e1cab",
+    "tests/acceptance/__init__.py": "a39ba2b6dbcee73ef8d53bc17c51d59efd15d2a0c5a23670c169f9be3ac70f65",
+    "tests/acceptance/test_cli.py": "ec2321748f9a2738fa327346bd876c15efcd6d9868247b0d379df5d7e8aa418b",
+    "tests/adversarial/__init__.py": "a61fd480b98aa85610a0634adeec2bab960b0e5784d63462e8f675e08d82f0e0",
+    "tests/adversarial/test_agent_permissions.py": "9e2aa12a5e18e71cdbb97a48e04dda12a52708863023cb0cf2a67feea648ddee",
+    "tests/integration/__init__.py": "513b385e44bd057ea9412c9fbf18f068dcdf3344746efaf2417da5bc5a4afc95",
+    "tests/integration/m2_helpers.py": "3bc2d1657c8d02c69d066c03b583cb9ee491022ea029d9b870e7e00b2194e509",
+    "tests/integration/m3_helpers.py": "235616f5aa3423a7e18e8c2ba213bb446103d684ea8442d4dbd9b9f34af29dc7",
+    "tests/integration/test_agent_runtime.py": "29b2ad80d400b18c52bb7ababdff8908e864f13943731ae2023f03fd86b923d5",
+    "tests/integration/test_fixtures.py": "4704f06200237676f986637be0e0ba7ada1731bea735fffb20b42fa002b92a4f",
+    "tests/integration/test_sqlite_concurrency.py": "9674703e3db315d3c7287766493bc970a98446f5bbc9e201d2d6db88c7243bd2",
+    "tests/integration/test_sqlite_tools.py": "9eab12782273c60ce21771cf93d1040a562065c7531b1de7ee33f1a3154fd4ee",
+    "tests/unit/__init__.py": "a6d013418dee1606aace076a5b7846ce3050922240c9d046716ebe7ee4602d29",
+    "tests/unit/helpers.py": "9e4b38f588b8dede3cf8db675e8406a7b119b953078a5448fcb75ae818783d60",
+    "tests/unit/test_requests.py": "cc77750c226c8fe43daaf272b186a80212988b33cd86d873a5a850dabfb6b44f",
+    "tests/unit/test_review.py": "7e9ce2c2dc7295bb3692c4da68598bb7717066f298aafb464b34813f1a2492d2",
+    "tests/unit/test_scheduling_and_drafts.py": "d0467e71855a21ab93c2d73099179b538bd32196a8c55e094ddd15395d402663"
+  },
+  "real_model_called": false,
+  "evidence_sha256": {
+    "examples/inputs/M3-normal.json": "f43e7833985a6a55fce44c6c68eb4e58fd26af00134430f0d7f1782f784059db",
+    "examples/outputs/M3-normal.json": "f4b6159e8e72c6d43b96db93984b96dda0666991248961f507b3864595aa8f81",
+    "examples/outputs/M3-normal-run1.json": "ad383799ca99635cd906b70bf4e99d748af5fa807129a9618ed31b43b067cf79",
+    "examples/traces/M3-normal-run1.jsonl": "fbaf3158014a50a672bd14b99b0e151ff922d4c7e6f1992b2a125cc8cd9367dd",
+    "examples/evaluation/M3-normal-run1-manifest.json": "684a6e618b637292acaefb940805422dea202589f43fc0d669da62b169df266a",
+    "examples/inputs/M3-missing.json": "4519582fa7f889d52ac02422ad543bf5fa86628766697ebbbf4f9c8b71c5cbfa",
+    "examples/outputs/M3-missing.json": "da625eeb5553a2a2fedcd353b0ed850112290e7e51d477d059c5708aaf0a1e0f",
+    "examples/outputs/M3-missing-run1.json": "c55ea454372058782f967102d39d2a7ed5f3f23e9326256a3d6d238e4f8bb4d8",
+    "examples/traces/M3-missing-run1.jsonl": "6a28eedfb7b1deb27712506411323b87a9a027d3653a88376ce24de2dd030434",
+    "examples/evaluation/M3-missing-run1-manifest.json": "cafe05501fdedaf78ffe5e81dce7eb04c5cd0f22c912d05034b469cd9a6c875a",
+    "examples/inputs/M3-risk.json": "f5e96f4cea634c56454612fff5dbe7133996c6bec71af35d0f48c6b2bb3074e8",
+    "examples/outputs/M3-risk.json": "4a5543796eec6cf98e629cc1aefdd899546a459f34191999418a4bde2074e5d7",
+    "examples/outputs/M3-risk-run1.json": "790a42027842791f7ecfbdcebfda931fe252d105268bc604a9d1273a0e264ed3",
+    "examples/traces/M3-risk-run1.jsonl": "2261bdf2a86271c17fd7d0ffb6de5f7d0f2cb610b7bcc7528bc4db399d814d4c",
+    "examples/evaluation/M3-risk-run1-manifest.json": "610ad29a37af558048259a5556edc9f3c9e90b51120d356ea1200d0c8a2f4508",
+    "examples/inputs/M3-conflict.json": "a0b7ae5bbf5f503443628b56effc5cc84f663d1c3137c701058216deccc26ddf",
+    "examples/outputs/M3-conflict.json": "aa57ba4271941fed14c64c06c039ccef32d681176b1fe01c4bdfb7abf5ac4377",
+    "examples/outputs/M3-conflict-run1.json": "8d63c7aa3ab7da4a5c4dd7901a796ea37f19e021ceeea28ca79aec712a0ba97f",
+    "examples/traces/M3-conflict-run1.jsonl": "4e4c6befd08838cee1224790a111b33b6e9511e0c30d7d3a5e1fa68b46115c4f",
+    "examples/evaluation/M3-conflict-run1-manifest.json": "198b955c9efbb5395ba3505c366a7642e7d5ea3236da8abbd540d5cbc443c458",
+    "examples/inputs/M3-duplicate.json": "488ec1100c40c102578151e3d72a7b411e0d8d4306bc94b1c3467a014015dcf1",
+    "examples/outputs/M3-duplicate.json": "7ebc8292262ce008ddabbd0158647593eeb71aca49a64c9a92d9808de93450e1",
+    "examples/outputs/M3-duplicate-run1.json": "0040cf855d596592b91c7a4248cf94a2596abfb157b765f3cd9637ac32593692",
+    "examples/traces/M3-duplicate-run1.jsonl": "566529396c1c33207048f981e2f46fa812f788e41de61ab04cf8ed5ff917296a",
+    "examples/evaluation/M3-duplicate-run1-manifest.json": "54e59baf3c896297c66a455771715c316e3a0c9d091b652543d81b2a0401f8f3",
+    "examples/outputs/M3-duplicate-run2.json": "093d7d19866e75ae56a228fc6a1107e45c65c539942900e04cad9c517a515d1e",
+    "examples/traces/M3-duplicate-run2.jsonl": "b46cf6c39d2f40ee0f01894769ead52fb2ccadafe61767a199efd9afedcd902e",
+    "examples/evaluation/M3-duplicate-run2-manifest.json": "84d9f7d4815b86df24656a0687d8b691fd5757fa46554e1ed0c440e6b2430b2e",
+    "examples/inputs/M3-save-failure.json": "b1174b0952592cc785618c9fba5a6c4ca706061cfae1ba077d12ca12bf7c2eda",
+    "examples/outputs/M3-save-failure.json": "b56047ef491c64d7178fe89cb28780ffb83f88d3a4f45279e40996a50a8625ac",
+    "examples/outputs/M3-save-failure-run1.json": "c9fed88cba85df64a87c4a2e59dc10a81ae9acceb403231a2e726b58bd51723f",
+    "examples/traces/M3-save-failure-run1.jsonl": "618072d5529132a0d7e084dbe610d5d4c36321f1c49354c3a1d9ddcf6e2aba21",
+    "examples/evaluation/M3-save-failure-run1-manifest.json": "9617d8634155964ab9f5cc69d3a4cba275993b348de658a8d017f0ee5d139ca1",
+    "examples/inputs/M3-tool-recovery.json": "887d33e77a38ea6a069c0130d44809ee4af78fe2cd95a0bbd58b014142df8d0a",
+    "examples/outputs/M3-tool-recovery.json": "224d663d8a027478ad85484edadddadcd6086333fec78017e14e670fb214a9fd",
+    "examples/outputs/M3-tool-recovery-run1.json": "b3b8cb602fcb3bee64b8260c3d57157744fe12ce02210ffac3d6ad207a66e6ff",
+    "examples/traces/M3-tool-recovery-run1.jsonl": "3e00505fa81edd7bcd1e513830cd70f38a3393afca5d31d81c8d838c85e75b98",
+    "examples/evaluation/M3-tool-recovery-run1-manifest.json": "36b9a2106680ad0b7a32ba58601ef6cf1da545468844dba2f2a82085ed12bcab",
+    "examples/inputs/M3-supplement.json": "facb26389f39e98d16ea084b6a019eef102630164a70704437d5fad30213f0b0",
+    "examples/outputs/M3-supplement.json": "30b2f928ba75d05c2bcdfece3a79faa3a3f44eb712e0bea869ae0051761f9e5b",
+    "examples/outputs/M3-supplement-run1.json": "4cabd72320a9792a41b63ad9e8f6eef6dbd6efa99bb39e29b0525426785d836c",
+    "examples/traces/M3-supplement-run1.jsonl": "562895c92d6a67546cd4726ba373767947afd61923a7599ccfd21f92959941fa",
+    "examples/evaluation/M3-supplement-run1-manifest.json": "7a5d274c1d6f57f02899a0d82247d4ac19efbbb6e7663d98f0278962a860644e",
+    "examples/inputs/M3-changed-occupancy.json": "b3ff4d3f18db908c2aedbc294db13b792512bdfb3faeece07f2df6ce52448808",
+    "examples/outputs/M3-changed-occupancy.json": "de14d25e8316c6beee59a029c3560e30d02dc57732a1c42271de8541efb614e4",
+    "examples/outputs/M3-changed-occupancy-run1.json": "d8709a64e7e48fa45675324f2b286e374faf1783d76b4b02ccd0947b2eb805be",
+    "examples/traces/M3-changed-occupancy-run1.jsonl": "d9271ca15f3244aba980ff8a680540c7185b2f0fa6d484b3898b53e23e3848df",
+    "examples/evaluation/M3-changed-occupancy-run1-manifest.json": "f3b74898b1f9fb900b261f97e4a0a486a6e1bfefc06e535a84dae98063119cf6",
+    "examples/outputs/M3-changed-occupancy-run2.json": "bc5dc7b791504d2853c9a53b6da4c6f268fe9fce69f68f4941fdbed4ca735758",
+    "examples/traces/M3-changed-occupancy-run2.jsonl": "1df6e348f5ff8879f30db0c003a3817add6e30333ed6a78e62a071c5750efb18",
+    "examples/evaluation/M3-changed-occupancy-run2-manifest.json": "8d237f128b62f2f132157a877ec024abc0a956fd0dabfdcb93e524df0d14131d",
+    "examples/inputs/M3-confirmation.json": "d635259f41514eb17234e0ad308364a57f3167af01d0b7cb925df36463a62640",
+    "examples/outputs/M3-confirmation.json": "72698272a528d47db9351b04f8fed697d37dfcecb1ff2e4e4cee20f26bddd876",
+    "examples/outputs/M3-confirmation-run1.json": "f8064e0990e1c2b29f99021fcb51c80063364bfdfe14275483db626269f873f7",
+    "examples/traces/M3-confirmation-run1.jsonl": "4f25b4018785dd968063ac95a1df946bd52f5e22797991395e2ce441425b6ec5",
+    "examples/evaluation/M3-confirmation-run1-manifest.json": "a4cb3e3cfb67a27f7c66e230f7fe104201b25949b2edaf9eab1758aa534c13a7",
+    "examples/inputs/M3-manual-risk.json": "9cd125b90c20f8b440e38255222d6cf1ba15f49f5057b840cfd542675ed9b738",
+    "examples/outputs/M3-manual-risk.json": "3e64e3eb4d4dbf6c57760b327463d9d459e376b773585212a01f949e344049df",
+    "examples/outputs/M3-manual-risk-run1.json": "d45c85e7cb88d3f1bbe26d4d834c60147b7068aa1e68fa16e88627a48d9fbc09",
+    "examples/traces/M3-manual-risk-run1.jsonl": "558de79ecbab407f30056ac5cd5cfc3c25da5234854be56e032860362648d79b",
+    "examples/evaluation/M3-manual-risk-run1-manifest.json": "437afa49b712cb40d4baf1ae7f99df47df3a08c83c4b84f7a40fcdb179e48770",
+    "examples/inputs/M3-no-slots.json": "f484ae7254adbb0ce7ada801e66ca7b52416c66190fe0f4a8459c3fde98ac04c",
+    "examples/outputs/M3-no-slots.json": "42861f58da9da6353227ad621e4a8068037aef3e586cbe64f8d0c6ba637b51e2",
+    "examples/outputs/M3-no-slots-run1.json": "9b205543d873493e93565aacbb8c21dd6cc864e18fb67dfe58a0c65c96ebda6f",
+    "examples/traces/M3-no-slots-run1.jsonl": "5f9e837b294ea209eec9d228c730d89f47f57bcf71912b20017314395ebc6a5d",
+    "examples/evaluation/M3-no-slots-run1-manifest.json": "1351c7a7348e609963e3eb0d246a07a0d30b9d7382cba10ea5439a56e1f536e2",
+    "examples/inputs/M3-limit.json": "413ac16ba52d16ae3fe74b565983be3b8019bb851520e7a44d054f977d48ba88",
+    "examples/outputs/M3-limit.json": "b1574eabfe6a7c9bbc118d83a8a1cd88723093806bbe5aa60062fe5c15d631db",
+    "examples/outputs/M3-limit-run1.json": "0bcbfab50fe1b11d4daa2a4963e827638ff927eb9f63fb4f26310883de03555c",
+    "examples/traces/M3-limit-run1.jsonl": "2665bff6837bfab93e8dcacac2e4f733047dcdc27f543234918c8bba8001ef96",
+    "examples/evaluation/M3-limit-run1-manifest.json": "36bb4c8ec2deec1cde6f13989b73f08c66fd27db7fe9f1bd7e425ecceb7566db",
+    "examples/inputs/M3-unknown-save.json": "b311e0d980500de11de0b3b6e756f4e1ecdfce396561f20b10d4af2a866e0d67",
+    "examples/outputs/M3-unknown-save.json": "958cdb756a7fea632d0ee4fcefb9796070e81a51c8a1d2842610e15429e4f356",
+    "examples/outputs/M3-unknown-save-run1.json": "fced9c5d86a116be638a99bebf57109058db6ccfe50c5cb39987d02fa0f2332f",
+    "examples/traces/M3-unknown-save-run1.jsonl": "ad1c57aea631269e3637f3f46dd8aeef86870018d1ae750ed35c8c37fdb2cf2e",
+    "examples/evaluation/M3-unknown-save-run1-manifest.json": "685fd77e0b34ef9667273f36d34fc1f50975f1612de04194d1c697adce409ed7"
+  }
+}

@@ -1,4 +1,4 @@
-# M2 has no third-party runtime dependencies; Python 3.13.x is required.
+# M3 has no third-party runtime dependencies; Python 3.13.x is required.
 # Install the project with: python -m pip install -e .
 # The pinned build backend is declared in pyproject.toml.
-# Agent/model/web dependencies are not selected or implemented yet.
+# M3 offline runtime and CLI use only the standard library; real provider/web remain deferred.
