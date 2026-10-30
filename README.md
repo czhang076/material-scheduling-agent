@@ -2,7 +2,7 @@
 
 帮助内容团队审核待处理素材，并形成无冲突、可确认、可追溯的发布排期草稿。仅保存草稿，不接真实发布。
 
-> 当前 **M1：领域与数据契约已完成**。请求校验、规则审核、时间冲突、草稿状态和合成资料已有实现；开发环境与独立 wheel 环境各通过 70 个基础测试。尚无 Agent/CLI、数据库保存、真实模型或网页实现。
+> 当前 **M2：工具与草稿闭环已完成**。已有真实 SQLite、审核与时段工具、版本确认、防重复、故障处理及并发保护；113 个测试和 7 组实际工具案例可复跑。Agent 循环、业务 CLI、真实模型和网页留待后续阶段。
 
 ## 当前可以运行什么
 
@@ -12,10 +12,11 @@
 py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe scripts/run_m2_examples.py
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-这些命令运行 M1 基础测试，不是 Agent 排期命令。实际记录见 [M1 验收](docs/M1-ACCEPTANCE.md)和[机器报告](examples/evaluation/M1-summary.json)。
+示例脚本实际调用工具、创建独立 SQLite 账本并生成输入、输出和逐步记录；调用顺序由脚本控制，明确不算 ReAct。M2 无需环境变量或密钥。实际记录见 [M2 验收](docs/M2-ACCEPTANCE.md)、[测试摘要](examples/evaluation/M2-summary.json)和[七组案例](examples/evaluation/M2-cases.json)。
 
 ## 从哪里开始看
 
@@ -47,6 +48,7 @@ py -3.13 -m venv .venv
 |标准合成资料与预期样例|[design-fixtures](docs/design/design-fixtures.md)|
 |设计基线是否准备完成|[DESIGN-READINESS](docs/DESIGN-READINESS.md)|
 |M1 已实现内容与实际验证|[M1-ACCEPTANCE](docs/M1-ACCEPTANCE.md)|
+|M2 工具、事务、确认与并发验证|[M2-ACCEPTANCE](docs/M2-ACCEPTANCE.md)|
 
 ## 仓库结构
 
@@ -68,18 +70,19 @@ data/
   rules/           # 有版本的审核规则
   schedules/       # 已有排期与候选时段
 examples/
-  inputs/          # 未来验收输入
-  outputs/         # 未来实际输出
-  traces/          # 未来实际逐步记录
-  evaluation/      # 未来实际评估报告
+  inputs/          # M2 实际请求、资料快照和可信故障配置
+  outputs/         # 实际工具结果、账本计数与业务审计
+  traces/          # 手动工具调用 JSONL；尚无模型 Trace
+  evaluation/      # M1/M2 实际评估报告
+scripts/           # M2 案例生成与验证；非 Agent CLI
 docs/
   01-...05-...     # 题目要求的五份交付文档
   design/          # 详细设计与测试计划
 ```
 
-尚未实现的目录保留 `.gitkeep`。当前代码位于 domain 与本地合成资料适配器，实际测试记录位于 examples/evaluation。
+尚未实现的目录保留 `.gitkeep`。已实现 domain、application 工具会话及序列化、资料加载与 SQLite 适配器。
 
-设计基线 v1 已收口，包括按批量规模计算的预算、完整工具参数、提示正文与标准场景。尚未进入编码或功能验证。
+设计基线 v1 已收口；M1/M2 已实现并验证，预算执行与模型决策留到 M3。
 
 ## 已确定的原则
 
@@ -94,6 +97,6 @@ docs/
 
 已确认范围为元数据与文案审核，预留图片/视频扩展设计；先完成 CLI 核心，再补轻量本地网页工作台。
 
-M1 使用 Python 3.13.x 和标准库，构建后端固定在 pyproject.toml。后续目标为 SQLite、单 Agent 和共享业务用例的 CLI/网页；这些运行入口尚未实现，未来命令设计见 [RUNBOOK](docs/RUNBOOK.md)。`.env.example` 仍为后续配置占位。
+M2 使用 Python 3.13.x 和标准库 SQLite，构建后端固定在 pyproject.toml。业务 CLI/网页尚未实现，未来命令设计见 [RUNBOOK](docs/RUNBOOK.md)。`.env.example` 仍为后续配置占位，当前无需配置。
 
-当前无真实密钥、无真实素材、无 GitHub 远程仓库、无最终提交 SHA。开发完成后再补入可复制运行命令、实际证据、GitHub URL 与最终 commit SHA。
+当前仅本地 Git，无 GitHub 远程仓库或最终考核交付 SHA。真实模型配置仍由用户稍后提供，完整考核尚未满足。

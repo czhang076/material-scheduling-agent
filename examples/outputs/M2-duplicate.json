@@ -1,0 +1,332 @@
+{
+  "driver_mode": "manual_tools",
+  "model_called": false,
+  "checkpoints": [
+    {
+      "request_id": "REQ-M2-duplicate",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+            "request_id": "REQ-M2-duplicate",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T18:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "CREATED",
+            "error_code": null,
+            "operation_id": "OP-7877fd832396417dbd7ebbe2195d3572",
+            "operation_version": 1
+          },
+          "review_observed_in_session": true,
+          "status": "READY"
+        }
+      ],
+      "observed_at": "2026-10-30T13:22:27.614+00:00",
+      "published": false,
+      "run_id": "RUN-fa81d95d4c3644f1ab022e4901c3b440",
+      "task_status": "READY_DRAFTS"
+    },
+    {
+      "request_id": "REQ-M2-duplicate",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+            "request_id": "REQ-M2-duplicate",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T18:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "REUSED",
+            "error_code": null,
+            "operation_id": "OP-da80b165c3a44909918f08dd39e965af",
+            "operation_version": 1
+          },
+          "review_observed_in_session": true,
+          "status": "READY"
+        }
+      ],
+      "observed_at": "2026-10-30T13:22:27.658+00:00",
+      "published": false,
+      "run_id": "RUN-a8ec8733df66404cb2425bd428ca23c0",
+      "task_status": "READY_DRAFTS"
+    }
+  ],
+  "result": {
+    "request_id": "REQ-M2-duplicate",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M01",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": {
+          "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+          "request_id": "REQ-M2-duplicate",
+          "item_id": "I01",
+          "version": 1,
+          "draft_state": "READY",
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "candidate": {
+            "offer_id": "O18",
+            "offer_revision": 1,
+            "channel": "douyin",
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T18:30:00+08:00"
+          },
+          "pending_confirmations": [],
+          "required_confirmations": [],
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "confirmation": null,
+          "stale_reason": null,
+          "published": false
+        },
+        "review": {
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [],
+          "missing_fields": []
+        },
+        "save_attempt": {
+          "save_status": "REUSED",
+          "error_code": null,
+          "operation_id": "OP-da80b165c3a44909918f08dd39e965af",
+          "operation_version": 1
+        },
+        "review_observed_in_session": true,
+        "status": "READY"
+      }
+    ],
+    "observed_at": "2026-10-30T13:22:27.658+00:00",
+    "published": false,
+    "run_id": "RUN-a8ec8733df66404cb2425bd428ca23c0",
+    "task_status": "READY_DRAFTS"
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 1,
+    "reservations": 1,
+    "confirmations": 0,
+    "operation_receipts": 2,
+    "audit_events": 3
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-4f9a238c72f6409faf23f7a7d2f908af",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "3abe3db993ba0abb338b2eb893036ec789c2bcaf368f017b63c5c43a8889c64e",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-30T13:22:27.556+00:00"
+    },
+    {
+      "event_id": "AUD-efa5fcb241294f31b05a840d5228a2ba",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-M2-duplicate",
+      "item_id": "I01",
+      "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+      "version": 1,
+      "run_id": "RUN-fa81d95d4c3644f1ab022e4901c3b440",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T18:30:00+08:00",
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "start": "2030-06-01T18:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-M2-duplicate",
+          "state": "READY",
+          "version": 1
+        },
+        "operation_id": "OP-7877fd832396417dbd7ebbe2195d3572"
+      },
+      "created_at": "2026-10-30T13:22:27.596+00:00"
+    },
+    {
+      "event_id": "AUD-4d8bbb0b1f0442ea9d5f3e474aaa735b",
+      "event_type": "DRAFT_REUSED",
+      "request_id": "REQ-M2-duplicate",
+      "item_id": "I01",
+      "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+      "version": 1,
+      "run_id": "RUN-a8ec8733df66404cb2425bd428ca23c0",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-0ac3cd33c6a840269dbce15a5a682187",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T18:30:00+08:00",
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "start": "2030-06-01T18:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-M2-duplicate",
+          "state": "READY",
+          "version": 1
+        },
+        "operation_id": "OP-da80b165c3a44909918f08dd39e965af"
+      },
+      "created_at": "2026-10-30T13:22:27.640+00:00"
+    }
+  ]
+}

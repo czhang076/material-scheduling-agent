@@ -1,0 +1,143 @@
+{
+  "driver_mode": "manual_tools",
+  "model_called": false,
+  "checkpoints": [
+    {
+      "request_id": "REQ-M2-missing",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M02",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": null,
+          "review": {
+            "review_status": "NEEDS_INPUT",
+            "review_snapshot_id": "ede92c07bf1bb64b474574eba6ecb763abad5bcdf8c8a6f2c59e11abdb2b834b",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [
+              {
+                "rule_id": "R-META-001",
+                "severity": "NEEDS_INPUT",
+                "message": "排期前须补齐必要资料",
+                "source_id": "SYN-M02",
+                "material_revision": 1,
+                "content_hash": "8fa1c2e776fbb256601c5e67b6221b63b5f227a66080f18dc1c290acea2db21d",
+                "field": "rights_status",
+                "value": null,
+                "quote": null,
+                "start": null,
+                "end": null
+              }
+            ],
+            "missing_fields": [
+              "rights_status"
+            ]
+          },
+          "save_attempt": {
+            "save_status": "NOT_ATTEMPTED",
+            "error_code": null
+          },
+          "review_observed_in_session": true,
+          "status": "NEEDS_INPUT"
+        }
+      ],
+      "observed_at": "2026-10-30T13:22:27.341+00:00",
+      "published": false,
+      "run_id": "RUN-e200e66467da4a1f9daa2d441998156f",
+      "task_status": "NEEDS_INPUT"
+    }
+  ],
+  "result": {
+    "request_id": "REQ-M2-missing",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M02",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": null,
+        "review": {
+          "review_status": "NEEDS_INPUT",
+          "review_snapshot_id": "ede92c07bf1bb64b474574eba6ecb763abad5bcdf8c8a6f2c59e11abdb2b834b",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [
+            {
+              "rule_id": "R-META-001",
+              "severity": "NEEDS_INPUT",
+              "message": "排期前须补齐必要资料",
+              "source_id": "SYN-M02",
+              "material_revision": 1,
+              "content_hash": "8fa1c2e776fbb256601c5e67b6221b63b5f227a66080f18dc1c290acea2db21d",
+              "field": "rights_status",
+              "value": null,
+              "quote": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "missing_fields": [
+            "rights_status"
+          ]
+        },
+        "save_attempt": {
+          "save_status": "NOT_ATTEMPTED",
+          "error_code": null
+        },
+        "review_observed_in_session": true,
+        "status": "NEEDS_INPUT"
+      }
+    ],
+    "observed_at": "2026-10-30T13:22:27.341+00:00",
+    "published": false,
+    "run_id": "RUN-e200e66467da4a1f9daa2d441998156f",
+    "task_status": "NEEDS_INPUT"
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 0,
+    "reservations": 0,
+    "confirmations": 0,
+    "operation_receipts": 0,
+    "audit_events": 1
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-05aefd7748e4486d9d067782f740fff8",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "3abe3db993ba0abb338b2eb893036ec789c2bcaf368f017b63c5c43a8889c64e",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-30T13:22:27.298+00:00"
+    }
+  ]
+}

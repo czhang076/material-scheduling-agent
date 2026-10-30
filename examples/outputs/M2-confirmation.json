@@ -1,0 +1,322 @@
+{
+  "driver_mode": "manual_tools",
+  "model_called": false,
+  "checkpoints": [
+    {
+      "request_id": "REQ-M2-confirmation",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+            "request_id": "REQ-M2-confirmation",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "PENDING_CONFIRMATION",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O19",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T19:00:00+08:00",
+              "end": "2030-06-01T19:30:00+08:00"
+            },
+            "pending_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "required_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "CREATED",
+            "error_code": null,
+            "operation_id": "OP-e40d42291e3f41f7a0838f41540ab275",
+            "operation_version": 1
+          },
+          "review_observed_in_session": true,
+          "status": "NEEDS_CONFIRMATION"
+        }
+      ],
+      "observed_at": "2026-10-30T13:22:27.846+00:00",
+      "published": false,
+      "run_id": "RUN-4bcccc16d5344b1090f0e56c671966cf",
+      "task_status": "NEEDS_CONFIRMATION"
+    },
+    {
+      "request_id": "REQ-M2-confirmation",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+            "request_id": "REQ-M2-confirmation",
+            "item_id": "I01",
+            "version": 2,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O19",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T19:00:00+08:00",
+              "end": "2030-06-01T19:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": {
+              "confirmation_id": "C-M2-example",
+              "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+              "expected_version": 1,
+              "accepted_item_ids": [
+                "TIME_CHANGE"
+              ],
+              "actor": "local-example-reviewer",
+              "note": "合成用户明确同意将18点调整为19点"
+            },
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "NOT_ATTEMPTED",
+            "error_code": null
+          },
+          "review_observed_in_session": false,
+          "status": "READY"
+        }
+      ],
+      "observed_at": "2026-10-30T13:22:27.875+00:00",
+      "published": false,
+      "run_id": "RUN-772f2778caae4744831fc1c2a72386c2",
+      "task_status": "READY_DRAFTS"
+    }
+  ],
+  "result": {
+    "request_id": "REQ-M2-confirmation",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M01",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": {
+          "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+          "request_id": "REQ-M2-confirmation",
+          "item_id": "I01",
+          "version": 2,
+          "draft_state": "READY",
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "candidate": {
+            "offer_id": "O19",
+            "offer_revision": 1,
+            "channel": "douyin",
+            "start": "2030-06-01T19:00:00+08:00",
+            "end": "2030-06-01T19:30:00+08:00"
+          },
+          "pending_confirmations": [],
+          "required_confirmations": [
+            "TIME_CHANGE"
+          ],
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "confirmation": {
+            "confirmation_id": "C-M2-example",
+            "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+            "expected_version": 1,
+            "accepted_item_ids": [
+              "TIME_CHANGE"
+            ],
+            "actor": "local-example-reviewer",
+            "note": "合成用户明确同意将18点调整为19点"
+          },
+          "stale_reason": null,
+          "published": false
+        },
+        "review": {
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [],
+          "missing_fields": []
+        },
+        "save_attempt": {
+          "save_status": "NOT_ATTEMPTED",
+          "error_code": null
+        },
+        "review_observed_in_session": false,
+        "status": "READY"
+      }
+    ],
+    "observed_at": "2026-10-30T13:22:27.875+00:00",
+    "published": false,
+    "run_id": "RUN-772f2778caae4744831fc1c2a72386c2",
+    "task_status": "READY_DRAFTS"
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 1,
+    "reservations": 1,
+    "confirmations": 1,
+    "operation_receipts": 2,
+    "audit_events": 3
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-ce93aafc67634c7ea3b68c82a18c75d3",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "f9a19da67f706925e0ef1a75898dfc42e2d436e703a9fc738b007d7dd3fcb10f",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-30T13:22:27.784+00:00"
+    },
+    {
+      "event_id": "AUD-18c90ab471f940e9b0be8b38cdcc4e6a",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-M2-confirmation",
+      "item_id": "I01",
+      "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+      "version": 1,
+      "run_id": "RUN-4bcccc16d5344b1090f0e56c671966cf",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T19:30:00+08:00",
+              "offer_id": "O19",
+              "offer_revision": 1,
+              "start": "2030-06-01T19:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-M2-confirmation",
+          "state": "PENDING_CONFIRMATION",
+          "version": 1
+        },
+        "operation_id": "OP-e40d42291e3f41f7a0838f41540ab275"
+      },
+      "created_at": "2026-10-30T13:22:27.830+00:00"
+    },
+    {
+      "event_id": "AUD-60d11ab6416f4e13a4c5a0bb7f8ea8dd",
+      "event_type": "CONFIRMATION_CONFIRMED",
+      "request_id": "REQ-M2-confirmation",
+      "item_id": "I01",
+      "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+      "version": 2,
+      "run_id": null,
+      "payload_json": {
+        "confirmation": {
+          "accepted_item_ids": [
+            "TIME_CHANGE"
+          ],
+          "actor": "local-example-reviewer",
+          "confirmation_id": "C-M2-example",
+          "draft_id": "D-bd7ddd1337e1426c9c6a7e4abe1069c3",
+          "expected_version": 1,
+          "note": "合成用户明确同意将18点调整为19点"
+        }
+      },
+      "created_at": "2026-10-30T13:22:27.854+00:00"
+    }
+  ]
+}

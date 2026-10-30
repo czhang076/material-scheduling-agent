@@ -2,14 +2,14 @@
 
 ## 1. 当前可用内容
 
-M1 Python 包、合成资料与 70 个基础测试已可安装复跑，具体命令及实际结果见 [M1-ACCEPTANCE](M1-ACCEPTANCE.md)。下方的 Agent CLI/网页命令仍是规划，不是现有功能。
+M2 Python 包、真实 SQLite 工具、113 个测试和 7 组手动工具案例可复跑，命令及结果见 [M2-ACCEPTANCE](M2-ACCEPTANCE.md)。运行 scripts/run_m2_examples.py 无需 .env 或密钥。下方的 Agent CLI/网页命令仍是规划，不是现有功能。
 
-已验证 Python 3.13.12 下的 M1 editable 与独立 wheel 安装；Git 2.42.0、SQLite 3.50.4 是环境信息，不表示 SQLite 用例已实现。
+已验证 Python 3.13.12 下的 M2 editable 与独立 wheel 安装，以及 SQLite 事务、重启和双线程争用；未做性能、断电或多进程压力验证。
 
 ## 2. 后续环境策略
 
 - 目标 Python 3.13.x，在项目独立虚拟环境内安装。
-- M1 无第三方运行依赖，pyproject.toml 固定构建后端；后续模型/网页依赖另记录。
+- M2 无第三方运行依赖，pyproject.toml 固定构建后端；后续模型/网页依赖另记录。
 - requirements.txt 说明实际依赖；.env.example 仍是后续配置占位，尚无读取实现。
 - 已完成独立 wheel 环境复跑，不使用全局站点包；命令见 M1 验收。
 - 离线模式不需要密钥；真实模式未配置时应明确报错，不静默改为 Mock。
@@ -40,8 +40,8 @@ M1 Python 包、合成资料与 70 个基础测试已可安装复跑，具体命
 
 ## 6. Git 与 GitHub
 
-当前阶段只初始化本地仓库并保存文件，不配置远程、不推送、不生成最终交付 SHA。后续实际提交时再确认目标 GitHub 仓库及评审访问权限。
+当前已有本地 M1 基线及 M2 收口记录；不配置远程、不推送，不把阶段 SHA 当成最终交付 SHA。后续实际提交时再确认目标 GitHub 仓库及评审访问权限。
 
 ## 7. 交接顺序
 
-先读 AGENTS → CONTEXT → STATUS → 需求/总体方案 → 本次涉及的详细设计。当前已完成 M1，M2 尚未实现。
+先读 AGENTS → CONTEXT → STATUS → 需求/总体方案 → 本次涉及的详细设计。当前已完成 M1/M2；下一阶段 M3。注意 snapshot() 是重新核验操作，可使草稿过期，未来 HTTP GET 应使用只读投影。

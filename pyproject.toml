@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "material-scheduling-agent"
-version = "0.1.0"
-description = "Evidence-based material review and scheduling drafts; M1 domain foundation"
+version = "0.2.0"
+description = "Material review and scheduling drafts with transactional local tools"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
 dependencies = []

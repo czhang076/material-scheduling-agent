@@ -1,1 +1,1 @@
-"""Local fixture and package integration; no persistence or model tests yet."""
+"""Local fixtures and actual SQLite integration; model tests are a later stage."""

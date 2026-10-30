@@ -1,0 +1,139 @@
+{
+  "driver_mode": "manual_tools",
+  "model_called": false,
+  "checkpoints": [
+    {
+      "request_id": "REQ-M2-risk",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M03",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": null,
+          "review": {
+            "review_status": "BLOCKED",
+            "review_snapshot_id": "c4ddc1bf55626d5ec5cdf76d77de716164a0e786d035f415be680561216fca21",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [
+              {
+                "rule_id": "R-RIGHTS-001",
+                "severity": "BLOCKED",
+                "message": "版权存在争议或明确无权使用",
+                "source_id": "SYN-M03",
+                "material_revision": 1,
+                "content_hash": "7752490b78a23f48ffcc975c2a8b41137c57f2ee58bdef40e9b48428126c1365",
+                "field": "rights_status",
+                "value": "disputed",
+                "quote": null,
+                "start": null,
+                "end": null
+              }
+            ],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "NOT_ATTEMPTED",
+            "error_code": null
+          },
+          "review_observed_in_session": true,
+          "status": "BLOCKED"
+        }
+      ],
+      "observed_at": "2026-10-30T13:22:27.414+00:00",
+      "published": false,
+      "run_id": "RUN-3e2a6ef9b1f9415992adda6cc1632f01",
+      "task_status": "BLOCKED"
+    }
+  ],
+  "result": {
+    "request_id": "REQ-M2-risk",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M03",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": null,
+        "review": {
+          "review_status": "BLOCKED",
+          "review_snapshot_id": "c4ddc1bf55626d5ec5cdf76d77de716164a0e786d035f415be680561216fca21",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [
+            {
+              "rule_id": "R-RIGHTS-001",
+              "severity": "BLOCKED",
+              "message": "版权存在争议或明确无权使用",
+              "source_id": "SYN-M03",
+              "material_revision": 1,
+              "content_hash": "7752490b78a23f48ffcc975c2a8b41137c57f2ee58bdef40e9b48428126c1365",
+              "field": "rights_status",
+              "value": "disputed",
+              "quote": null,
+              "start": null,
+              "end": null
+            }
+          ],
+          "missing_fields": []
+        },
+        "save_attempt": {
+          "save_status": "NOT_ATTEMPTED",
+          "error_code": null
+        },
+        "review_observed_in_session": true,
+        "status": "BLOCKED"
+      }
+    ],
+    "observed_at": "2026-10-30T13:22:27.414+00:00",
+    "published": false,
+    "run_id": "RUN-3e2a6ef9b1f9415992adda6cc1632f01",
+    "task_status": "BLOCKED"
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 0,
+    "reservations": 0,
+    "confirmations": 0,
+    "operation_receipts": 0,
+    "audit_events": 1
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-7e279521100742a5bcf799ac39010778",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "3abe3db993ba0abb338b2eb893036ec789c2bcaf368f017b63c5c43a8889c64e",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-30T13:22:27.380+00:00"
+    }
+  ]
+}

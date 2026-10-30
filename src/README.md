@@ -1,9 +1,7 @@
-# 源码目录（M1 已实现）
+# 源码目录
 
-未来包名：`material_scheduler`。目录职责见 [架构设计](../docs/design/architecture.md)。
+已实现：domain 的严格契约、规则与原文证据、时间/状态；application 的 ToolSession、SaveEvidence 和纯 JSON 序列化；adapters 的合成资料加载、SQLiteStore 与可信故障注入。
 
-`domain` 放确定性业务规则，`application` 放工具与用户确认用例，`agent` 放模型循环，`adapters` 放 SQLite/资料/模型实现，`interfaces` 放 CLI 与后续本地 HTTP，`interfaces/web` 预留网页静态资源目录。
+ToolSession 控制六个工具及本会话观察权限，SQLiteStore 封装原子保存/确认/失效。application 不导入具体 SQLite 实现。领域不依赖数据库或模型。
 
-已实现 domain 下的严格校验、时间区间、请求身份、预算派生、素材与规则、审核证据、候选与草稿状态，以及 adapters/fixture_loader.py 的合成资料加载。
-
-application、agent、CLI/HTTP、网页与 SQLite 适配器尚未实现。创建 Python 草稿对象不等于数据库保存。
+Agent、CLI、HTTP 和网页仍未实现；详见 [架构](../docs/design/architecture.md)及 [M2 验收](../docs/M2-ACCEPTANCE.md)。

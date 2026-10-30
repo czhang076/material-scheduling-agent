@@ -1,12 +1,9 @@
-# 验证证据目录
+# 验证证据
 
-- `inputs/`：实际执行所用输入。
-- `outputs/`：实际结果，不手写预期冒充输出。
-- `traces/`：实际动作与工具观察 JSONL。
-- `evaluation/`：实际断言结果、运行清单、指标与失败分析。
+M1 测试报告为历史基础验证。M2 新增 7 组实际工具案例：inputs/ 含请求及完整合成资料，outputs/ 含实际结果/账本计数/业务审计，traces/ 含真实工具参数和返回。重新运行 scripts/run_m2_examples.py 会生成新的实际 ID、时间和证据。
 
-未来每组证据记录用例 ID、模式（Mock/真实）、数据版本、代码 commit、命令及文件校验值。至少分别覆盖六个必验场景，详见 [测试计划](../docs/design/test-plan.md)。
+M2 全部为 driver_mode=manual_tools、model_called=false，不是 ReAct 或 Mock Agent 验收。确认案例明确记录可信本地合成用户操作，模型没有确认工具。
 
-evaluation/ 已有 M1 的实际基础测试、编译检查、依赖检查记录和机器摘要。它们不证明数据库保存或真实模型决策；Agent 的 inputs/outputs/traces 当前仍为空。
+[evaluation/M2-cases.json](evaluation/M2-cases.json) 给出预期、实际结果和文件哈希；[M2-summary.json](evaluation/M2-summary.json) 给出两环境实际测试、编译、依赖、wheel 与源码校验值。生成时基线提交和源码指纹共同定位代码，不虚写尚不存在的最终提交号。
 
-设计文档中的预期投影不得移动进本目录当作已执行结果。合成输入数据位于 data/，实际 M1 范围见 [验收记录](../docs/M1-ACCEPTANCE.md)。
+所有资料合成；数据库仅在忽略的 var/ 中，不提交。完整解释见 [M2 验收](../docs/M2-ACCEPTANCE.md)。

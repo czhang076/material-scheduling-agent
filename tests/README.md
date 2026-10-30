@@ -1,12 +1,7 @@
-# 测试目录（M1）
+# 测试目录
 
-测试范围及验收矩阵见 [测试计划](../docs/design/test-plan.md)。
+M1 的 70 个方法加 M2 新增 43 个，共 113 个 unittest 方法，在开发与独立 wheel 环境通过；subTest 和复跑不重复计数。
 
-- `unit/`：业务规则及契约。
-- `integration/`：临时 SQLite、事务、并发与模型协议模拟。
-- `acceptance/`：输入到实际输出的完整链路。
-- `adversarial/`：非法动作、权限越界、提示注入及循环。
+unit/ 覆盖严格契约及领域规则。integration/ 覆盖真实合成文件、SQLite 事务与重启、来源补查与矛盾、确认版本、防重复、故障回滚/UNKNOWN、真实线程争用和数据库防重叠触发器。临时账本限制在 var/m2-tests/ 内，验证路径后清理。
 
-M1 已实现 70 个 unittest 测试方法（含额外 subTest 边界），开发环境与独立 wheel 环境各通过一次最终验证。unit 覆盖领域约束，integration 当前仅覆盖真实合成资料加载与包集成。
-
-SQLite、原生模型协议、完整 Agent 验收和网页测试尚未实现；不能把这 70 个方法换算为 42 组计划验收通过。实际结果见 [M1 机器报告](../examples/evaluation/M1-summary.json)。
+acceptance/、adversarial/ 保留后续 Agent 验收位置；没有把 113 个方法等同于全部 Agent 场景通过。模型协议、预算、完整 Agent 和网页留到后续。命令及证据见 [M2 验收](../docs/M2-ACCEPTANCE.md)。
