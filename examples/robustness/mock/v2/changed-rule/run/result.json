@@ -1,0 +1,112 @@
+{
+  "request_id": "REQ-ROB-v2-changed-rule",
+  "items": [
+    {
+      "item_id": "I01",
+      "material_id": "M01",
+      "channel": "douyin",
+      "time_requirement": {
+        "requested_start": "2030-06-01T17:00:00+08:00",
+        "duration_minutes": 30,
+        "mode": "hard",
+        "alternative_window": {
+          "start": "2030-06-01T17:00:00+08:00",
+          "end": "2030-06-01T20:00:00+08:00"
+        }
+      },
+      "draft": null,
+      "review": {
+        "review_status": "BLOCKED",
+        "review_snapshot_id": "d2ff3f4c5e62cdf743a5f190076b4c771acd6b0a98ff494c1d317b6dc8b7086b",
+        "review_coverage": [
+          "metadata",
+          "copy_text"
+        ],
+        "findings": [
+          {
+            "rule_id": "R-CLAIM-001",
+            "severity": "BLOCKED",
+            "message": "命中合成品牌规则的禁用承诺",
+            "source_id": "SYN-M01",
+            "material_revision": 2,
+            "content_hash": "c799cd74aa44eb21377a5772593f54f900a4989cdb766a9a931dd7a03dbff2ad",
+            "field": "title",
+            "value": "字幕功能介绍",
+            "quote": "字幕",
+            "start": 0,
+            "end": 2
+          },
+          {
+            "rule_id": "R-CLAIM-001",
+            "severity": "BLOCKED",
+            "message": "命中合成品牌规则的禁用承诺",
+            "source_id": "SYN-M01",
+            "material_revision": 2,
+            "content_hash": "c799cd74aa44eb21377a5772593f54f900a4989cdb766a9a931dd7a03dbff2ad",
+            "field": "copy_text",
+            "value": "可以为视频添加字幕。",
+            "quote": "字幕",
+            "start": 7,
+            "end": 9
+          }
+        ],
+        "missing_fields": []
+      },
+      "save_attempt": {
+        "save_status": "NOT_ATTEMPTED",
+        "error_code": null
+      },
+      "review_observed_in_session": true,
+      "status": "BLOCKED",
+      "incomplete_reasons": [
+        "BLOCKED"
+      ]
+    }
+  ],
+  "observed_at": "2026-10-31T15:34:53.514+00:00",
+  "published": false,
+  "run_id": "RUN-649bfa31737d4cb7b79400ad0e8656bc",
+  "task_status": "BLOCKED",
+  "business_task_status": "BLOCKED",
+  "model": {
+    "mode": "mock",
+    "name": "observation-policy",
+    "version": "1.0"
+  },
+  "stop_reason": "MODEL_FINISHED",
+  "limit_kind": null,
+  "execution_status": "FINISHED",
+  "stats": {
+    "model_rounds": 3,
+    "protocol_errors": 0,
+    "tool_attempts": 3,
+    "tool_dispatches": 3,
+    "tool_executions": 3,
+    "per_item_attempts": {
+      "I01": 2
+    },
+    "elapsed_seconds": 0.06879269999626558,
+    "final_revalidations": 1
+  },
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 10,
+    "max_model_rounds": 12,
+    "run_timeout_seconds": 120,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "trace_complete": true,
+  "last_tool_observation": {
+    "ok": true,
+    "tool": "finish",
+    "item_id": null,
+    "data": {
+      "stop_reason": "TOOL_SESSION_FINISHED"
+    },
+    "observed_at": "2026-10-31T15:34:53.484+00:00"
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "react_verified_with_real_model": false
+}

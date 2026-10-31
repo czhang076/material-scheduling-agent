@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "run_id": "RUN-da778e26c7ed4c35b570d70356895e1f",
+  "request_id": "REQ-ROB-v2-manual-risk",
+  "request_sha256": "0ca49116fc80e45c0c0bc22c4e87e8ef6452320fee138077697d3b3de3ef8318",
+  "source_identity": {
+    "catalog_generation": 1,
+    "data_revision": 1,
+    "dataset_sha256": "e3fc22a79369370f055d091c8afe52bfe84897fd7607bd4a6e2268bc4837d188",
+    "rule_set_id": "SYN-BRAND-001",
+    "rule_set_version": "1.0"
+  },
+  "code": {
+    "package_version": "0.6.0",
+    "package_source_sha256": "6ee4de846ad7c9dcf6790723bd6d68a2781626fcbd2ddf4330c3456e15779e79"
+  },
+  "invocation": {
+    "entrypoint": "explicit_robustness_evaluation",
+    "trusted_faults": {}
+  },
+  "model": {
+    "mode": "real",
+    "name": "deepseek-flash",
+    "version": "chat-completions-v1",
+    "transport": {
+      "protocol": "chat_completions",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "configured_model": "deepseek-flash",
+      "provider": "deepseek",
+      "max_output_tokens": 1024,
+      "token_parameter": "max_tokens",
+      "strict_tools": false,
+      "thinking": "disabled",
+      "parallel_parameter": "omitted",
+      "max_request_bytes": 2097152,
+      "max_response_bytes": 1048576,
+      "evidence_kind": "network_unverified"
+    }
+  },
+  "started_at": "2026-10-31T15:35:59.932+00:00",
+  "status": "FINISHED",
+  "real_decision_verified": null,
+  "finished_at": "2026-10-31T15:36:05.877+00:00",
+  "task_status": "NEEDS_CONFIRMATION",
+  "execution_status": "FINISHED",
+  "stop_reason": "MODEL_FINISHED",
+  "trace_complete": true,
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 10,
+    "max_model_rounds": 12,
+    "run_timeout_seconds": 120,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "stats": {
+    "model_rounds": 5,
+    "protocol_errors": 0,
+    "tool_attempts": 5,
+    "tool_dispatches": 5,
+    "tool_executions": 5,
+    "per_item_attempts": {
+      "I01": 4
+    },
+    "elapsed_seconds": 5.936958099999174,
+    "final_revalidations": 1
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "files": {
+    "result.json": "fc9539de9e93ba99e21ce98c6c8a48517676304b78ef5357805bc9b8aab079ec",
+    "trace.jsonl": "856c02cdafc5c48178774be80aace1a2778dfe0ff498ad14b164a02e20a3294e"
+  }
+}

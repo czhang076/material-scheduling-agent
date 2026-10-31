@@ -27,6 +27,8 @@ py -3.13 -m venv .venv
 
 当前222个unittest方法、另7个Node网页状态用例分别计数，已从e89b238导出的干净源码重新构建、安装并全部复跑。Node仅用于开发验证，项目运行无需Node。提交前新增8次真实CLI路径、2次真实网页运行，共51次DeepSeek调用，以及14组离线场景16次运行、6组HTTP业务和1组终态恢复。原始证据见 [最终验收清单](examples/final-acceptance/manifest.json)。M4/M5/M6旧证据保持原样，不重新标记为新运行。
 
+随后补充 [42次真实变化场景评估](examples/robustness/README.md)，新增215次DeepSeek调用及42次独立Mock运行，均符合预设预期；未授权确认、保存成功误报、发布误报和预留重叠均为0。另8项评估器测试通过，独立计数。业务判断、实验观察与设计解释见 [学习复盘](docs/06-learning-review.md)。
+
 ## 本地网页
 
 复用上面初始化的账本：
@@ -103,6 +105,8 @@ src/material_scheduler/
 |总体设计与取舍|[02-solution](docs/02-solution.md)|
 |实际验证、失败和限制|[03-evaluation](docs/03-evaluation.md)|
 |AI 使用及个人贡献边界|[04-ai-usage](docs/04-ai-usage.md)|
+|业务判断与实验复盘|[06-learning-review](docs/06-learning-review.md)|
+|补充变化场景、指标与复现|[robustness](examples/robustness/README.md)|
 |设计与开发复盘|[05-retrospective](docs/05-retrospective.md)|
 |提交前独立严格验收|[FINAL-ACCEPTANCE](docs/FINAL-ACCEPTANCE.md)|
 |GitHub地址、评审访问与提交信息|[GITHUB-DELIVERY](docs/GITHUB-DELIVERY.md)|

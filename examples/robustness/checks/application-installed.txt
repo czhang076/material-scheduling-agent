@@ -1,0 +1,7 @@
+E:\material-scheduling-agent\var\strict-acceptance-20261031T084344-12c0c5\venv\Lib\site-packages\material_scheduler\domain\validation.py:66: ResourceWarning: unclosed <socket.socket [closed] fd=800, family=2, type=1, proto=0>
+  result = tuple(identifier(item, path, maximum_length) for item in value)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+----------------------------------------------------------------------
+Ran 222 tests in 34.287s
+
+OK

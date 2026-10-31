@@ -1,0 +1,126 @@
+{
+  "request_id": "REQ-ROB-v3-manual-risk",
+  "items": [
+    {
+      "item_id": "I01",
+      "material_id": "M04",
+      "channel": "douyin",
+      "time_requirement": {
+        "requested_start": "2030-06-01T16:00:00+08:00",
+        "duration_minutes": 30,
+        "mode": "hard",
+        "alternative_window": {
+          "start": "2030-06-01T16:00:00+08:00",
+          "end": "2030-06-01T19:00:00+08:00"
+        }
+      },
+      "draft": {
+        "draft_id": "D-534f2c2e3cf8436eade819386b72c3f5",
+        "request_id": "REQ-ROB-v3-manual-risk",
+        "item_id": "I01",
+        "version": 1,
+        "draft_state": "PENDING_CONFIRMATION",
+        "requested_start": "2030-06-01T16:00:00+08:00",
+        "candidate": {
+          "offer_id": "ROB-O0",
+          "offer_revision": 1,
+          "channel": "douyin",
+          "start": "2030-06-01T16:00:00+08:00",
+          "end": "2030-06-01T16:30:00+08:00"
+        },
+        "pending_confirmations": [
+          "RISK:R-MEDICAL-001"
+        ],
+        "required_confirmations": [
+          "RISK:R-MEDICAL-001"
+        ],
+        "review_status": "NEEDS_REVIEW",
+        "review_snapshot_id": "63d7cee14d7239cd2999e84e5b985c507e00199ec15d5770aa553b9e2c2096ab",
+        "confirmation": null,
+        "stale_reason": null,
+        "published": false
+      },
+      "review": {
+        "review_status": "NEEDS_REVIEW",
+        "review_snapshot_id": "63d7cee14d7239cd2999e84e5b985c507e00199ec15d5770aa553b9e2c2096ab",
+        "review_coverage": [
+          "metadata",
+          "copy_text"
+        ],
+        "findings": [
+          {
+            "rule_id": "R-MEDICAL-001",
+            "severity": "NEEDS_REVIEW",
+            "message": "需人工核对并明确接受对应风险",
+            "source_id": "SYN-M04",
+            "material_revision": 1,
+            "content_hash": "0f70e6a6b7542b0194446d491205c88bfd9fe008753a5acf8e17cf59f47c6fcf",
+            "field": "tags",
+            "value": [
+              "medical"
+            ],
+            "quote": null,
+            "start": null,
+            "end": null
+          }
+        ],
+        "missing_fields": []
+      },
+      "save_attempt": {
+        "save_status": "CREATED",
+        "error_code": null,
+        "operation_id": "OP-98331e4ae4bc45278ca8011c2dea1aed",
+        "operation_version": 1
+      },
+      "review_observed_in_session": true,
+      "status": "NEEDS_CONFIRMATION",
+      "incomplete_reasons": []
+    }
+  ],
+  "observed_at": "2026-10-31T15:34:54.387+00:00",
+  "published": false,
+  "run_id": "RUN-ddd97cb46bcd492ba90df96b46b2e1cc",
+  "task_status": "NEEDS_CONFIRMATION",
+  "business_task_status": "NEEDS_CONFIRMATION",
+  "model": {
+    "mode": "mock",
+    "name": "observation-policy",
+    "version": "1.0"
+  },
+  "stop_reason": "MODEL_FINISHED",
+  "limit_kind": null,
+  "execution_status": "FINISHED",
+  "stats": {
+    "model_rounds": 5,
+    "protocol_errors": 0,
+    "tool_attempts": 5,
+    "tool_dispatches": 5,
+    "tool_executions": 5,
+    "per_item_attempts": {
+      "I01": 4
+    },
+    "elapsed_seconds": 0.10251409999909811,
+    "final_revalidations": 1
+  },
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 10,
+    "max_model_rounds": 12,
+    "run_timeout_seconds": 120,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "trace_complete": true,
+  "last_tool_observation": {
+    "ok": true,
+    "tool": "finish",
+    "item_id": null,
+    "data": {
+      "stop_reason": "TOOL_SESSION_FINISHED"
+    },
+    "observed_at": "2026-10-31T15:34:54.380+00:00"
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "react_verified_with_real_model": false
+}

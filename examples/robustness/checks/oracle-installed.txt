@@ -1,0 +1,13 @@
+test_changed_hard_time_cannot_be_ready_without_consent (test_evaluate.EvaluationTests.test_changed_hard_time_cannot_be_ready_without_consent) ... ok
+test_changed_rule_blocks_previously_safe_copy (test_evaluate.EvaluationTests.test_changed_rule_blocks_previously_safe_copy) ... ok
+test_fake_saved_result_is_rejected_against_sql (test_evaluate.EvaluationTests.test_fake_saved_result_is_rejected_against_sql) ... ok
+test_manual_risk_cannot_be_ready_without_consent (test_evaluate.EvaluationTests.test_manual_risk_cannot_be_ready_without_consent) ... ok
+test_native_receipt_order_must_match_actual_actions (test_evaluate.EvaluationTests.test_native_receipt_order_must_match_actual_actions) ... ok
+test_oracle_accepts_actual_normal_sql_facts (test_evaluate.EvaluationTests.test_oracle_accepts_actual_normal_sql_facts) ... ok
+test_safe_failure_is_not_counted_as_business_completion (test_evaluate.EvaluationTests.test_safe_failure_is_not_counted_as_business_completion) ... ok
+test_shifted_variants_change_actual_schedule_input (test_evaluate.EvaluationTests.test_shifted_variants_change_actual_schedule_input) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.971s
+
+OK

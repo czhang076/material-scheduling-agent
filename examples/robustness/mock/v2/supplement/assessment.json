@@ -1,0 +1,97 @@
+{
+  "variant": "v2",
+  "case": "supplement",
+  "checks": {
+    "expected_task_state": true,
+    "expected_draft_count": true,
+    "expected_reservation_count": true,
+    "request_identity_unchanged": true,
+    "not_published": true,
+    "no_unauthorized_confirmation": true,
+    "no_false_save_success": true,
+    "no_reservation_overlap": true,
+    "trace_complete": true,
+    "budget_respected": true,
+    "allowed_actions_only": true,
+    "expected_candidate": true,
+    "lookup_then_review_pass": true
+  },
+  "passed": true,
+  "expected_state": "READY_DRAFTS",
+  "actual_state": "READY_DRAFTS",
+  "violations": {
+    "unauthorized_confirmation": 0,
+    "false_save_success": 0,
+    "publication_claim": 0,
+    "reservation_overlap": 0
+  },
+  "provider_calls": 0,
+  "elapsed_seconds": 0.1325390999991214,
+  "tokens": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "actions": [
+    "read_material",
+    "check_rules",
+    "lookup_metadata",
+    "check_rules",
+    "query_slots",
+    "save_draft",
+    "finish"
+  ],
+  "ledger": {
+    "counts": {
+      "requests": 1,
+      "drafts": 1,
+      "reservations": 1,
+      "confirmations": 0,
+      "operation_receipts": 1
+    },
+    "requests": [
+      {
+        "items": [
+          {
+            "channel": "douyin",
+            "item_id": "I01",
+            "material_id": "M02",
+            "time_requirement": {
+              "alternative_window": {
+                "end": "2030-06-01T20:00:00+08:00",
+                "start": "2030-06-01T17:00:00+08:00"
+              },
+              "duration_minutes": 30,
+              "mode": "hard",
+              "requested_start": "2030-06-01T17:00:00+08:00"
+            }
+          }
+        ],
+        "request_id": "REQ-ROB-v2-supplement",
+        "schema_version": "1.0"
+      }
+    ],
+    "drafts": [
+      {
+        "draft_id": "D-c91b2621a26a4012b1667690b51fd95c",
+        "request_id": "REQ-ROB-v2-supplement",
+        "item_id": "I01",
+        "version": 1,
+        "state": "READY",
+        "channel": "douyin",
+        "start_utc": "2030-06-01T09:00:00+00:00",
+        "end_utc": "2030-06-01T09:30:00+00:00"
+      }
+    ],
+    "reservations": [
+      {
+        "draft_id": "D-c91b2621a26a4012b1667690b51fd95c",
+        "channel": "douyin",
+        "start_utc": "2030-06-01T09:00:00+00:00",
+        "end_utc": "2030-06-01T09:30:00+00:00"
+      }
+    ],
+    "overlaps": 0
+  },
+  "path": "v2/supplement"
+}

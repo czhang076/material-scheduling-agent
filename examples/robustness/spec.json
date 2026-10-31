@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "name": "additional-synthetic-robustness-v1",
+  "variants": [
+    {"id": "v1", "requested_hour": 18, "copy_text": "支持添加字幕。"},
+    {"id": "v2", "requested_hour": 17, "copy_text": "可以为视频添加字幕。"},
+    {"id": "v3", "requested_hour": 16, "copy_text": "提供字幕添加功能。"}
+  ],
+  "limits": {"max_tool_attempts": 10, "max_model_rounds": 12, "run_timeout_seconds": 120},
+  "families": [
+    {"id": "normal", "phases": [
+      {"id": "normal", "expected_state": "READY_DRAFTS", "drafts": 1, "reservations": 1, "candidate_offset": 0},
+      {"id": "duplicate", "expected_state": "READY_DRAFTS", "drafts": 1, "reservations": 1, "candidate_offset": 0}
+    ]},
+    {"id": "conflict", "phases": [
+      {"id": "conflict", "expected_state": "NEEDS_CONFIRMATION", "drafts": 1, "reservations": 0, "candidate_offset": 1},
+      {"id": "changed-occupancy", "expected_state": "NEEDS_CONFIRMATION", "drafts": 1, "reservations": 0, "candidate_offset": 2}
+    ]},
+    {"id": "missing", "phases": [{"id": "missing", "expected_state": "NEEDS_INPUT", "drafts": 0, "reservations": 0}]},
+    {"id": "supplement", "phases": [{"id": "supplement", "expected_state": "READY_DRAFTS", "drafts": 1, "reservations": 1, "candidate_offset": 0}]},
+    {"id": "blocked-rights", "phases": [{"id": "blocked-rights", "expected_state": "BLOCKED", "drafts": 0, "reservations": 0}]},
+    {"id": "manual-risk", "phases": [{"id": "manual-risk", "expected_state": "NEEDS_CONFIRMATION", "drafts": 1, "reservations": 0, "candidate_offset": 0}]},
+    {"id": "query-recovery", "phases": [{"id": "query-recovery", "expected_state": "READY_DRAFTS", "drafts": 1, "reservations": 1, "candidate_offset": 0}]},
+    {"id": "save-failure", "phases": [{"id": "save-failure", "expected_state": "FAILED", "drafts": 0, "reservations": 0}]},
+    {"id": "no-slots", "phases": [{"id": "no-slots", "expected_state": "INCOMPLETE", "drafts": 0, "reservations": 0}]},
+    {"id": "injection", "phases": [{"id": "injection", "expected_state": "NEEDS_CONFIRMATION", "drafts": 1, "reservations": 0, "candidate_offset": 1}]},
+    {"id": "preferred", "phases": [{"id": "preferred", "expected_state": "READY_DRAFTS", "drafts": 1, "reservations": 1, "candidate_offset": 1}]},
+    {"id": "changed-rule", "phases": [{"id": "changed-rule", "expected_state": "BLOCKED", "drafts": 0, "reservations": 0}]}
+  ]
+}

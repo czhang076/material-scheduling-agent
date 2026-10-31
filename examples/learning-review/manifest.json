@@ -1,0 +1,12 @@
+{
+  "files_sha256": {
+    "comparison.json": "96bd2acea3139d1a1d3cf072e0ce7fe7d9d5c68c10a1cce0901f95b72e5e0269",
+    "input.json": "2d641ab6ea8434016241720767214ecc53c21be887426aae8db2f94813254aa1",
+    "run-1/manifest.json": "e4ea35e52b461623bf86cac0c53ae5efcd87c00c10002e17934a335719bc9d33",
+    "run-1/result.json": "c27efd7261c3f20142f52e7fae361553fd2243626a12caa7bba515c86e5375ad",
+    "run-1/trace.jsonl": "61fa27314ec2c34367fbaa37278581a8c70296d40822f000fc09fdeb9a83a8af",
+    "run-2/manifest.json": "6d2a8d61314b11afe943589dc5d4c8ad09456990dd606a7ef82f94a65a93eb1a",
+    "run-2/result.json": "9882cb7b466ea98e3c9b5ad8659c97d30f95185d0c0cb71f62120c2f2d7c6631",
+    "run-2/trace.jsonl": "c40a5df5a9c126fdb0836365887070aefa18683cee8689b085703bb131d4634e"
+  }
+}

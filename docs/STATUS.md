@@ -1,5 +1,7 @@
 # 当前状态
 
+最终验收后按补强要求新增 [变化场景评估](../examples/robustness/README.md)：42次真实运行、215次DeepSeek调用，另42次Mock运行，均符合预设预期；四类安全/保存指标均为0。已在原独立安装环境复跑222个应用方法、另8项评估器测试及7项Node用例。业务代码和提示词未变，旧证据保持原样。个人业务判断、导读实验及评估器实际修正见 [学习复盘](06-learning-review.md)。
+
 项目启动：2026-10-29 11:38（Asia/Shanghai）。本轮M6审查修复：2026-10-31；版本0.6.0。
 
 用户随后要求独立严格复核，已从e89b238导出干净源码、重建wheel并在全新环境实际验收：222个方法无跳过、7个Node用例、14组离线场景16次运行、6组HTTP/Mock业务及1组恢复；新增当前代码8次真实CLI、2次真实网页，共51次DeepSeek调用，全部符合各自预期。报告见 [FINAL-ACCEPTANCE](FINAL-ACCEPTANCE.md)，证据见 [总清单](../examples/final-acceptance/manifest.json)。业务代码没有因本轮验收而修改。

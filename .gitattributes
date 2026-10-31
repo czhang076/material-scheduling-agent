@@ -9,3 +9,5 @@
 .gitkeep text eol=lf
 # Preserve verbatim assertion output, including whitespace-only diagnostic lines.
 examples/evaluation/*-before-*.txt -whitespace
+# Preserve the verbatim request bytes exported from the guided experiment.
+examples/learning-review/input.json -text whitespace=cr-at-eol

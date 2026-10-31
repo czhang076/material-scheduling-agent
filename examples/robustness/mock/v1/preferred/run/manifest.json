@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "run_id": "RUN-09dabfb916ff4f718e436a1f971c2ab9",
+  "request_id": "REQ-ROB-v1-preferred",
+  "request_sha256": "0434fc369045831ba2961d7e45d13d8e6b95587e78e0f3ac91a658d4af36d79e",
+  "source_identity": {
+    "catalog_generation": 1,
+    "data_revision": 1,
+    "dataset_sha256": "fdbe07c65ed0c34bdc36836b2c88d6dd5b9bb8b6f8a7bb08e74b7f03ecd664f4",
+    "rule_set_id": "SYN-BRAND-001",
+    "rule_set_version": "1.0"
+  },
+  "code": {
+    "package_version": "0.6.0",
+    "package_source_sha256": "6ee4de846ad7c9dcf6790723bd6d68a2781626fcbd2ddf4330c3456e15779e79"
+  },
+  "invocation": {
+    "entrypoint": "explicit_robustness_evaluation",
+    "trusted_faults": {}
+  },
+  "model": {
+    "mode": "mock",
+    "name": "observation-policy",
+    "version": "1.0"
+  },
+  "started_at": "2026-10-31T15:34:51.771+00:00",
+  "status": "FINISHED",
+  "real_decision_verified": false,
+  "finished_at": "2026-10-31T15:34:51.888+00:00",
+  "task_status": "READY_DRAFTS",
+  "execution_status": "FINISHED",
+  "stop_reason": "MODEL_FINISHED",
+  "trace_complete": true,
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 10,
+    "max_model_rounds": 12,
+    "run_timeout_seconds": 120,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "stats": {
+    "model_rounds": 6,
+    "protocol_errors": 0,
+    "tool_attempts": 6,
+    "tool_dispatches": 6,
+    "tool_executions": 6,
+    "per_item_attempts": {
+      "I01": 5
+    },
+    "elapsed_seconds": 0.1064773999969475,
+    "final_revalidations": 1
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "files": {
+    "result.json": "79bafb2df8604a938b8c0697d0b26d2bfa1ba79bd93a32e02643fac01495e41b",
+    "trace.jsonl": "7c423f99596b060b087089290dfd8f622db15c56f68447a21f4eba7e0fd292e4"
+  }
+}

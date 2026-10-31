@@ -4,6 +4,7 @@
 - GitHub：[czhang076/material-scheduling-agent](https://github.com/czhang076/material-scheduling-agent)。
 - 可见性：**公开**，由用户明确选择。
 - 评审入口：[README](../README.md)、[最终技术验收](FINAL-ACCEPTANCE.md)、[实际运行证据](../examples/final-acceptance/manifest.json)。
+- 补充评审入口：[42次真实变化场景评估](../examples/robustness/README.md)、[业务判断与实验复盘](06-learning-review.md)。
 - 提交SHA：以本次交付回执给出的40位SHA及远程main实际提交为准；本地可执行 `git rev-parse HEAD` 获取。说明文档更新也会形成新提交，不能沿用旧SHA。
 
 ## 评审可读验证

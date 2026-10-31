@@ -1,0 +1,194 @@
+{
+  "variant": {
+    "id": "v1",
+    "requested_hour": 18,
+    "copy_text": "支持添加字幕。"
+  },
+  "phase": {
+    "id": "duplicate",
+    "expected_state": "READY_DRAFTS",
+    "drafts": 1,
+    "reservations": 1,
+    "candidate_offset": 0
+  },
+  "request": {
+    "schema_version": "1.0",
+    "request_id": "REQ-ROB-v1-normal",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M01",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        }
+      }
+    ]
+  },
+  "trusted_dataset": {
+    "schema_version": "1.0",
+    "data_revision": 1,
+    "materials": [
+      {
+        "material_id": "M01",
+        "revision": 2,
+        "source_id": "SYN-M01",
+        "copy_text": "支持添加字幕。",
+        "description": "合成产品介绍，仅验证元数据与文案。",
+        "rights_status": "owned",
+        "supported_channels": [
+          "douyin"
+        ],
+        "tags": [],
+        "title": "字幕功能介绍"
+      },
+      {
+        "material_id": "M02",
+        "revision": 1,
+        "source_id": "SYN-M02",
+        "copy_text": "介绍字幕编辑功能。",
+        "description": "故意缺少版权状态的合成素材。",
+        "rights_status": null,
+        "supported_channels": [
+          "douyin"
+        ],
+        "tags": [],
+        "title": "待补版权资料"
+      },
+      {
+        "material_id": "M03",
+        "revision": 1,
+        "source_id": "SYN-M03",
+        "copy_text": "介绍剪辑操作。",
+        "description": "仅用于阻断场景。",
+        "rights_status": "disputed",
+        "supported_channels": [
+          "douyin"
+        ],
+        "tags": [],
+        "title": "版权争议示例"
+      },
+      {
+        "material_id": "M04",
+        "revision": 1,
+        "source_id": "SYN-M04",
+        "copy_text": "介绍健康知识短片的字幕制作。",
+        "description": "医疗标签要求人工接受风险。",
+        "rights_status": "owned",
+        "supported_channels": [
+          "douyin"
+        ],
+        "tags": [
+          "medical"
+        ],
+        "title": "人工核对示例"
+      },
+      {
+        "material_id": "M05",
+        "revision": 1,
+        "source_id": "SYN-M05",
+        "copy_text": "100%保证有效",
+        "description": "仅用于文案片段定位。",
+        "rights_status": "owned",
+        "supported_channels": [
+          "douyin"
+        ],
+        "tags": [],
+        "title": "禁用承诺示例"
+      }
+    ],
+    "supplements": [],
+    "rule_set": {
+      "rule_set_id": "SYN-BRAND-001",
+      "version": "1.0",
+      "rules": [
+        {
+          "rule_id": "R-META-001",
+          "type": "required_fields",
+          "severity": "NEEDS_INPUT",
+          "message": "排期前须补齐必要资料",
+          "fields": [
+            "title",
+            "copy_text",
+            "rights_status",
+            "supported_channels"
+          ]
+        },
+        {
+          "rule_id": "R-RIGHTS-001",
+          "type": "forbidden_values",
+          "severity": "BLOCKED",
+          "message": "版权存在争议或明确无权使用",
+          "field": "rights_status",
+          "values": [
+            "disputed",
+            "unlicensed"
+          ]
+        },
+        {
+          "rule_id": "R-CHANNEL-001",
+          "type": "channel_supported",
+          "severity": "BLOCKED",
+          "message": "素材不支持请求渠道",
+          "field": "supported_channels"
+        },
+        {
+          "rule_id": "R-CLAIM-001",
+          "type": "forbidden_phrases",
+          "severity": "BLOCKED",
+          "message": "命中合成品牌规则的禁用承诺",
+          "fields": [
+            "title",
+            "copy_text"
+          ],
+          "phrases": [
+            "100%保证",
+            "绝对治愈"
+          ]
+        },
+        {
+          "rule_id": "R-MEDICAL-001",
+          "type": "manual_tags",
+          "severity": "NEEDS_REVIEW",
+          "message": "需人工核对并明确接受对应风险",
+          "field": "tags",
+          "values": [
+            "medical"
+          ]
+        }
+      ]
+    },
+    "slot_offers": [
+      {
+        "offer_id": "ROB-O0",
+        "revision": 1,
+        "channel": "douyin",
+        "start": "2030-06-01T18:00:00+08:00",
+        "end": "2030-06-01T18:30:00+08:00"
+      },
+      {
+        "offer_id": "ROB-O1",
+        "revision": 1,
+        "channel": "douyin",
+        "start": "2030-06-01T19:00:00+08:00",
+        "end": "2030-06-01T19:30:00+08:00"
+      },
+      {
+        "offer_id": "ROB-O2",
+        "revision": 1,
+        "channel": "douyin",
+        "start": "2030-06-01T20:00:00+08:00",
+        "end": "2030-06-01T20:30:00+08:00"
+      }
+    ],
+    "existing_bookings": []
+  },
+  "trusted_faults": {},
+  "mode": "mock"
+}

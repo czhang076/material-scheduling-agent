@@ -1,0 +1,52 @@
+{
+  "executor": "Codex",
+  "mode": "mock",
+  "purpose": "guided discussion of normal scheduling and duplicate requests",
+  "runs": [
+    {
+      "run": 1,
+      "task_status": "READY_DRAFTS",
+      "review_status": "PASS",
+      "original_start": "2030-06-01T18:00:00+08:00",
+      "candidate_start": "2030-06-01T18:00:00+08:00",
+      "draft_id": "D-fead4cfbc28345c3944b45466c339be1",
+      "draft_version": 1,
+      "draft_state": "READY",
+      "save_status": "CREATED",
+      "pending_confirmations": [],
+      "published": false,
+      "sql_counts": {
+        "drafts": 1,
+        "reservations": 1,
+        "confirmations": 0,
+        "operation_receipts": 1
+      }
+    },
+    {
+      "run": 2,
+      "task_status": "READY_DRAFTS",
+      "review_status": "PASS",
+      "original_start": "2030-06-01T18:00:00+08:00",
+      "candidate_start": "2030-06-01T18:00:00+08:00",
+      "draft_id": "D-fead4cfbc28345c3944b45466c339be1",
+      "draft_version": 1,
+      "draft_state": "READY",
+      "save_status": "REUSED",
+      "pending_confirmations": [],
+      "published": false,
+      "sql_counts": {
+        "drafts": 1,
+        "reservations": 1,
+        "confirmations": 0,
+        "operation_receipts": 2
+      }
+    }
+  ],
+  "checks": {
+    "same_draft_and_version": true,
+    "created_then_reused": true,
+    "one_draft_and_reservation": true,
+    "not_published": true
+  },
+  "evidence_scope": "Offline tool and persistence behavior; not real-model effectiveness or independent candidate operation"
+}

@@ -1,0 +1,126 @@
+Regression reproduction: replace closing(conn) with the old bare connection context manager. Current production code is unchanged.
+test_changed_hard_time_cannot_be_ready_without_consent (oracle_regression.EvaluationTests.test_changed_hard_time_cannot_be_ready_without_consent) ... ERROR
+test_changed_rule_blocks_previously_safe_copy (oracle_regression.EvaluationTests.test_changed_rule_blocks_previously_safe_copy) ... ok
+test_fake_saved_result_is_rejected_against_sql (oracle_regression.EvaluationTests.test_fake_saved_result_is_rejected_against_sql) ... ERROR
+test_manual_risk_cannot_be_ready_without_consent (oracle_regression.EvaluationTests.test_manual_risk_cannot_be_ready_without_consent) ... ERROR
+test_native_receipt_order_must_match_actual_actions (oracle_regression.EvaluationTests.test_native_receipt_order_must_match_actual_actions) ... ok
+test_oracle_accepts_actual_normal_sql_facts (oracle_regression.EvaluationTests.test_oracle_accepts_actual_normal_sql_facts) ... ERROR
+test_safe_failure_is_not_counted_as_business_completion (oracle_regression.EvaluationTests.test_safe_failure_is_not_counted_as_business_completion) ... ok
+test_shifted_variants_change_actual_schedule_input (oracle_regression.EvaluationTests.test_shifted_variants_change_actual_schedule_input) ... ok
+
+======================================================================
+ERROR: test_changed_hard_time_cannot_be_ready_without_consent (oracle_regression.EvaluationTests.test_changed_hard_time_cannot_be_ready_without_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmpqlamiw6d\\ledger.sqlite3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "E:\PYTHON312\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmpqlamiw6d\\ledger.sqlite3'
+
+======================================================================
+ERROR: test_fake_saved_result_is_rejected_against_sql (oracle_regression.EvaluationTests.test_fake_saved_result_is_rejected_against_sql)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmpnrlcdfsu\\ledger.sqlite3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "E:\PYTHON312\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmpnrlcdfsu\\ledger.sqlite3'
+
+======================================================================
+ERROR: test_manual_risk_cannot_be_ready_without_consent (oracle_regression.EvaluationTests.test_manual_risk_cannot_be_ready_without_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmpkx7kcvza\\ledger.sqlite3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "E:\PYTHON312\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmpkx7kcvza\\ledger.sqlite3'
+
+======================================================================
+ERROR: test_oracle_accepts_actual_normal_sql_facts (oracle_regression.EvaluationTests.test_oracle_accepts_actual_normal_sql_facts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\shutil.py", line 625, in _rmtree_unsafe
+    os.unlink(fullname)
+    ~~~~~~~~~^^^^^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmp5uvz321w\\ledger.sqlite3'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\tempfile.py", line 955, in cleanup
+    self._rmtree(self.name, ignore_errors=self._ignore_cleanup_errors)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 935, in _rmtree
+    _shutil.rmtree(name, onexc=onexc)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\shutil.py", line 790, in rmtree
+    return _rmtree_unsafe(path, onexc)
+  File "E:\PYTHON312\Lib\shutil.py", line 629, in _rmtree_unsafe
+    onexc(os.unlink, fullname, err)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\PYTHON312\Lib\tempfile.py", line 910, in onexc
+    _os.unlink(path)
+    ~~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'E:\\material-scheduling-agent\\var\\robustness-oracle-tests\\tmp5uvz321w\\ledger.sqlite3'
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.686s
+
+FAILED (errors=4)

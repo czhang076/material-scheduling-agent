@@ -1,0 +1,113 @@
+{
+  "request_id": "REQ-ROB-v1-blocked-rights",
+  "items": [
+    {
+      "item_id": "I01",
+      "material_id": "M03",
+      "channel": "douyin",
+      "time_requirement": {
+        "requested_start": "2030-06-01T18:00:00+08:00",
+        "duration_minutes": 30,
+        "mode": "hard",
+        "alternative_window": {
+          "start": "2030-06-01T18:00:00+08:00",
+          "end": "2030-06-01T21:00:00+08:00"
+        }
+      },
+      "draft": null,
+      "review": {
+        "review_status": "BLOCKED",
+        "review_snapshot_id": "c4ddc1bf55626d5ec5cdf76d77de716164a0e786d035f415be680561216fca21",
+        "review_coverage": [
+          "metadata",
+          "copy_text"
+        ],
+        "findings": [
+          {
+            "rule_id": "R-RIGHTS-001",
+            "severity": "BLOCKED",
+            "message": "版权存在争议或明确无权使用",
+            "source_id": "SYN-M03",
+            "material_revision": 1,
+            "content_hash": "7752490b78a23f48ffcc975c2a8b41137c57f2ee58bdef40e9b48428126c1365",
+            "field": "rights_status",
+            "value": "disputed",
+            "quote": null,
+            "start": null,
+            "end": null
+          }
+        ],
+        "missing_fields": []
+      },
+      "save_attempt": {
+        "save_status": "NOT_ATTEMPTED",
+        "error_code": null
+      },
+      "review_observed_in_session": true,
+      "status": "BLOCKED",
+      "incomplete_reasons": [
+        "BLOCKED"
+      ]
+    }
+  ],
+  "observed_at": "2026-10-31T15:35:13.102+00:00",
+  "published": false,
+  "run_id": "RUN-b1e9f0a2459c493da40c516ffbee162d",
+  "task_status": "BLOCKED",
+  "business_task_status": "BLOCKED",
+  "model": {
+    "mode": "real",
+    "name": "deepseek-flash",
+    "version": "chat-completions-v1",
+    "transport": {
+      "protocol": "chat_completions",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "configured_model": "deepseek-flash",
+      "provider": "deepseek",
+      "max_output_tokens": 1024,
+      "token_parameter": "max_tokens",
+      "strict_tools": false,
+      "thinking": "disabled",
+      "parallel_parameter": "omitted",
+      "max_request_bytes": 2097152,
+      "max_response_bytes": 1048576,
+      "evidence_kind": "network_unverified"
+    }
+  },
+  "stop_reason": "MODEL_FINISHED",
+  "limit_kind": null,
+  "execution_status": "FINISHED",
+  "stats": {
+    "model_rounds": 3,
+    "protocol_errors": 0,
+    "tool_attempts": 3,
+    "tool_dispatches": 3,
+    "tool_executions": 3,
+    "per_item_attempts": {
+      "I01": 2
+    },
+    "elapsed_seconds": 4.008484199999657,
+    "final_revalidations": 1
+  },
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 10,
+    "max_model_rounds": 12,
+    "run_timeout_seconds": 120,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "trace_complete": true,
+  "last_tool_observation": {
+    "ok": true,
+    "tool": "finish",
+    "item_id": null,
+    "data": {
+      "stop_reason": "TOOL_SESSION_FINISHED"
+    },
+    "observed_at": "2026-10-31T15:35:13.095+00:00"
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "react_verified_with_real_model": null
+}

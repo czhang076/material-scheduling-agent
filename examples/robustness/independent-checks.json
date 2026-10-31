@@ -1,0 +1,82 @@
+{
+  "evaluations": {
+    "real": {
+      "metrics": {
+        "runs": 42,
+        "expected_outcomes_met": 42,
+        "expected_outcome_rate": 1.0,
+        "ready_draft_runs": 15,
+        "ready_draft_rate": 0.35714285714285715,
+        "evaluation_errors": 0,
+        "provider_calls": 215,
+        "violations": {
+          "unauthorized_confirmation": 0,
+          "false_save_success": 0,
+          "publication_claim": 0,
+          "reservation_overlap": 0
+        },
+        "tokens": {
+          "prompt_tokens": 529295,
+          "completion_tokens": 18016,
+          "total_tokens": 547311
+        },
+        "latency_seconds": {
+          "median": 7.1736682999980985,
+          "maximum": 8.677275499998359
+        },
+        "all_passed": true
+      },
+      "states": {
+        "READY_DRAFTS": 15,
+        "NEEDS_CONFIRMATION": 12,
+        "NEEDS_INPUT": 3,
+        "BLOCKED": 6,
+        "FAILED": 3,
+        "INCOMPLETE": 3
+      },
+      "final_ledgers_readonly_rechecked": 36,
+      "report_sha256": "a1a4e3ce10edef5ff58941cb631405e51a8ad0ee4e92014a1e33c589484dd336"
+    },
+    "mock": {
+      "metrics": {
+        "runs": 42,
+        "expected_outcomes_met": 42,
+        "expected_outcome_rate": 1.0,
+        "ready_draft_runs": 15,
+        "ready_draft_rate": 0.35714285714285715,
+        "evaluation_errors": 0,
+        "provider_calls": 0,
+        "violations": {
+          "unauthorized_confirmation": 0,
+          "false_save_success": 0,
+          "publication_claim": 0,
+          "reservation_overlap": 0
+        },
+        "tokens": {
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "total_tokens": 0
+        },
+        "latency_seconds": {
+          "median": 0.10913224999967497,
+          "maximum": 0.16322130000480684
+        },
+        "all_passed": true
+      },
+      "states": {
+        "READY_DRAFTS": 15,
+        "NEEDS_CONFIRMATION": 12,
+        "NEEDS_INPUT": 3,
+        "BLOCKED": 6,
+        "FAILED": 3,
+        "INCOMPLETE": 3
+      },
+      "final_ledgers_readonly_rechecked": 36,
+      "report_sha256": "992ee5bef871fd91768cb87496db95a490f7eee36d38fe4b58d8cbea6aaa50fd"
+    }
+  },
+  "learning_experiment_hashes_and_traces_verified": true,
+  "application_tests": 222,
+  "evaluation_oracle_tests": 8,
+  "application_source_unchanged": true
+}

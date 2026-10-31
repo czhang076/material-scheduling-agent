@@ -1,0 +1,22 @@
+[
+  {
+    "check": "oracle-installed",
+    "returncode": 0,
+    "log": "oracle-installed.txt"
+  },
+  {
+    "check": "application-installed",
+    "returncode": 0,
+    "log": "application-installed.txt"
+  },
+  {
+    "check": "pip-check",
+    "returncode": 0,
+    "log": "pip-check.txt"
+  },
+  {
+    "check": "node-state",
+    "returncode": 0,
+    "log": "node-state.txt"
+  }
+]

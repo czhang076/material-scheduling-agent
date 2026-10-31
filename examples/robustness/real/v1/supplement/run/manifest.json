@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "run_id": "RUN-23cd9d7210b046cd97106e1dfc919674",
+  "request_id": "REQ-ROB-v1-supplement",
+  "request_sha256": "06e9d8efb39e09ec832c5320bf1555f95099e97abba6d71b63cb7e4837d6f99d",
+  "source_identity": {
+    "catalog_generation": 1,
+    "data_revision": 1,
+    "dataset_sha256": "6ff9a405c98a49303dd3b595b6034a1c84c9f15969b207d01cf3d428494768db",
+    "rule_set_id": "SYN-BRAND-001",
+    "rule_set_version": "1.0"
+  },
+  "code": {
+    "package_version": "0.6.0",
+    "package_source_sha256": "6ee4de846ad7c9dcf6790723bd6d68a2781626fcbd2ddf4330c3456e15779e79"
+  },
+  "invocation": {
+    "entrypoint": "explicit_robustness_evaluation",
+    "trusted_faults": {}
+  },
+  "model": {
+    "mode": "real",
+    "name": "deepseek-flash",
+    "version": "chat-completions-v1",
+    "transport": {
+      "protocol": "chat_completions",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "configured_model": "deepseek-flash",
+      "provider": "deepseek",
+      "max_output_tokens": 1024,
+      "token_parameter": "max_tokens",
+      "strict_tools": false,
+      "thinking": "disabled",
+      "parallel_parameter": "omitted",
+      "max_request_bytes": 2097152,
+      "max_response_bytes": 1048576,
+      "evidence_kind": "network_unverified"
+    }
+  },
+  "started_at": "2026-10-31T15:35:06.701+00:00",
+  "status": "FINISHED",
+  "real_decision_verified": null,
+  "finished_at": "2026-10-31T15:35:14.582+00:00",
+  "task_status": "READY_DRAFTS",
+  "execution_status": "FINISHED",
+  "stop_reason": "MODEL_FINISHED",
+  "trace_complete": true,
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 10,
+    "max_model_rounds": 12,
+    "run_timeout_seconds": 120,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "stats": {
+    "model_rounds": 6,
+    "protocol_errors": 0,
+    "tool_attempts": 6,
+    "tool_dispatches": 6,
+    "tool_executions": 6,
+    "per_item_attempts": {
+      "I01": 5
+    },
+    "elapsed_seconds": 7.8732911000042805,
+    "final_revalidations": 1
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "files": {
+    "result.json": "222a4ba0f8f54ebbd3e0747e0f21e1f072376db3efff9cb9090b6bba25129a0f",
+    "trace.jsonl": "d987208f1df40863f3c23df1ddf7d3aeff454b90b30d8cf9c3f9be4783a90265"
+  }
+}
