@@ -13,7 +13,7 @@ from material_scheduler.agent.trace import verify_trace
 from run_m2_examples import ROOT, source_hashes, write_json
 
 
-def run():
+def run(prefix="M3"):
     local = ROOT / "var/m3-examples" / uuid4().hex
     command = [sys.executable, "-m", "material_scheduler", "evaluate", "--data-dir", "data", "--out", str(local)]
     process = subprocess.run(command, cwd=ROOT, env=dict(os.environ, PYTHONUTF8="1"),
@@ -28,21 +28,21 @@ def run():
         name = case["case"]
         record = {**case, "runs": []}
         for key, directory in [("input", "inputs"), ("output", "outputs")]:
-            path = ROOT / f"examples/{directory}/M3-{name}.json"
+            path = ROOT / f"examples/{directory}/{prefix}-{name}.json"
             shutil.copyfile(local / case[key], path)
             record[key] = path.relative_to(ROOT).as_posix()
             exported.append(path)
         for index, original in enumerate(case["runs"], 1):
-            prefix = f"M3-{name}-run{index}"
-            result_file = ROOT / f"examples/outputs/{prefix}.json"
-            trace_file = ROOT / f"examples/traces/{prefix}.jsonl"
+            run_prefix = f"{prefix}-{name}-run{index}"
+            result_file = ROOT / f"examples/outputs/{run_prefix}.json"
+            trace_file = ROOT / f"examples/traces/{run_prefix}.jsonl"
             shutil.copyfile(local / original["result"], result_file)
             shutil.copyfile(local / original["trace"], trace_file)
             events = verify_trace(trace_file)
             manifest = json.loads((local / original["manifest"]).read_text(encoding="utf-8"))
             assert manifest["files"]["result.json"] == sha256(result_file.read_bytes()).hexdigest()
             assert manifest["files"]["trace.jsonl"] == sha256(trace_file.read_bytes()).hexdigest()
-            manifest_file = ROOT / f"examples/evaluation/{prefix}-manifest.json"
+            manifest_file = ROOT / f"examples/evaluation/{run_prefix}-manifest.json"
             # Preserve the actual runtime manifest, mapping original relative
             # artifact names to reviewed export paths without rewriting facts.
             write_json(manifest_file, {"runtime_manifest": manifest,
@@ -55,7 +55,7 @@ def run():
             exported.extend([result_file, trace_file, manifest_file])
         exported_cases.append(record)
     base = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
-    write_json(ROOT / "examples/evaluation/M3-cases.json", {
+    write_json(ROOT / f"examples/evaluation/{prefix}-cases.json", {
         **report, "cases": exported_cases, "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "actual_command": command, "base_commit": base, "source_state": "working_tree_source_hashes",
         "source_hashes_lf_sha256": source_hashes(), "real_model_called": False,

@@ -1,9 +1,9 @@
 # 测试目录
 
-合计 156 个 unittest 方法：M1/M2 的 113 个，加 M3 的 43 个。开发及独立 wheel 环境分别通过；subTest、重复环境和评估场景不另计测试方法数量。
+184个unittest方法：M3基线156个，M4新增28个；开发和独立wheel环境分别通过，subTest/场景/真实运行另计。
 
-unit/ 覆盖契约及领域规则；integration/ 覆盖合成资料、真实 SQLite、并发、循环与预算；adversarial/ 使用明确的测试模型替身验证越权、伪造成功、来源注入和预算篡改；acceptance/ 通过真实子进程运行 CLI、用户确认、14 组离线评估及 Trace/文件校验。
+unit/ 为严格契约与领域；integration/ 为SQLite/并发/循环及模型配置、协议和回环HTTP；adversarial/ 为明确测试替身的越权/注入/预算检查；acceptance/ 为实际子进程CLI、确认、离线评估及配置入口。
 
-M3 还验证 20 项正常批量、截止时间后的提交事实、提交 UNKNOWN、Trace 写前/写后故障及最终输出文件失败。临时文件仅在校验后的 var/m2-tests/ 子目录清理（公共 LedgerTest helper 保留阶段名称）。没有真实模型、网页或多进程压力测试。
+M4覆盖原生调用ID回传、协议纠错、不伪造中途工具调用、重复ID、多调用/截断/拒绝/坏JSON、密钥回显、鉴权终态、429重试、禁止重定向、绝对正文读取截止时间、HTTP截断与字节上限。CLI测试清除继承的MODEL_变量且只用回环fixture，不自动使用本地.env或付费模型。
 
-命令和原始证据见 [M3 验收](../docs/M3-ACCEPTANCE.md)。
+真实网络运行只由显式 scripts/run_m4_real.py 发起，不属于unittest或verify_m4。14组Mock与7组真实证据分别记录。临时账本仍使用公共LedgerTest的var/m2-tests/受控子目录并清理。见 [M4验收](../docs/M4-ACCEPTANCE.md)。

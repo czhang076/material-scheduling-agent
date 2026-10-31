@@ -56,7 +56,7 @@ def run_request(store, request, model, out: Path, *, limits=None, invocation=Non
                 "code": package_identity(), "invocation": invocation,
                 "model": {"mode": model.mode, "name": model.name, "version": model.version},
                 "started_at": datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
-                "status": "RUNNING", "real_decision_verified": False}
+                "status": "RUNNING", "real_decision_verified": None if model.mode == "real" else False}
     write_json(out / "manifest.json", manifest)
     trace = FileTrace(out / "trace.jsonl", session.run_id)
     try:
@@ -74,6 +74,7 @@ def run_request(store, request, model, out: Path, *, limits=None, invocation=Non
     try:
         write_json(out / "result.json", result)
         manifest.update(status="FINISHED", finished_at=datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
+                        model=result["model"],
                         task_status=result["task_status"], execution_status=result["execution_status"],
                         stop_reason=result["stop_reason"], trace_complete=result["trace_complete"],
                         limits=result["limits"], stats=result["stats"],

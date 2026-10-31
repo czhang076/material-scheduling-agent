@@ -1,0 +1,505 @@
+{
+  "generated_at": "2026-10-31T01:38:39+00:00",
+  "code": {
+    "package_version": "0.4.0",
+    "package_source_sha256": "7d59622cf18a950a9a92bbdaa9579d07842f4143084e9872c4107f8f8ebe02f0"
+  },
+  "provider": {
+    "protocol": "chat_completions",
+    "endpoint": "https://api.deepseek.com/chat/completions",
+    "configured_model": "deepseek-flash",
+    "provider": "deepseek",
+    "max_output_tokens": 1024,
+    "token_parameter": "max_tokens",
+    "strict_tools": false,
+    "thinking": "disabled",
+    "parallel_parameter": "omitted",
+    "max_request_bytes": 2097152,
+    "max_response_bytes": 1048576
+  },
+  "real_model_called": true,
+  "real_react_verified": true,
+  "all_passed": true,
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "expected_state": "READY_DRAFTS",
+      "actual_state": "READY_DRAFTS",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "one_draft": true,
+        "original_request_retained": true
+      },
+      "input": "examples/inputs/M4-real-normal.json",
+      "output": "examples/outputs/M4-real-normal.json",
+      "trace": "examples/traces/M4-real-normal.jsonl",
+      "manifest": "examples/evaluation/M4-real-normal-manifest.json",
+      "exit_code": 0,
+      "draft_id": "D-96009f693a5a4b60b03f5df821d1cf97",
+      "draft_version": 1,
+      "provider_calls": 5,
+      "usage": [
+        {
+          "prompt_tokens": 1832,
+          "completion_tokens": 69,
+          "total_tokens": 1901,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 1832
+        },
+        {
+          "prompt_tokens": 2095,
+          "completion_tokens": 66,
+          "total_tokens": 2161,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 559
+        },
+        {
+          "prompt_tokens": 2302,
+          "completion_tokens": 102,
+          "total_tokens": 2404,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 510
+        },
+        {
+          "prompt_tokens": 2634,
+          "completion_tokens": 103,
+          "total_tokens": 2737,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 714
+        },
+        {
+          "prompt_tokens": 3102,
+          "completion_tokens": 51,
+          "total_tokens": 3153,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 798
+        }
+      ],
+      "runtime_result": "examples/outputs/M4-real-normal-result.json"
+    },
+    {
+      "case": "conflict",
+      "passed": true,
+      "expected_state": "NEEDS_CONFIRMATION",
+      "actual_state": "NEEDS_CONFIRMATION",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "one_draft": true,
+        "original_request_retained": true,
+        "alternative_requires_confirmation": true,
+        "observed_conflict_then_selected_alternative": true
+      },
+      "input": "examples/inputs/M4-real-conflict.json",
+      "output": "examples/outputs/M4-real-conflict.json",
+      "trace": "examples/traces/M4-real-conflict.jsonl",
+      "manifest": "examples/evaluation/M4-real-conflict-manifest.json",
+      "exit_code": 2,
+      "draft_id": "D-766ac19cf3ce40df954838d73250d73e",
+      "draft_version": 1,
+      "provider_calls": 6,
+      "usage": [
+        {
+          "prompt_tokens": 1835,
+          "completion_tokens": 64,
+          "total_tokens": 1899,
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 555
+        },
+        {
+          "prompt_tokens": 2095,
+          "completion_tokens": 66,
+          "total_tokens": 2161,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 559
+        },
+        {
+          "prompt_tokens": 2302,
+          "completion_tokens": 111,
+          "total_tokens": 2413,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 510
+        },
+        {
+          "prompt_tokens": 2635,
+          "completion_tokens": 111,
+          "total_tokens": 2746,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 715
+        },
+        {
+          "prompt_tokens": 3099,
+          "completion_tokens": 117,
+          "total_tokens": 3216,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 795
+        },
+        {
+          "prompt_tokens": 3589,
+          "completion_tokens": 79,
+          "total_tokens": 3668,
+          "prompt_cache_hit_tokens": 2816,
+          "prompt_cache_miss_tokens": 773
+        }
+      ],
+      "runtime_result": "examples/outputs/M4-real-conflict-result.json"
+    },
+    {
+      "case": "duplicate",
+      "passed": true,
+      "expected_state": "READY_DRAFTS",
+      "actual_state": "READY_DRAFTS",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "one_draft": true,
+        "original_request_retained": true,
+        "same_draft_identity": true,
+        "save_reused": true
+      },
+      "input": "examples/inputs/M4-real-duplicate.json",
+      "output": "examples/outputs/M4-real-duplicate.json",
+      "trace": "examples/traces/M4-real-duplicate.jsonl",
+      "manifest": "examples/evaluation/M4-real-duplicate-manifest.json",
+      "exit_code": 0,
+      "draft_id": "D-96009f693a5a4b60b03f5df821d1cf97",
+      "draft_version": 1,
+      "provider_calls": 5,
+      "usage": [
+        {
+          "prompt_tokens": 1829,
+          "completion_tokens": 67,
+          "total_tokens": 1896,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 293
+        },
+        {
+          "prompt_tokens": 2090,
+          "completion_tokens": 68,
+          "total_tokens": 2158,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 554
+        },
+        {
+          "prompt_tokens": 2299,
+          "completion_tokens": 108,
+          "total_tokens": 2407,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 507
+        },
+        {
+          "prompt_tokens": 2637,
+          "completion_tokens": 110,
+          "total_tokens": 2747,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 717
+        },
+        {
+          "prompt_tokens": 3108,
+          "completion_tokens": 58,
+          "total_tokens": 3166,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 804
+        }
+      ],
+      "runtime_result": "examples/outputs/M4-real-duplicate-result.json"
+    },
+    {
+      "case": "changed-occupancy",
+      "passed": true,
+      "expected_state": "NEEDS_CONFIRMATION",
+      "actual_state": "NEEDS_CONFIRMATION",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "one_draft": true,
+        "original_request_retained": true,
+        "alternative_requires_confirmation": true,
+        "observed_conflict_then_selected_alternative": true,
+        "same_draft_identity": true,
+        "new_version": true
+      },
+      "input": "examples/inputs/M4-real-changed-occupancy.json",
+      "output": "examples/outputs/M4-real-changed-occupancy.json",
+      "trace": "examples/traces/M4-real-changed-occupancy.jsonl",
+      "manifest": "examples/evaluation/M4-real-changed-occupancy-manifest.json",
+      "exit_code": 2,
+      "draft_id": "D-766ac19cf3ce40df954838d73250d73e",
+      "draft_version": 3,
+      "provider_calls": 6,
+      "usage": [
+        {
+          "prompt_tokens": 1837,
+          "completion_tokens": 66,
+          "total_tokens": 1903,
+          "prompt_cache_hit_tokens": 1408,
+          "prompt_cache_miss_tokens": 429
+        },
+        {
+          "prompt_tokens": 2097,
+          "completion_tokens": 72,
+          "total_tokens": 2169,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 561
+        },
+        {
+          "prompt_tokens": 2310,
+          "completion_tokens": 110,
+          "total_tokens": 2420,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 518
+        },
+        {
+          "prompt_tokens": 2645,
+          "completion_tokens": 113,
+          "total_tokens": 2758,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 725
+        },
+        {
+          "prompt_tokens": 3049,
+          "completion_tokens": 109,
+          "total_tokens": 3158,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 745
+        },
+        {
+          "prompt_tokens": 3530,
+          "completion_tokens": 73,
+          "total_tokens": 3603,
+          "prompt_cache_hit_tokens": 2688,
+          "prompt_cache_miss_tokens": 842
+        }
+      ],
+      "runtime_result": "examples/outputs/M4-real-changed-occupancy-result.json"
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "expected_state": "NEEDS_INPUT",
+      "actual_state": "NEEDS_INPUT",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "expected_draft_count": true,
+        "original_request_retained": true
+      },
+      "input": "examples/inputs/M4-real-missing.json",
+      "output": "examples/outputs/M4-real-missing.json",
+      "runtime_result": "examples/outputs/M4-real-missing-result.json",
+      "trace": "examples/traces/M4-real-missing.jsonl",
+      "manifest": "examples/evaluation/M4-real-missing-manifest.json",
+      "exit_code": 2,
+      "draft_id": null,
+      "draft_version": null,
+      "provider_calls": 5,
+      "usage": [
+        {
+          "prompt_tokens": 1830,
+          "completion_tokens": 71,
+          "total_tokens": 1901,
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 550
+        },
+        {
+          "prompt_tokens": 2097,
+          "completion_tokens": 76,
+          "total_tokens": 2173,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 561
+        },
+        {
+          "prompt_tokens": 2278,
+          "completion_tokens": 74,
+          "total_tokens": 2352,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 486
+        },
+        {
+          "prompt_tokens": 2625,
+          "completion_tokens": 109,
+          "total_tokens": 2734,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 705
+        },
+        {
+          "prompt_tokens": 2964,
+          "completion_tokens": 67,
+          "total_tokens": 3031,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 660
+        }
+      ]
+    },
+    {
+      "case": "risk",
+      "passed": true,
+      "expected_state": "BLOCKED",
+      "actual_state": "BLOCKED",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "expected_draft_count": true,
+        "original_request_retained": true
+      },
+      "input": "examples/inputs/M4-real-risk.json",
+      "output": "examples/outputs/M4-real-risk.json",
+      "runtime_result": "examples/outputs/M4-real-risk-result.json",
+      "trace": "examples/traces/M4-real-risk.jsonl",
+      "manifest": "examples/evaluation/M4-real-risk-manifest.json",
+      "exit_code": 2,
+      "draft_id": null,
+      "draft_version": null,
+      "provider_calls": 3,
+      "usage": [
+        {
+          "prompt_tokens": 1830,
+          "completion_tokens": 72,
+          "total_tokens": 1902,
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 550
+        },
+        {
+          "prompt_tokens": 2092,
+          "completion_tokens": 68,
+          "total_tokens": 2160,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 556
+        },
+        {
+          "prompt_tokens": 2424,
+          "completion_tokens": 62,
+          "total_tokens": 2486,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 632
+        }
+      ]
+    },
+    {
+      "case": "save-failure",
+      "passed": true,
+      "expected_state": "FAILED",
+      "actual_state": "FAILED",
+      "checks": {
+        "expected_state": true,
+        "real_mode": true,
+        "native_response_receipts": true,
+        "trace_complete": true,
+        "not_published": true,
+        "expected_draft_count": true,
+        "original_request_retained": true,
+        "failed_not_successful": true
+      },
+      "input": "examples/inputs/M4-real-save-failure.json",
+      "output": "examples/outputs/M4-real-save-failure.json",
+      "runtime_result": "examples/outputs/M4-real-save-failure-result.json",
+      "trace": "examples/traces/M4-real-save-failure.jsonl",
+      "manifest": "examples/evaluation/M4-real-save-failure-manifest.json",
+      "exit_code": 4,
+      "draft_id": null,
+      "draft_version": null,
+      "provider_calls": 6,
+      "usage": [
+        {
+          "prompt_tokens": 1837,
+          "completion_tokens": 64,
+          "total_tokens": 1901,
+          "prompt_cache_hit_tokens": 1280,
+          "prompt_cache_miss_tokens": 557
+        },
+        {
+          "prompt_tokens": 2095,
+          "completion_tokens": 66,
+          "total_tokens": 2161,
+          "prompt_cache_hit_tokens": 1536,
+          "prompt_cache_miss_tokens": 559
+        },
+        {
+          "prompt_tokens": 2302,
+          "completion_tokens": 107,
+          "total_tokens": 2409,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 510
+        },
+        {
+          "prompt_tokens": 2639,
+          "completion_tokens": 103,
+          "total_tokens": 2742,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 719
+        },
+        {
+          "prompt_tokens": 2847,
+          "completion_tokens": 105,
+          "total_tokens": 2952,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 543
+        },
+        {
+          "prompt_tokens": 3057,
+          "completion_tokens": 59,
+          "total_tokens": 3116,
+          "prompt_cache_hit_tokens": 2560,
+          "prompt_cache_miss_tokens": 497
+        }
+      ]
+    }
+  ],
+  "evidence_sha256": {
+    "examples/inputs/M4-real-normal.json": "86ee16832ebe5d303350256a544e8c65790bb60f68409ad9ea7fa814775ca03e",
+    "examples/outputs/M4-real-normal.json": "06a8724efd82434f8b692c1f73b348dcc14ec200d30b030862c1ec812e25c213",
+    "examples/evaluation/M4-real-normal-manifest.json": "ead4b202c66d7aaaf4aa6fa0a6fca170059cfd98b809e8969db65ebf70a9a429",
+    "examples/traces/M4-real-normal.jsonl": "a3ba2ad082801c2e433c5a2671b5fc2d3402effe460cedc866c4259bc1841148",
+    "examples/inputs/M4-real-conflict.json": "4ee48b9b2c7869e73be0307b3e41de9c70b127e37dc16bd1b2c4e9d99656f849",
+    "examples/outputs/M4-real-conflict.json": "ebc2e0b691bae9657a6b56559cb5e3ab791218e7b991e9d6008e77907088fce7",
+    "examples/evaluation/M4-real-conflict-manifest.json": "60cfcbba8c0317b82aa1e08611f47d7f4fc5997a486847cdb93ec9d44ab9521a",
+    "examples/traces/M4-real-conflict.jsonl": "0f05b4210a5a83a8c7df3198b991fa1f7afe75e2f2fce5306fd233d5815290ce",
+    "examples/inputs/M4-real-duplicate.json": "86ee16832ebe5d303350256a544e8c65790bb60f68409ad9ea7fa814775ca03e",
+    "examples/outputs/M4-real-duplicate.json": "dd998821f1045b083ee277d401fd2bc96b3ea01e36c5c59eb8200e2d5d23fac0",
+    "examples/evaluation/M4-real-duplicate-manifest.json": "ae47f3ef4cccd8dab07432467d2390f939ac1a925c06f8946f6f19d2b6df69c7",
+    "examples/traces/M4-real-duplicate.jsonl": "d0742af99b02e70f8c217976ef1e559c8e32397b7af99d0ee93e797a6192a8ea",
+    "examples/inputs/M4-real-changed-occupancy.json": "affae10cb098879f1fe1e22c342c3f69826cc9c28e6b927095931b2151870fc7",
+    "examples/outputs/M4-real-changed-occupancy.json": "d2eccb589eb37b9216783f71c7ffa3e9d5c1b1822298665168e2801f13e34e6c",
+    "examples/evaluation/M4-real-changed-occupancy-manifest.json": "a7a8b05e052cc9c7cf625b616f7f6b40c82d9d645fd4702b854cefeb3a07ec66",
+    "examples/traces/M4-real-changed-occupancy.jsonl": "d8f3fe49c9238f45963e2473548cd865e62f1e0caca1ccc6676cbcfefa5db5c5",
+    "examples/outputs/M4-real-normal-result.json": "ac8fe0c5d7acfc3ef52ee33c29b068acf1fcd4434c89866e6ae85253b6abe710",
+    "examples/outputs/M4-real-conflict-result.json": "ebef6e9233fc6c8db7eb8326d3c19646b0e91cf700b2427109c03552038fca5c",
+    "examples/outputs/M4-real-duplicate-result.json": "ba12f1bf22aaac87e9d6c1bbceb3013f4c5617b61769dc288da4a8c173882e4f",
+    "examples/outputs/M4-real-changed-occupancy-result.json": "61cbb9e1aa7cdd856fcae74575d0072a7dc04f3d5e72ad34fc386826c510c760",
+    "examples/inputs/M4-real-missing.json": "eb749ed164a1d312a54e19d64aef03dde3a7d72a9e1f92dde591783bd2a095e5",
+    "examples/outputs/M4-real-missing.json": "3e4fa42b3dd8de58b47d4e0d9b11e2d70707712b9bcf47787bd01545934f19ab",
+    "examples/outputs/M4-real-missing-result.json": "353aeb21eb73e826573be35f41803e1f4bb259c34fd9aaa4bf1dada740de0aaf",
+    "examples/evaluation/M4-real-missing-manifest.json": "86d82acad253b7c9dd7c781b31ea0f2d813402ad903d2b815b57f019581bdb7f",
+    "examples/traces/M4-real-missing.jsonl": "894cec3fb1089a3f269d62ae34af15181c7d875515c74d3a33d319ab825b5aa3",
+    "examples/inputs/M4-real-risk.json": "12af202524b62f9a700b0fb575e1a6d81be786c9869efad4382ce6c6f4630d50",
+    "examples/outputs/M4-real-risk.json": "61ee65ed7daadbe54ed20923435de785368a2386346d79ba724ef18b4a16be0d",
+    "examples/outputs/M4-real-risk-result.json": "d00cd08ab091f8f2db7ebb4a0b89be0e01ca0042d8aa57135856d2e2c5b983a9",
+    "examples/evaluation/M4-real-risk-manifest.json": "20257a42f96d37d7f3236ceb474b546f33f5091bb18a92f256097f14449917e3",
+    "examples/traces/M4-real-risk.jsonl": "94f828730e651864fb8f63be8cd9a3f49d0cf680d108277e67479d491622fe97",
+    "examples/inputs/M4-real-save-failure.json": "77fbaec665acb9c0cc9b37b09581ca5972234bb4a549d71172e4393fa2817533",
+    "examples/outputs/M4-real-save-failure.json": "a44587fac9a46b3f948eb890ce47fbb4c2812506f4f9e4c89e2b95acb688fe61",
+    "examples/outputs/M4-real-save-failure-result.json": "f781933565b0bc29eaa9ce1e18358e5f2466e86603186cb32e587897220e7f3b",
+    "examples/evaluation/M4-real-save-failure-manifest.json": "00e2f370c93d4bd90141342b05adafdc02e866d43e05999b6da6ddba7f159dfd",
+    "examples/traces/M4-real-save-failure.jsonl": "3a45eaa5fd91e6ea416c5e8194da2e46bd702d76fdab8a24742ac8a6afa97c3b"
+  }
+}

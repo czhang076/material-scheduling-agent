@@ -1,0 +1,36 @@
+test_http_401_error_is_sanitized_and_terminal (tests.integration.test_model_http.ModelHTTPTests.test_http_401_error_is_sanitized_and_terminal) ... ok
+test_http_request_and_native_history_end_to_end (tests.integration.test_model_http.ModelHTTPTests.test_http_request_and_native_history_end_to_end) ... FAIL
+test_rate_limit_retry_is_owned_by_runner_not_transport (tests.integration.test_model_http.ModelHTTPTests.test_rate_limit_retry_is_owned_by_runner_not_transport) ... FAIL
+test_redirect_is_not_followed_or_given_credentials (tests.integration.test_model_http.ModelHTTPTests.test_redirect_is_not_followed_or_given_credentials) ... ok
+test_response_byte_limit_is_enforced_during_http_read (tests.integration.test_model_http.ModelHTTPTests.test_response_byte_limit_is_enforced_during_http_read) ... ok
+test_slow_body_checks_total_deadline_instead_of_resetting_idle_timeout (tests.integration.test_model_http.ModelHTTPTests.test_slow_body_checks_total_deadline_instead_of_resetting_idle_timeout) ... ok
+test_truncated_http_body_does_not_become_a_valid_model_reply (tests.integration.test_model_http.ModelHTTPTests.test_truncated_http_body_does_not_become_a_valid_model_reply) ... ok
+
+======================================================================
+FAIL: test_http_request_and_native_history_end_to_end (tests.integration.test_model_http.ModelHTTPTests.test_http_request_and_native_history_end_to_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\material-scheduling-agent\tests\integration\test_model_http.py", line 26, in test_http_request_and_native_history_end_to_end
+    self.assertEqual(messages[3]["role"], "tool")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'user' != 'tool'
+- user
++ tool
+
+
+======================================================================
+FAIL: test_rate_limit_retry_is_owned_by_runner_not_transport (tests.integration.test_model_http.ModelHTTPTests.test_rate_limit_retry_is_owned_by_runner_not_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\material-scheduling-agent\tests\integration\test_model_http.py", line 54, in test_rate_limit_retry_is_owned_by_runner_not_transport
+    self.assertEqual(result["stop_reason"], "MODEL_FINISHED")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'MODEL_UNAVAILABLE' != 'MODEL_FINISHED'
+- MODEL_UNAVAILABLE
++ MODEL_FINISHED
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.535s
+
+FAILED (failures=2)

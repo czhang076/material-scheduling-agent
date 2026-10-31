@@ -28,6 +28,8 @@ class AgentRunner:
         require(model.mode in {"mock", "test", "real"}, "Model must declare its mode")
         self.model_identity = {"mode": model.mode, "name": model.name, "version": model.version}
         require(all(type(value) is str and 0 < len(value) <= 128 for value in self.model_identity.values()), "Invalid model identity")
+        if callable(getattr(model, "public_metadata", None)):
+            self.model_identity["transport"] = model.public_metadata()
         self.clock, self.cancelled = clock, cancelled
         self.source_identity = deepcopy(source_identity or {})
         self.history = []
@@ -67,6 +69,11 @@ class AgentRunner:
         self._guard()
         if self.clock() - started >= timeout:
             raise _Stop("MODEL_TIMEOUT")
+
+    def _provider_metadata(self):
+        if callable(getattr(self.model, "last_decision_metadata", None)):
+            self._emit({"type": "provider_response_metadata", "round": self._rounds,
+                        "metadata": self.model.last_decision_metadata()})
 
     def _feedback(self, action, observation, call_id, *, dispatched):
         self._last_observation = deepcopy(observation)
@@ -111,6 +118,7 @@ class AgentRunner:
             try:
                 response = self.model.choose(context, timeout_seconds=timeout)
             except DomainError as exc:
+                self._provider_metadata()
                 self._after_model(started, timeout)
                 if exc.code == "MODEL_PROTOCOL_ERROR":
                     self._protocol_failure()
@@ -118,6 +126,11 @@ class AgentRunner:
                 if exc.code == "MODEL_TIMEOUT":
                     self._guard()
                     raise _Stop("MODEL_TIMEOUT") from exc
+                if getattr(exc, "retryable", True) is False:
+                    event = {"kind": "model_error", "error": exc.to_dict()}
+                    self.history.append(event)
+                    self._emit({"type": "model_error", **event})
+                    raise _Stop(exc.code)
                 self._model_error()
                 continue
             except TimeoutError as exc:
@@ -128,6 +141,7 @@ class AgentRunner:
                 self._after_model(started, timeout)
                 self._model_error()
                 continue
+            self._provider_metadata()
             self._after_model(started, timeout)
             try:
                 action = Action.parse(response)
@@ -235,7 +249,7 @@ class AgentRunner:
             except _Stop:
                 reason, detail = "TRACE_UNAVAILABLE", None
         execution = "FINISHED" if reason == "MODEL_FINISHED" and not self._blocked else "INCOMPLETE"
-        if reason in {"TRACE_UNAVAILABLE", "MODEL_PROTOCOL_ERROR", "MODEL_UNAVAILABLE", "MODEL_TIMEOUT", "TOOL_RUNTIME_ERROR", "RESULT_UNAVAILABLE"}:
+        if reason not in {"MODEL_FINISHED", "LIMIT_REACHED", "CANCELLED"}:
             execution = "FAILED"
         if execution != "FINISHED":
             result["task_status"] = "FAILED" if execution == "FAILED" else "INCOMPLETE"
@@ -243,4 +257,4 @@ class AgentRunner:
                 "execution_status": execution, "stats": stats, "limits": asdict(self.limits),
                 "trace_complete": self._trace_complete, "last_tool_observation": self._last_observation,
                 "prompt_sha256": fingerprint(SYSTEM_PROMPT), "tools_sha256": fingerprint(tool_definitions()),
-                "react_verified_with_real_model": False}
+                "react_verified_with_real_model": None if self.model.mode == "real" else False}

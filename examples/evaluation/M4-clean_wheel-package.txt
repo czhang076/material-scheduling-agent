@@ -1,0 +1,2 @@
+0.4.0
+E:\material-scheduling-agent\var\m4-clean-venv\Lib\site-packages\material_scheduler\__init__.py

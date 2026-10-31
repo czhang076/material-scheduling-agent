@@ -1,6 +1,6 @@
 # 总体方案（设计稿）
 
-状态：完整 Agent 的设计方案；M1/M2 及 M3 离线循环/CLI 已实现，见 M3-ACCEPTANCE。当前使用明确的确定性 Mock；真实模型仍待 M4，设计流程不能作为真实模型运行证据。
+状态：完整 Agent 的设计方案；M1/M2 及 M3 离线循环/CLI 已实现，见 M3-ACCEPTANCE。当前有明确的 Mock 与 DeepSeek 原生工具调用适配器；真实记录见 M4-ACCEPTANCE，设计流程本身不作为运行证据。
 
 ## 1. 解决的问题
 
@@ -67,7 +67,7 @@ flowchart TD
 |时间|带 UTC 偏移的 ISO 8601 时间|按 UTC 比较，保留用户偏移显示；首版不提供自然语言时间或 DST 推断|
 |验证|确定性测试 + 本地集成 + 模型实际回放|分别证明规则、协议、真实决策，三者不互相替代|
 
-未来真实模型适配参考 [OpenAI 官方 Function calling 文档](https://developers.openai.com/api/docs/guides/function-calling)。采用兼容协议是接入设计，不构成任何第三方服务兼容性或模型效果证明。用户已选择稍后配置真实模型。
+未来真实模型适配参考 [OpenAI 官方 Function calling 文档](https://developers.openai.com/api/docs/guides/function-calling)。采用兼容协议是接入设计，不构成任何第三方服务兼容性或模型效果证明。用户后续提供 DeepSeek 密钥并授权试用；M4 已接入并留真实证据。
 
 ## 6. 详细设计索引
 

@@ -2,9 +2,9 @@
 
 ## 已验证环境
 
-Python 3.13.x（本机 3.13.12）、标准库 SQLite，无第三方运行依赖；setuptools==82.0.1 构建。M3 开发与独立 wheel 环境均可运行，具体记录见 [M3 验收](M3-ACCEPTANCE.md)。
+Python 3.13.x（本机 3.13.12）、标准库 SQLite，无第三方运行依赖；setuptools==82.0.1 构建。M4 开发与独立 wheel 环境均可运行，具体记录见 [M4 验收](M4-ACCEPTANCE.md)。
 
-离线不需要 .env，CLI 当前不读取环境配置。真实模型入口尚未实现，--mode real 明确失败，不静默切换 Mock。
+离线不需要 .env 且不读取模型配置。真实模式显式传 --env-file .env 或使用进程MODEL_变量，缺配置明确失败，不降级为Mock。用户已授权DeepSeek试用，当前有真实路径。
 
 ## 当前实际命令
 
@@ -45,15 +45,21 @@ JSON 中的逐项审核、save_attempt、draft、incomplete_reasons、stop_reaso
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -t . -v
-.\.venv\Scripts\python.exe scripts/run_m3_examples.py
+.\.venv\Scripts\python.exe scripts/run_m4_offline.py
 ```
 
-独立 wheel 验证步骤见 [M3-ACCEPTANCE](M3-ACCEPTANCE.md)。M1/M2 脚本只在相应阶段提交上用于重现旧报告，当前请用 M3 脚本。
+独立 wheel 验证步骤见 [M4-ACCEPTANCE](M4-ACCEPTANCE.md)。M1/M2/M3 脚本在对应阶段提交上重现旧报告；当前用M4脚本。verify_m4不重发付费调用，真实复跑另用run_m4_real.py。
 
 实际数据库在 var/ 内，已忽略。离线评估的注入参数由可信评测器提供，不出现在模型工具参数中。examples/ 仅提交已选取的合成 JSON/JSONL、日志和校验记录。
 
 ## 后续和交接
 
-先读 AGENTS → CONTEXT → STATUS → 需求/总体方案 → 相关设计。M4 真实模型由用户稍后配置，先确定服务和模型，将密钥只留本地；M5 本地网页仍待实现，无 serve 命令或线上部署。
+先读 AGENTS → CONTEXT → STATUS → 需求/总体方案 → 相关设计。M4真实接入已完成，密钥只留本地；M5 本地网页仍待实现，无 serve 命令或线上部署。
 
 本地已有阶段提交；无 GitHub 远程或推送。最终仓库 URL、评审访问权限及最终 SHA 留到完整交付阶段。实际投入未连续计时，候选人需如实补记。
+
+## 真实模式
+
+先按 .env.example 配置本地 .env，再运行 `python -m material_scheduler run --input data/requests/normal.json --db var/scheduler.sqlite3 --mode real --env-file .env --out var/real-001`。服务、模型、token字段及上限在配置中显式记录；同名进程环境优先，不自动展开变量。DeepSeek用非思考模式；其他服务须另行验证。
+
+真实run依然使用同一事务和预算保护。终态鉴权/无效请求错误不会反复请求，临时限流或服务失败最多一次恢复。原始真实验证字段null由独立评测补足，不因mode=real就自称达标。详情和官方协议来源见M4验收。

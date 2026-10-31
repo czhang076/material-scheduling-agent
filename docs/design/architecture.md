@@ -2,7 +2,7 @@
 
 ## 1. 设计目标
 
-把复杂业务约束收在小而稳定的接口后面，让正常运行、故障注入和评审通过同一接口观察行为。M1/M2/M3 已实现领域、工具、SQLite、离线模型接口与循环和 CLI；真实模型/HTTP/网页仍是规划。文件名按实际职责调整，不机械照搬。
+把复杂业务约束收在小而稳定的接口后面，让正常运行、故障注入和评审通过同一接口观察行为。M1/M2/M3 已实现领域、工具、SQLite、离线模型接口与循环和 CLI；本地 HTTP/网页仍是规划，M4 真实模型适配器已接入。文件名按实际职责调整，不机械照搬。
 
 ## 2. 模块职责
 
@@ -88,4 +88,4 @@ CLI 核心完成后接入本地 HTTP 与静态页面，直接复用应用用例�
 
 ## 7. 当前架构交付边界
 
-M1/M2 已实现 domain、ToolSession、纯序列化、合成加载、SQLiteStore 和故障注入。确认事务由 SQLiteStore.confirm 封装，未来 CLI/网页共同调用；application 不依赖具体适配器。M3 已补离线循环、提供者接口与 Mock、Trace、CLI/artifacts/evaluation。工具 Schema 从 application.tools.tool_definitions 同源导出，不额外建 tool_catalog.py。真实模型和网页仍待后续阶段；见 [M3 验收](../M3-ACCEPTANCE.md)。
+M1/M2 已实现 domain、ToolSession、纯序列化、合成加载、SQLiteStore 和故障注入。确认事务由 SQLiteStore.confirm 封装，未来 CLI/网页共同调用；application 不依赖具体适配器。M3 已补离线循环、提供者接口与 Mock、Trace、CLI/artifacts/evaluation。工具 Schema 从 application.tools.tool_definitions 同源导出，不额外建 tool_catalog.py。M4 已补 model_config.py 和 compatible_model.py、原生调用 ID 回传、错误分类及公开回执；网页仍待 M5。见 [M4 验收](../M4-ACCEPTANCE.md)。

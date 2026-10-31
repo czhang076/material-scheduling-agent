@@ -16,8 +16,9 @@ from tests.integration.m2_helpers import LedgerTest, ROOT, occupied, request
 
 class CLIAcceptanceTests(LedgerTest):
     def cli(self, *arguments):
+        environment = {key: value for key, value in os.environ.items() if not key.startswith("MODEL_")}
         result = subprocess.run([sys.executable, "-I", "-m", "material_scheduler", *map(str, arguments)],
-                                cwd=ROOT, env=dict(os.environ, PYTHONUTF8="1"),
+                                cwd=ROOT, env=dict(environment, PYTHONUTF8="1"),
                                 encoding="utf-8", capture_output=True, timeout=60)
         self.assertEqual(result.stderr, "", result.stderr)
         return result.returncode, json.loads(result.stdout)
@@ -92,7 +93,7 @@ class CLIAcceptanceTests(LedgerTest):
         code, result = self.cli("run", "--db", self.path, "--input", self.input_file(), "--mode", "real",
                                 "--out", self.directory / "real")
         self.assertEqual(code, 4)
-        self.assertEqual(result["error"]["code"], "REAL_MODEL_NOT_IMPLEMENTED")
+        self.assertEqual(result["error"]["code"], "MODEL_CONFIGURATION_ERROR")
         self.assertFalse((self.directory / "real").exists())
         self.assertEqual(self.store.counts()["requests"], 0)
 
@@ -154,3 +155,36 @@ class CLIAcceptanceTests(LedgerTest):
         self.assertEqual(result["stop_reason"], "ARTIFACT_UNAVAILABLE")
         self.assertEqual(result["items"][0]["draft"]["draft_state"], "READY")
         self.assertEqual(self.store.counts()["drafts"], 1)
+
+    def test_real_cli_protocol_fixture_keeps_actual_native_call_ids(self):
+        from tests.integration.http_fixture import FixtureServer
+        from tests.integration.test_compatible_model import SECRET, response
+        def responder(index, received):
+            return {"body": response() if index == 1 else response("finish", {"rationale": "stop"}, "native-call-2")}
+        with FixtureServer(responder) as server:
+            configuration = self.directory / "local-test.env"
+            configuration.write_text("MODEL_BASE_URL=" + server.base_url + "\nMODEL_NAME=test-model\nMODEL_API_KEY=" + SECRET + "\n", encoding="utf-8")
+            out = self.directory / "protocol-cli"
+            code, result = self.cli("run", "--db", self.path, "--input", self.input_file(), "--mode", "real", "--env-file", configuration, "--out", out)
+            self.assertEqual(code, 2)  # Explicit fixture finishes before making a draft.
+            self.assertEqual(result["model"]["mode"], "real")  # Requested API mode, NOT proof of a real model.
+            self.assertIsNone(result["react_verified_with_real_model"])
+            self.assertEqual(server.requests[1]["body"]["messages"][3]["tool_call_id"], "native-call-1")
+            self.assertNotIn(SECRET, (out / "trace.jsonl").read_text(encoding="utf-8"))
+
+    def test_mock_does_not_load_real_provider_configuration(self):
+        bad_file = self.directory / "unread.env"
+        bad_file.write_text("deliberately invalid provider configuration", encoding="utf-8")
+        code, result = self.run_cli("--env-file", bad_file)
+        self.assertEqual(code, 0)
+        self.assertEqual(result["model"]["mode"], "mock")
+
+    def test_invalid_real_config_is_rejected_before_request_or_output_creation(self):
+        configuration = self.directory / "invalid-provider.env"
+        configuration.write_text("MODEL_BASE_URL=http://remote.example\nMODEL_NAME=test-model\nMODEL_API_KEY=fake-test-secret\n", encoding="utf-8")
+        out = self.directory / "invalid-config"
+        code, result = self.cli("run", "--db", self.path, "--input", self.input_file(), "--mode", "real", "--env-file", configuration, "--out", out)
+        self.assertEqual(code, 4)
+        self.assertEqual(result["error"]["code"], "MODEL_CONFIGURATION_ERROR")
+        self.assertEqual(self.store.counts()["requests"], 0)
+        self.assertFalse(out.exists())

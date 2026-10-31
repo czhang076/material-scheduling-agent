@@ -1,0 +1,213 @@
+{
+  "result": {
+    "request_id": "REQ-REAL-normal",
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M01",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": {
+          "draft_id": "D-96009f693a5a4b60b03f5df821d1cf97",
+          "request_id": "REQ-REAL-normal",
+          "item_id": "I01",
+          "version": 1,
+          "draft_state": "READY",
+          "requested_start": "2030-06-01T18:00:00+08:00",
+          "candidate": {
+            "offer_id": "O18",
+            "offer_revision": 1,
+            "channel": "douyin",
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T18:30:00+08:00"
+          },
+          "pending_confirmations": [],
+          "required_confirmations": [],
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "confirmation": null,
+          "stale_reason": null,
+          "published": false
+        },
+        "review": {
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ],
+          "findings": [],
+          "missing_fields": []
+        },
+        "save_attempt": {
+          "save_status": "CREATED",
+          "error_code": null,
+          "operation_id": "OP-93c06d7fca784029a81a9d7f79aa5225",
+          "operation_version": 1
+        },
+        "review_observed_in_session": true,
+        "status": "READY",
+        "incomplete_reasons": []
+      }
+    ],
+    "observed_at": "2026-10-31T01:32:57.077+00:00",
+    "published": false,
+    "run_id": "RUN-34cb7acaeb5041a89201ca4b8bc6c81f",
+    "task_status": "READY_DRAFTS",
+    "business_task_status": "READY_DRAFTS",
+    "model": {
+      "mode": "real",
+      "name": "deepseek-flash",
+      "version": "chat-completions-v1",
+      "transport": {
+        "protocol": "chat_completions",
+        "endpoint": "https://api.deepseek.com/chat/completions",
+        "configured_model": "deepseek-flash",
+        "provider": "deepseek",
+        "max_output_tokens": 1024,
+        "token_parameter": "max_tokens",
+        "strict_tools": false,
+        "thinking": "disabled",
+        "parallel_parameter": "omitted",
+        "max_request_bytes": 2097152,
+        "max_response_bytes": 1048576,
+        "evidence_kind": "network_unverified"
+      }
+    },
+    "stop_reason": "MODEL_FINISHED",
+    "limit_kind": null,
+    "execution_status": "FINISHED",
+    "stats": {
+      "model_rounds": 5,
+      "protocol_errors": 0,
+      "tool_attempts": 5,
+      "tool_dispatches": 5,
+      "tool_executions": 5,
+      "per_item_attempts": {
+        "I01": 4
+      },
+      "elapsed_seconds": 5.25660240000002,
+      "final_revalidations": 1
+    },
+    "limits": {
+      "per_item_tool_limit": 10,
+      "max_tool_attempts": 10,
+      "max_model_rounds": 12,
+      "run_timeout_seconds": 120,
+      "model_timeout_seconds": 30,
+      "protocol_error_limit": 4
+    },
+    "trace_complete": true,
+    "last_tool_observation": {
+      "ok": true,
+      "tool": "finish",
+      "item_id": null,
+      "data": {
+        "stop_reason": "TOOL_SESSION_FINISHED"
+      },
+      "observed_at": "2026-10-31T01:32:57.070+00:00"
+    },
+    "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+    "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+    "react_verified_with_real_model": null
+  },
+  "exit_code": 0,
+  "checks": {
+    "expected_state": true,
+    "real_mode": true,
+    "native_response_receipts": true,
+    "trace_complete": true,
+    "not_published": true,
+    "one_draft": true,
+    "original_request_retained": true
+  },
+  "ledger_counts": {
+    "requests": 1,
+    "drafts": 1,
+    "reservations": 1,
+    "confirmations": 0,
+    "operation_receipts": 1,
+    "audit_events": 2
+  },
+  "audit_events": [
+    {
+      "event_id": "AUD-99f072137743441cade5bdbbcd32201a",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "3abe3db993ba0abb338b2eb893036ec789c2bcaf368f017b63c5c43a8889c64e",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-31T01:32:51.376+00:00"
+    },
+    {
+      "event_id": "AUD-810b56b9f68b411da662693f553fd39e",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-REAL-normal",
+      "item_id": "I01",
+      "draft_id": "D-96009f693a5a4b60b03f5df821d1cf97",
+      "version": 1,
+      "run_id": "RUN-34cb7acaeb5041a89201ca4b8bc6c81f",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-96009f693a5a4b60b03f5df821d1cf97",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T18:30:00+08:00",
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "start": "2030-06-01T18:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-REAL-normal",
+          "state": "READY",
+          "version": 1
+        },
+        "operation_id": "OP-93c06d7fca784029a81a9d7f79aa5225"
+      },
+      "created_at": "2026-10-31T01:32:56.111+00:00"
+    }
+  ]
+}

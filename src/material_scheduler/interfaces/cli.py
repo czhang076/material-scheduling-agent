@@ -27,11 +27,12 @@ def _parser():
     initialize = commands.add_parser("init", help="显式导入合成资料和规则")
     initialize.add_argument("--data-dir", type=Path, default=Path("data"))
     initialize.add_argument("--db", type=Path, required=True)
-    run = commands.add_parser("run", help="运行有界离线 Agent；真实模式待 M4")
+    run = commands.add_parser("run", help="运行有界 Agent；模式必须显式选择")
     run.add_argument("--input", type=Path, required=True)
     run.add_argument("--db", type=Path, required=True)
     run.add_argument("--out", type=Path, required=True)
     run.add_argument("--mode", choices=["mock", "real"], required=True)
+    run.add_argument("--env-file", type=Path, help="显式加载本地模型配置；Mock 不读取")
     for field in ("max-tool-attempts", "max-model-rounds", "per-item-tool-limit", "run-timeout-seconds", "model-timeout-seconds"):
         run.add_argument("--" + field, type=int)
     inspect = commands.add_parser("inspect", help="重新核验草稿，可能标记过期")
@@ -89,11 +90,15 @@ def dispatch(arguments, invocation):
         return result, 0 if result["all_passed"] else 4
     if arguments.command == "run":
         if arguments.mode == "real":
-            raise DomainError("REAL_MODEL_NOT_IMPLEMENTED", "Real provider setup is deferred to M4; explicitly select mock for offline use")
+            from material_scheduler.adapters.model_config import load_model_config
+            from material_scheduler.adapters.compatible_model import CompatibleChatModel
+            model = CompatibleChatModel(load_model_config(arguments.env_file))
+        else:
+            model = ObservationMock()
         request = SchedulingRequest.from_dict(read_json(arguments.input))
         limits = _limits(arguments, len(request.items))
         store = open_store(arguments.db)
-        result = run_request(store, request, ObservationMock(), arguments.out, limits=limits, invocation=invocation)
+        result = run_request(store, request, model, arguments.out, limits=limits, invocation=invocation)
         return result, result_exit_code(result)
     store = open_store(arguments.db)
     if arguments.command == "inspect":

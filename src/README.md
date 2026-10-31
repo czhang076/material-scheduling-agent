@@ -4,4 +4,4 @@
 
 application 不导入具体适配器，domain 不依赖数据库或模型。CLI 是组合入口，用户确认独立于模型工具。运行目录和清单由 interfaces/artifacts.py 管理，可信离线场景由 interfaces/evaluation.py 组装。
 
-真实模型适配器、HTTP 和网页仍未实现。详见 [M3 验收](../docs/M3-ACCEPTANCE.md)。
+M4 已实现 model_config 与 compatible_model（标准库 HTTP、原生工具调用、严格回传与错误处理），真实模式复用 AgentRunner。CLI 不接受密钥参数，只显式读本地环境文件或进程环境；HTTP 工作台和网页仍待 M5。详见 [M4 验收](../docs/M4-ACCEPTANCE.md)。
