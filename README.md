@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材的元数据与文案，形成可确认、可追溯的排期草稿。**仅草稿，不接真实发布。**
 
-> 当前0.6.0已完成独立技术验收，并发布至 [GitHub公开仓库](https://github.com/czhang076/material-scheduling-agent)。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)，评审访问见 [交付说明](docs/GITHUB-DELIVERY.md)。默认Mock，仅保存草稿；候选人自报累计投入约4小时（估算，未连续计时），AI辅助与个人贡献见 [使用记录](docs/04-ai-usage.md)。
+> 当前0.6.0已完成独立技术验收，并发布至 [GitHub公开仓库](https://github.com/czhang076/material-scheduling-agent)。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)，评审访问见 [交付说明](docs/GITHUB-DELIVERY.md)。默认Mock，仅保存草稿；个人投入约4小时（估算，未连续计时），AI辅助与个人贡献见 [使用记录](docs/04-ai-usage.md)。
 
 ## 安装与运行
 

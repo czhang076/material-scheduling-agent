@@ -77,4 +77,4 @@ run：0 全部可用草稿；2 业务需补充/确认、阻断或其他未完成
 
 当前最终证据可执行只读复核：`python examples/final-acceptance/verify_evidence.py`，不会调用付费模型。付费重新生成8条真实CLI路径使用同目录reproduce_real.py，参数和干净环境说明见最终验收报告；始终输出到新目录。
 
-交接先读AGENTS → CONTEXT → STATUS → 需求/方案 → [最终技术验收](FINAL-ACCEPTANCE.md)。数据库及本地配置在忽略的var/与.env；仅保留合成证据。GitHub公开地址和匿名可读验证见 [GITHUB-DELIVERY](GITHUB-DELIVERY.md)。提交题号1、仓库URL及远程main最终SHA；个人投入已按本人自报约4小时（估算，未连续计时）补录，个人与AI贡献分开记录，不冒充已提交招聘系统。
+交接先读AGENTS → CONTEXT → STATUS → 需求/方案 → [最终技术验收](FINAL-ACCEPTANCE.md)。数据库及本地配置在忽略的var/与.env；仅保留合成证据。GitHub公开地址和匿名可读验证见 [GITHUB-DELIVERY](GITHUB-DELIVERY.md)。提交题号1、仓库URL及远程main最终SHA；个人投入约4小时（估算，未连续计时），协作分工见04-ai-usage；招聘系统提交由本人完成。

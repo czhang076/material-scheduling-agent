@@ -23,7 +23,7 @@
 
 当前 [222项测试日志](../examples/final-acceptance/clean-unittest.txt)、[7项Node测试日志](../examples/final-acceptance/node-state.txt)、[独立安装检查](../examples/final-acceptance/installation.json)、[网页确认与交互检查](../examples/final-acceptance/web/browser-checks.json)均存放在examples。下文M4/M5/M6数字为各阶段原始记录，不能与最终验收重复累计为成功率。
 
-证据中的GitHub、个人用时及完整交付未完成字段固定于技术验收时点，不改写历史快照；后续公开交付已另行验证，见 [交付记录](GITHUB-DELIVERY.md)。候选人随后自报累计投入约4小时（估算，未连续计时）；实际参与、AI辅助范围及修改验证见 [协作记录](04-ai-usage.md)。
+证据中的GitHub、个人用时及完整交付未完成字段固定于技术验收时点，不改写历史快照；后续公开交付已另行验证，见 [交付记录](GITHUB-DELIVERY.md)。个人投入约4小时（估算，未连续计时）；实际参与、AI辅助范围及修改验证见 [协作记录](04-ai-usage.md)。
 
 ## 阶段验证与已知限制
 
