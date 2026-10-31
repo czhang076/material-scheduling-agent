@@ -1,0 +1,696 @@
+{
+  "current": {
+    "request_id": "REQ-WEB-05c93b2b899a48b8a3a0ecdd306ec30c",
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "REQ-WEB-05c93b2b899a48b8a3a0ecdd306ec30c",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T20:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          }
+        }
+      ]
+    },
+    "items": [
+      {
+        "item_id": "I01",
+        "material_id": "M01",
+        "channel": "douyin",
+        "time_requirement": {
+          "requested_start": "2030-06-01T20:00:00+08:00",
+          "duration_minutes": 30,
+          "mode": "hard",
+          "alternative_window": {
+            "start": "2030-06-01T18:00:00+08:00",
+            "end": "2030-06-01T21:00:00+08:00"
+          }
+        },
+        "draft": {
+          "draft_id": "D-9d701f5dc4254e03865aa73aa400bec8",
+          "request_id": "REQ-WEB-05c93b2b899a48b8a3a0ecdd306ec30c",
+          "item_id": "I01",
+          "version": 1,
+          "draft_state": "READY",
+          "requested_start": "2030-06-01T20:00:00+08:00",
+          "candidate": {
+            "offer_id": "O20",
+            "offer_revision": 1,
+            "channel": "douyin",
+            "start": "2030-06-01T20:00:00+08:00",
+            "end": "2030-06-01T20:30:00+08:00"
+          },
+          "pending_confirmations": [],
+          "required_confirmations": [],
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "confirmation": null,
+          "stale_reason": null,
+          "published": false,
+          "material_id": "M01",
+          "channel": "douyin",
+          "findings": [],
+          "last_validated_at": "2026-10-31T02:19:30.485+00:00"
+        },
+        "review": {
+          "review_status": "PASS",
+          "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+          "findings": [],
+          "missing_fields": [],
+          "review_coverage": [
+            "metadata",
+            "copy_text"
+          ]
+        }
+      }
+    ],
+    "read_at": "2026-10-31T02:21:35.868+00:00",
+    "projection": "readonly_persisted_facts",
+    "published": false
+  },
+  "drafts": [
+    {
+      "draft_id": "D-9d701f5dc4254e03865aa73aa400bec8",
+      "request_id": "REQ-WEB-05c93b2b899a48b8a3a0ecdd306ec30c",
+      "item_id": "I01",
+      "version": 1,
+      "draft_state": "READY",
+      "requested_start": "2030-06-01T20:00:00+08:00",
+      "candidate": {
+        "offer_id": "O20",
+        "offer_revision": 1,
+        "channel": "douyin",
+        "start": "2030-06-01T20:00:00+08:00",
+        "end": "2030-06-01T20:30:00+08:00"
+      },
+      "pending_confirmations": [],
+      "required_confirmations": [],
+      "review_status": "PASS",
+      "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+      "confirmation": null,
+      "stale_reason": null,
+      "published": false,
+      "material_id": "M01",
+      "channel": "douyin",
+      "findings": [],
+      "last_validated_at": "2026-10-31T02:19:30.485+00:00"
+    },
+    {
+      "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+      "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+      "item_id": "I01",
+      "version": 4,
+      "draft_state": "STALE",
+      "requested_start": "2030-06-01T18:00:00+08:00",
+      "candidate": {
+        "offer_id": "O20",
+        "offer_revision": 1,
+        "channel": "douyin",
+        "start": "2030-06-01T20:00:00+08:00",
+        "end": "2030-06-01T20:30:00+08:00"
+      },
+      "pending_confirmations": [],
+      "required_confirmations": [
+        "TIME_CHANGE",
+        "RISK:R-MEDICAL-001"
+      ],
+      "review_status": "NEEDS_REVIEW",
+      "review_snapshot_id": "248a10b003f4a59ad519a36a612a7da101c53d1129622a05c2129b8c0413fe24",
+      "confirmation": null,
+      "stale_reason": "STALE_REVIEW",
+      "published": false,
+      "material_id": "M04",
+      "channel": "douyin",
+      "findings": [
+        {
+          "rule_id": "R-MEDICAL-001",
+          "severity": "NEEDS_REVIEW",
+          "message": "需人工核对并明确接受对应风险",
+          "source_id": "SYN-M04",
+          "material_revision": 2,
+          "content_hash": "b2e19e9866b7e288cbb5fb25776bd2f7b55b27916ae3e208321d3ffad026bcb5",
+          "field": "tags",
+          "value": [
+            "medical"
+          ],
+          "quote": null,
+          "start": null,
+          "end": null
+        }
+      ],
+      "last_validated_at": "2026-10-31T02:18:37.783+00:00"
+    },
+    {
+      "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+      "request_id": "REQ-WEB-f2337c5215ae48f287833b285a82b52e",
+      "item_id": "I01",
+      "version": 2,
+      "draft_state": "READY",
+      "requested_start": "2030-06-01T18:00:00+08:00",
+      "candidate": {
+        "offer_id": "O19",
+        "offer_revision": 1,
+        "channel": "douyin",
+        "start": "2030-06-01T19:00:00+08:00",
+        "end": "2030-06-01T19:30:00+08:00"
+      },
+      "pending_confirmations": [],
+      "required_confirmations": [
+        "TIME_CHANGE"
+      ],
+      "review_status": "PASS",
+      "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+      "confirmation": {
+        "confirmation_id": "CONF-WEB-2a4aa82deb074378ac973d89cfd8de1c",
+        "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+        "expected_version": 1,
+        "accepted_item_ids": [
+          "TIME_CHANGE"
+        ],
+        "actor": "local-user",
+        "note": null
+      },
+      "stale_reason": null,
+      "published": false,
+      "material_id": "M01",
+      "channel": "douyin",
+      "findings": [],
+      "last_validated_at": "2026-10-31T02:12:27.700+00:00"
+    }
+  ],
+  "counts": {
+    "requests": 3,
+    "drafts": 3,
+    "reservations": 2,
+    "confirmations": 1,
+    "operation_receipts": 5,
+    "audit_events": 11
+  },
+  "audit": [
+    {
+      "event_id": "AUD-721660eeb12d409e9d747ec88d9badaa",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "f9a19da67f706925e0ef1a75898dfc42e2d436e703a9fc738b007d7dd3fcb10f",
+        "generation": 1,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-31T02:10:50.043+00:00"
+    },
+    {
+      "event_id": "AUD-b45f3ebc270e4954ab9d27f0e6338752",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-WEB-f2337c5215ae48f287833b285a82b52e",
+      "item_id": "I01",
+      "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+      "version": 1,
+      "run_id": "RUN-f583d5ac33fc4c8da01a6b8834ba9625",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T19:30:00+08:00",
+              "offer_id": "O19",
+              "offer_revision": 1,
+              "start": "2030-06-01T19:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-WEB-f2337c5215ae48f287833b285a82b52e",
+          "state": "PENDING_CONFIRMATION",
+          "version": 1
+        },
+        "operation_id": "OP-55d0aa33b0ec458db9b3de703c9814aa"
+      },
+      "created_at": "2026-10-31T02:11:58.255+00:00"
+    },
+    {
+      "event_id": "AUD-276fae10522e40b4a679dd91368b76b5",
+      "event_type": "CONFIRMATION_CONFIRMED",
+      "request_id": "REQ-WEB-f2337c5215ae48f287833b285a82b52e",
+      "item_id": "I01",
+      "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+      "version": 2,
+      "run_id": null,
+      "payload_json": {
+        "confirmation": {
+          "accepted_item_ids": [
+            "TIME_CHANGE"
+          ],
+          "actor": "local-user",
+          "confirmation_id": "CONF-WEB-2a4aa82deb074378ac973d89cfd8de1c",
+          "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+          "expected_version": 1,
+          "note": null
+        }
+      },
+      "created_at": "2026-10-31T02:12:27.700+00:00"
+    },
+    {
+      "event_id": "AUD-4616e2195ffa436db1a2c61bdecb5376",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "bdb494c81dcd5faf82c207b454ae99c44adc765d8f4f7429109d92ff6f7b8b6e",
+        "generation": 2,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-31T02:14:53.315+00:00"
+    },
+    {
+      "event_id": "AUD-e51bd0f59d8b408a9ebd8592696dc2f6",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+      "item_id": "I01",
+      "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+      "version": 1,
+      "run_id": "RUN-fffa7dcfeb9d422a9d14a1e5f6e8d501",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T20:30:00+08:00",
+              "offer_id": "O20",
+              "offer_revision": 1,
+              "start": "2030-06-01T20:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M04",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [
+              "TIME_CHANGE",
+              "RISK:R-MEDICAL-001"
+            ],
+            "review": {
+              "channel": "douyin",
+              "findings": [
+                {
+                  "content_hash": "0f70e6a6b7542b0194446d491205c88bfd9fe008753a5acf8e17cf59f47c6fcf",
+                  "end": null,
+                  "field": "tags",
+                  "material_revision": 1,
+                  "message": "需人工核对并明确接受对应风险",
+                  "quote": null,
+                  "rule_id": "R-MEDICAL-001",
+                  "severity": "NEEDS_REVIEW",
+                  "source_id": "SYN-M04",
+                  "start": null,
+                  "value": [
+                    "medical"
+                  ]
+                }
+              ],
+              "material_hash": "0f70e6a6b7542b0194446d491205c88bfd9fe008753a5acf8e17cf59f47c6fcf",
+              "material_id": "M04",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "NEEDS_REVIEW"
+            }
+          },
+          "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+          "state": "PENDING_CONFIRMATION",
+          "version": 1
+        },
+        "operation_id": "OP-c749f2f7f10846a3ab99a2cd61b286b2"
+      },
+      "created_at": "2026-10-31T02:15:41.093+00:00"
+    },
+    {
+      "event_id": "AUD-48b78243b2d04fdd83dc399ec175807d",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "f6d75d979fcc06708ce837721dfbb827e4485e97e10e9b500c6e6c6fdacb0713",
+        "generation": 3,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-31T02:16:33.560+00:00"
+    },
+    {
+      "event_id": "AUD-a44138ccc5f7419cbaa33d956799cb72",
+      "event_type": "DRAFT_INVALIDATED",
+      "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+      "item_id": "I01",
+      "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+      "version": 2,
+      "run_id": null,
+      "payload_json": {
+        "previous": {
+          "confirmation": null,
+          "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T20:30:00+08:00",
+              "offer_id": "O20",
+              "offer_revision": 1,
+              "start": "2030-06-01T20:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M04",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [
+              "TIME_CHANGE",
+              "RISK:R-MEDICAL-001"
+            ],
+            "review": {
+              "channel": "douyin",
+              "findings": [
+                {
+                  "content_hash": "0f70e6a6b7542b0194446d491205c88bfd9fe008753a5acf8e17cf59f47c6fcf",
+                  "end": null,
+                  "field": "tags",
+                  "material_revision": 1,
+                  "message": "需人工核对并明确接受对应风险",
+                  "quote": null,
+                  "rule_id": "R-MEDICAL-001",
+                  "severity": "NEEDS_REVIEW",
+                  "source_id": "SYN-M04",
+                  "start": null,
+                  "value": [
+                    "medical"
+                  ]
+                }
+              ],
+              "material_hash": "0f70e6a6b7542b0194446d491205c88bfd9fe008753a5acf8e17cf59f47c6fcf",
+              "material_id": "M04",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "NEEDS_REVIEW"
+            }
+          },
+          "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+          "state": "PENDING_CONFIRMATION",
+          "version": 1
+        },
+        "reason": "STALE_REVIEW"
+      },
+      "created_at": "2026-10-31T02:16:33.561+00:00"
+    },
+    {
+      "event_id": "AUD-9188786132f44af6a44a7bee44a50e0b",
+      "event_type": "DRAFT_UPDATED",
+      "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+      "item_id": "I01",
+      "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+      "version": 3,
+      "run_id": "RUN-adb26c2ad2d34dc49f9d96f5452ac811",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T20:30:00+08:00",
+              "offer_id": "O20",
+              "offer_revision": 1,
+              "start": "2030-06-01T20:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M04",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [
+              "TIME_CHANGE",
+              "RISK:R-MEDICAL-001"
+            ],
+            "review": {
+              "channel": "douyin",
+              "findings": [
+                {
+                  "content_hash": "b2e19e9866b7e288cbb5fb25776bd2f7b55b27916ae3e208321d3ffad026bcb5",
+                  "end": null,
+                  "field": "tags",
+                  "material_revision": 2,
+                  "message": "需人工核对并明确接受对应风险",
+                  "quote": null,
+                  "rule_id": "R-MEDICAL-001",
+                  "severity": "NEEDS_REVIEW",
+                  "source_id": "SYN-M04",
+                  "start": null,
+                  "value": [
+                    "medical"
+                  ]
+                }
+              ],
+              "material_hash": "b2e19e9866b7e288cbb5fb25776bd2f7b55b27916ae3e208321d3ffad026bcb5",
+              "material_id": "M04",
+              "material_revision": 2,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "NEEDS_REVIEW"
+            }
+          },
+          "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+          "state": "PENDING_CONFIRMATION",
+          "version": 3
+        },
+        "operation_id": "OP-1bdf402f799646faa0623390979277be"
+      },
+      "created_at": "2026-10-31T02:18:26.359+00:00"
+    },
+    {
+      "event_id": "AUD-f401fc288763400b9e378c3e2f3ac8ed",
+      "event_type": "DATA_IMPORTED",
+      "request_id": null,
+      "item_id": null,
+      "draft_id": null,
+      "version": null,
+      "run_id": null,
+      "payload_json": {
+        "dataset_sha256": "d5496c5e1ba297b2891dbc01de169275c0935418b70d31f70e223dd44a94955d",
+        "generation": 4,
+        "source_conflicts": {}
+      },
+      "created_at": "2026-10-31T02:18:37.782+00:00"
+    },
+    {
+      "event_id": "AUD-e3d3f4a82a3d4f2b8770243ea566af11",
+      "event_type": "DRAFT_INVALIDATED",
+      "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+      "item_id": "I01",
+      "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+      "version": 4,
+      "run_id": null,
+      "payload_json": {
+        "previous": {
+          "confirmation": null,
+          "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T20:30:00+08:00",
+              "offer_id": "O20",
+              "offer_revision": 1,
+              "start": "2030-06-01T20:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M04",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T18:00:00+08:00"
+              }
+            },
+            "required_confirmations": [
+              "TIME_CHANGE",
+              "RISK:R-MEDICAL-001"
+            ],
+            "review": {
+              "channel": "douyin",
+              "findings": [
+                {
+                  "content_hash": "b2e19e9866b7e288cbb5fb25776bd2f7b55b27916ae3e208321d3ffad026bcb5",
+                  "end": null,
+                  "field": "tags",
+                  "material_revision": 2,
+                  "message": "需人工核对并明确接受对应风险",
+                  "quote": null,
+                  "rule_id": "R-MEDICAL-001",
+                  "severity": "NEEDS_REVIEW",
+                  "source_id": "SYN-M04",
+                  "start": null,
+                  "value": [
+                    "medical"
+                  ]
+                }
+              ],
+              "material_hash": "b2e19e9866b7e288cbb5fb25776bd2f7b55b27916ae3e208321d3ffad026bcb5",
+              "material_id": "M04",
+              "material_revision": 2,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "NEEDS_REVIEW"
+            }
+          },
+          "request_id": "REQ-WEB-ebd075c3a5f04ef99b1dc7e457ac3e48",
+          "state": "PENDING_CONFIRMATION",
+          "version": 3
+        },
+        "reason": "STALE_REVIEW"
+      },
+      "created_at": "2026-10-31T02:18:37.783+00:00"
+    },
+    {
+      "event_id": "AUD-19bffc338767435f8841ae1abd38f59e",
+      "event_type": "DRAFT_CREATED",
+      "request_id": "REQ-WEB-05c93b2b899a48b8a3a0ecdd306ec30c",
+      "item_id": "I01",
+      "draft_id": "D-9d701f5dc4254e03865aa73aa400bec8",
+      "version": 1,
+      "run_id": "RUN-f01dbffc3e26420bb2165cd49f85152f",
+      "payload_json": {
+        "draft": {
+          "confirmation": null,
+          "draft_id": "D-9d701f5dc4254e03865aa73aa400bec8",
+          "proposal": {
+            "candidate": {
+              "channel": "douyin",
+              "end": "2030-06-01T20:30:00+08:00",
+              "offer_id": "O20",
+              "offer_revision": 1,
+              "start": "2030-06-01T20:00:00+08:00"
+            },
+            "item": {
+              "channel": "douyin",
+              "item_id": "I01",
+              "material_id": "M01",
+              "time_requirement": {
+                "alternative_window": {
+                  "end": "2030-06-01T21:00:00+08:00",
+                  "start": "2030-06-01T18:00:00+08:00"
+                },
+                "duration_minutes": 30,
+                "mode": "hard",
+                "requested_start": "2030-06-01T20:00:00+08:00"
+              }
+            },
+            "required_confirmations": [],
+            "review": {
+              "channel": "douyin",
+              "findings": [],
+              "material_hash": "0df1c2d542885eba4e2299b0dac382b3399b630fab76433dfe136562442bb862",
+              "material_id": "M01",
+              "material_revision": 1,
+              "missing_fields": [],
+              "rule_set_hash": "fae680529a3440ea2817ae654028b3be18b3d682d06acfee5cdbea8152fe1f1d",
+              "rule_set_id": "SYN-BRAND-001",
+              "rule_set_version": "1.0",
+              "status": "PASS"
+            }
+          },
+          "request_id": "REQ-WEB-05c93b2b899a48b8a3a0ecdd306ec30c",
+          "state": "READY",
+          "version": 1
+        },
+        "operation_id": "OP-7f5189571a444635a3c6419cab413988"
+      },
+      "created_at": "2026-10-31T02:19:30.485+00:00"
+    }
+  ]
+}

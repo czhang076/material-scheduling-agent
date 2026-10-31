@@ -47,10 +47,11 @@ def new_directory(path: Path):
         raise DomainError("ARTIFACT_UNAVAILABLE", "Cannot create the output directory") from exc
 
 
-def run_request(store, request, model, out: Path, *, limits=None, invocation=None):
+def run_request(store, request, model, out: Path, *, limits=None, invocation=None,
+                run_id=None, on_event=None, cancelled=lambda: False):
     new_directory(out)
     source = store.source_identity()
-    session = ToolSession(store, request)
+    session = ToolSession(store, request, run_id=run_id)
     manifest = {"schema_version": "1.0", "run_id": session.run_id, "request_id": request.request_id,
                 "request_sha256": request.payload_hash, "source_identity": source,
                 "code": package_identity(), "invocation": invocation,
@@ -58,9 +59,9 @@ def run_request(store, request, model, out: Path, *, limits=None, invocation=Non
                 "started_at": datetime.now(timezone.utc).isoformat(timespec="milliseconds"),
                 "status": "RUNNING", "real_decision_verified": None if model.mode == "real" else False}
     write_json(out / "manifest.json", manifest)
-    trace = FileTrace(out / "trace.jsonl", session.run_id)
+    trace = FileTrace(out / "trace.jsonl", session.run_id, on_event=on_event)
     try:
-        result = AgentRunner(session, model, trace=trace, limits=limits, source_identity=source).run()
+        result = AgentRunner(session, model, trace=trace, limits=limits, source_identity=source, cancelled=cancelled).run()
     except BaseException:
         try:
             trace.close()

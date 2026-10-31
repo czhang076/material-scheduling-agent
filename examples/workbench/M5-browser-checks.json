@@ -1,0 +1,204 @@
+{
+  "stage": "M5",
+  "date": "2026-10-31",
+  "method": "Actual Chrome DevTools interaction with the loopback server; separate from unittest. A lost POST acknowledgement is simulated by restoring the actual submission ID before reload.",
+  "scope": "Synthetic metadata and copy only; no publishing. Mock and real modes are labeled per record.",
+  "checks": [
+    {
+      "check": "confirmation-before-consent",
+      "run_id": "RUN-f583d5ac33fc4c8da01a6b8834ba9625",
+      "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+      "version": 1,
+      "checkboxes": [
+        {
+          "id": "TIME_CHANGE",
+          "checked": false
+        }
+      ],
+      "submit_disabled": true,
+      "original": "2030-06-01T18:00:00+08:00",
+      "candidate": "2030-06-01T19:00:00+08:00"
+    },
+    {
+      "check": "double-submit-and-confirm",
+      "runs": 1,
+      "drafts": 1,
+      "confirmations": {
+        "confirmation_id": "CONF-WEB-2a4aa82deb074378ac973d89cfd8de1c",
+        "draft_id": "D-284f0b284716434090d2b98eb9389b8a",
+        "expected_version": 1,
+        "accepted_item_ids": [
+          "TIME_CHANGE"
+        ],
+        "actor": "local-user",
+        "note": null
+      },
+      "mode": "离线演示 · Mock",
+      "current": "READY",
+      "historical": "NEEDS_CONFIRMATION"
+    },
+    {
+      "check": "reconnect-mode-isolation",
+      "run_id": "RUN-f583d5ac33fc4c8da01a6b8834ba9625",
+      "runs": 1,
+      "drafts": 1,
+      "network_restored": true,
+      "current_mode_badge": "离线演示 · Mock",
+      "next_form_mode": "real"
+    },
+    {
+      "check": "mobile-and-restart-refresh",
+      "width": 390,
+      "scrollWidth": 390,
+      "overflow": false,
+      "table_scrollable": true,
+      "restored_run": "RUN-f583d5ac33fc4c8da01a6b8834ba9625",
+      "current_draft": "READY",
+      "runs": 1
+    },
+    {
+      "check": "literal-html-codepoint-evidence",
+      "title": "<img src=x onerror=alert(1)>",
+      "copy": "😀100%保证<script>window.injected=true</script>",
+      "marks": [
+        "100%保证"
+      ],
+      "injected_nodes": 0,
+      "script_executed": false
+    },
+    {
+      "check": "stale-version-dialog-retained",
+      "open": true,
+      "version": 1,
+      "candidate": "2030-06-01T20:00:00+08:00",
+      "disabled": true,
+      "error": "操作未完成，请核对实际状态后再试。 请关闭面板，重新核验后查看最新版本。",
+      "current": "PENDING_CONFIRMATION"
+    },
+    {
+      "check": "all-risk-consents-required",
+      "run_id": "RUN-adb26c2ad2d34dc49f9d96f5452ac811",
+      "draft_id": "D-1ae261c7e2844e109996ab93efb57618",
+      "version": 3,
+      "pending": [
+        "TIME_CHANGE",
+        "RISK:R-MEDICAL-001"
+      ],
+      "initially_unchecked": true,
+      "partial_disabled": true,
+      "all_enabled": true,
+      "evidence_rows": 1
+    },
+    {
+      "check": "stale-confirmation-after-fix",
+      "dialog_still_open": true,
+      "seen_version": 3,
+      "disabled": true,
+      "error": "审核资料已变化，旧版本不能继续确认，请重新规划。 请关闭面板，重新核验后查看最新版本。",
+      "current": "STALE"
+    },
+    {
+      "check": "real-web-run",
+      "run_id": "RUN-f01dbffc3e26420bb2165cd49f85152f",
+      "mode": "real",
+      "status": "FINISHED",
+      "task_status": "READY_DRAFTS",
+      "model": {
+        "mode": "real",
+        "name": "deepseek-flash",
+        "version": "chat-completions-v1",
+        "transport": {
+          "protocol": "chat_completions",
+          "endpoint": "https://api.deepseek.com/chat/completions",
+          "configured_model": "deepseek-flash",
+          "provider": "deepseek",
+          "max_output_tokens": 1024,
+          "token_parameter": "max_tokens",
+          "strict_tools": false,
+          "thinking": "disabled",
+          "parallel_parameter": "omitted",
+          "max_request_bytes": 2097152,
+          "max_response_bytes": 1048576,
+          "evidence_kind": "network_unverified"
+        }
+      },
+      "events": 27,
+      "tools": [
+        {
+          "tool": "read_material",
+          "ok": true
+        },
+        {
+          "tool": "check_rules",
+          "ok": true
+        },
+        {
+          "tool": "query_slots",
+          "ok": true
+        },
+        {
+          "tool": "save_draft",
+          "ok": true
+        },
+        {
+          "tool": "finish",
+          "ok": true
+        }
+      ],
+      "current": "READY",
+      "badge": "真实接口 · deepseek-flash"
+    },
+    {
+      "check": "offline-query-only",
+      "banner_visible": true,
+      "banner": "连接中断，结果待查询\n\n任务可能仍在后台运行。恢复连接后查询实际状态，不会自动重新提交。\n\n重新连接",
+      "run_id": "RUN-f01dbffc3e26420bb2165cd49f85152f"
+    },
+    {
+      "check": "reconnect-does-not-resubmit",
+      "run_unchanged": true,
+      "runs_before": 4,
+      "runs_after": 4,
+      "current": "READY",
+      "mode": "真实接口 · deepseek-flash"
+    },
+    {
+      "check": "lost-ack-refresh-recovers-submission",
+      "run_id": "RUN-f01dbffc3e26420bb2165cd49f85152f",
+      "runs": 4,
+      "current": "READY",
+      "pending_marker_cleared": true,
+      "form_mode": "mock"
+    },
+    {
+      "check": "clean-reload",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "viewport": {
+        "width": 1440,
+        "height": 1080
+      },
+      "app_title": "影序 · 素材审核与排期",
+      "run_id": "RUN-f01dbffc3e26420bb2165cd49f85152f",
+      "runs": 4,
+      "mode_badge": "真实接口 · deepseek-flash",
+      "form_mode": "mock",
+      "overflow": false
+    }
+  ],
+  "console": {
+    "after_clean_reload": "no error or warning messages",
+    "expected_during_fault_checks": [
+      "HTTP 409 conflict",
+      "ERR_INTERNET_DISCONNECTED"
+    ]
+  },
+  "screenshots": [
+    "M5-desktop.png",
+    "M5-mobile.png"
+  ],
+  "limitations": [
+    "Old-version-before-fix record is retained as an observed defect; the after-fix record shows current STALE projection.",
+    "Mobile browser checks use viewport emulation, not a physical phone.",
+    "Activity recovery is verified by journal-reopen unittest, not an OS power failure."
+  ]
+}

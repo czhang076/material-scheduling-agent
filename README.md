@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材的元数据与文案，形成可确认、可追溯的排期草稿。**仅草稿，不接真实发布。**
 
-> M4 已接入 DeepSeek 并完成 7 组真实运行，覆盖六项必验及占用变化后重规划。保留独立的 Mock/协议测试入口，测试不自动调用付费模型。当前仍仅保存草稿。
+> M5 已实现本地网页工作台，支持审核、排期、逐项确认与实际执行记录。默认 Mock；M4 的 7 次 DeepSeek 真实路径保留为独立历史证据。测试不自动调用付费模型。仅保存草稿。
 
 ## 安装与运行
 
@@ -25,7 +25,19 @@ py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-当前 184 个 unittest 方法，开发环境与独立 wheel 环境分别通过。14 组 Mock 场景覆盖六项必验及更多边界；另有 7 次真实 DeepSeek 运行，独立记录而不混入测试方法数。详见 [M4 验收](docs/M4-ACCEPTANCE.md)、[测试摘要](examples/evaluation/M4-summary.json)、[真实路径](examples/evaluation/M4-real-cases.json)和 [Mock 场景](examples/evaluation/M4-mock-cases.json)。
+当前 214 个 unittest 方法，开发环境与独立 wheel 环境分别通过。M5 增加 30 个网页/HTTP/恢复测试和 6 组 HTTP + Mock 业务记录；M4 的 14 组 Mock 与 7 次真实 DeepSeek 运行按 d48e50f 解释。详见 [M5 验收](docs/M5-ACCEPTANCE.md)、[当前测试摘要](examples/evaluation/M5-summary.json)、[HTTP 路径](examples/workbench/http/manifest.json)及 [M4 真实路径](examples/evaluation/M4-real-cases.json)。
+
+## 本地网页
+
+复用上面初始化的账本：
+
+```powershell
+.\.venv\Scripts\python.exe -m material_scheduler serve --db var/scheduler.sqlite3 --state-dir var/workbench --port 8765
+```
+
+浏览器打开 [本地工作台](http://127.0.0.1:8765)，Ctrl+C 停止。界面默认离线 Mock；启动时追加 `--env-file .env` 后，可在页面明确选择真实模型。浏览页面不会自动调用模型。运行、同步、逐项确认、Trace 下载均读取或操作实际账本；关闭页面不取消后台任务。业务要求改变时新建任务，同一要求可复用任务重试。
+
+界面和恢复边界见 [M5 验收](docs/M5-ACCEPTANCE.md)。无需前端安装或构建；静态资源已经包含在 Python 包中。只用于本地单用户工作，不开放公网。
 
 ## 真实模式
 
@@ -67,7 +79,7 @@ src/material_scheduler/
   application/   # 严格工具目录、实际观察权限、结果与序列化
   agent/         # 单动作协议、有界循环、提示、持久 Trace
   adapters/      # 合成资料、SQLite、可信故障、离线观察策略
-  interfaces/    # CLI、运行文件和离线评估；web/ 仍占位
+  interfaces/    # CLI、本地 HTTP、静态网页、实际运行文件与评估
 ```
 
 模型接口每轮只收到请求、预算和真实历史；下一动作从实际观察产生。真实适配器传回原生工具调用，再按原始调用 ID 回传实际观察。执行器只编排、计数和限时，业务保护由确定性工具与 SQLite 事务约束。Mock 的分支只验证流程，真实动态效果由独立网络记录验证。
@@ -97,6 +109,7 @@ src/material_scheduler/
 |模块 / 存储 / 执行循环|[architecture](docs/design/architecture.md) / [persistence](docs/design/persistence.md) / [agent-loop](docs/design/agent-loop.md)|
 |工具 Schema / 提示|[tool-schemas](docs/design/tool-schemas.md) / [model-prompt](docs/design/model-prompt.md)|
 |公开示例参考及历史基线|[REFERENCE-REVIEW](docs/REFERENCE-REVIEW.md) / [P0](docs/P0-ACCEPTANCE.md) / [M1](docs/M1-ACCEPTANCE.md) / [M2](docs/M2-ACCEPTANCE.md)|
-|后续本地网页 / 媒体扩展|[workbench](docs/design/workbench.md) / [media-extension](docs/design/media-extension.md)|
+|本地网页与实际交互验收|[M5-ACCEPTANCE](docs/M5-ACCEPTANCE.md) / [workbench](docs/design/workbench.md)|
+|图片与视频扩展设计|[media-extension](docs/design/media-extension.md)|
 
-资料全部合成，运行数据库在忽略的 var/ 内；实际选取的 JSON/Trace 在 examples/，不提交密钥或数据库。真实模式通过 --env-file 显式配置；未配置则明确失败，不降级为 Mock。尚无网页、视觉审核、多人认证、真实发布平台或线上部署。GitHub 远程及最终考核 SHA 尚未交付；当前阶段提交可用 `git log -1` 查看。
+资料全部合成，运行数据库在忽略的 var/ 内；实际选取的 JSON/Trace 在 examples/，不提交密钥或数据库。真实模式通过 --env-file 显式配置；未配置则明确失败，不降级为 Mock。尚无视觉审核、多人认证、真实发布平台或线上部署。GitHub 远程及最终考核 SHA 尚未交付；当前阶段提交可用 `git log -1` 查看。

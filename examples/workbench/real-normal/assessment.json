@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-10-31T02:21:35.916011+00:00",
+  "run_id": "RUN-f01dbffc3e26420bb2165cd49f85152f",
+  "code": {
+    "package_version": "0.5.0",
+    "package_source_sha256": "554de833d2cdcad10c062eabb0f705ebcac235e3e9377a56d43a0d077e5dd3dc"
+  },
+  "checks": {
+    "local_workbench_entrypoint": true,
+    "ready_result": true,
+    "real_deepseek": true,
+    "native_service_receipts": true,
+    "actual_observation_loop": true,
+    "persisted_current_ready": true,
+    "hard_time_unchanged": true,
+    "trace_complete": true,
+    "not_published": true
+  },
+  "all_passed": true,
+  "provider_calls": 5,
+  "scope": "One real web normal-path integration; not a new seven-case model benchmark",
+  "runtime_facts_preserved": true,
+  "evidence_sha256": {
+    "input.json": "5d51100fc644565c5200a498b2992fa4903db57644f99695a74f9963199debb9",
+    "ledger.json": "710ccda8f8f8db1d6e3920c6f9bee7531da148863156405f71d8746690c210cb",
+    "manifest.json": "897f88fd005ebedb00afdafd098ae45e861f1e772954fc15bb7c11c07a439535",
+    "result.json": "8b0a6e97b18b2af47784b7f26d82d14b88712debda1a8b7d84524d134cdf2354",
+    "trace.jsonl": "660810b4ca6196e6f409d2a234828130e01e43886130865feb7b13de810891cf"
+  }
+}

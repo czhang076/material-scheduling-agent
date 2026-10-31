@@ -34,8 +34,9 @@ class MemoryTrace:
 
 
 class FileTrace(MemoryTrace):
-    def __init__(self, path: Path, run_id: str):
+    def __init__(self, path: Path, run_id: str, *, on_event=None):
         super().__init__(run_id)
+        self._on_event = on_event
         try:
             self._file = Path(path).open("x", encoding="utf-8", newline="\n")
         except OSError as exc:
@@ -46,6 +47,8 @@ class FileTrace(MemoryTrace):
         self._file.flush()
         os.fsync(self._file.fileno())
         super()._write(event)
+        if self._on_event is not None:
+            self._on_event(deepcopy(event))
 
     def close(self):
         try:

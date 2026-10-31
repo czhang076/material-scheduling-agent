@@ -1,0 +1,8 @@
+{
+  "requests": 1,
+  "drafts": 1,
+  "reservations": 1,
+  "confirmations": 1,
+  "operation_receipts": 3,
+  "audit_events": 5
+}

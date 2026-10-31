@@ -3,4 +3,4 @@
 This package saves drafts only. Provider configuration is explicit and local.
 """
 
-__version__ = "0.4.0"
+__version__ = "0.5.0"

@@ -49,6 +49,12 @@ def _parser():
     evaluate = commands.add_parser("evaluate", help="运行合成离线验收场景，明确标注 Mock")
     evaluate.add_argument("--data-dir", type=Path, default=Path("data"))
     evaluate.add_argument("--out", type=Path, required=True)
+    serve = commands.add_parser("serve", help="启动本地单用户网页工作台")
+    serve.add_argument("--db", type=Path, required=True)
+    serve.add_argument("--state-dir", type=Path, default=Path("var/workbench"))
+    serve.add_argument("--host", choices=["127.0.0.1", "localhost"], default="127.0.0.1")
+    serve.add_argument("--port", type=int, default=8765)
+    serve.add_argument("--env-file", type=Path)
     return parser
 
 
@@ -80,6 +86,27 @@ def _limits(arguments, count):
 
 
 def dispatch(arguments, invocation):
+    if arguments.command == "serve":
+        from material_scheduler.interfaces.http import WorkbenchServer, create_workbench
+        from material_scheduler.adapters.model_config import load_model_config
+        from material_scheduler.domain.validation import integer
+        integer(arguments.port, "port", 0, 65535)
+        config = load_model_config(arguments.env_file) if arguments.env_file else None
+        app = create_workbench(open_store(arguments.db), arguments.state_dir, model_config=config)
+        try:
+            server = WorkbenchServer((arguments.host, arguments.port), app)
+        except BaseException:
+            app.close()
+            raise
+        print(json.dumps({"local_url": server.local_url, "real_model_available": config is not None, "draft_only": True}), flush=True)
+        try:
+            server.serve_forever(poll_interval=0.2)
+        except KeyboardInterrupt:
+            pass
+        finally:
+            server.server_close()
+            app.close()
+        return {"server_status": "STOPPED", "published": False}, 0
     if arguments.command == "init":
         dataset = load_fixture_set(arguments.data_dir)
         store = SQLiteStore(arguments.db)

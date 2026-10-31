@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "material-scheduling-agent"
-version = "0.4.0"
+version = "0.5.0"
 description = "Bounded scheduling Agent with transactional tools and explicit real/mock providers"
 readme = "README.md"
 requires-python = ">=3.13,<3.14"
@@ -16,3 +16,6 @@ include = ["material_scheduler*"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
+
+[tool.setuptools.package-data]
+"material_scheduler.interfaces.web" = ["*.html", "*.css", "*.js", "*.svg"]

@@ -675,7 +675,7 @@ class SQLiteStore:
             return self._reconcile(operation_id)
         return result
 
-    def snapshot(self, request_id: str) -> dict[str, Any]:
+    def snapshot(self, request_id: str, *, audit_revalidation: bool = False) -> dict[str, Any]:
         try:
             with self._transaction() as connection:
                 self._refresh(connection)
@@ -702,6 +702,9 @@ class SQLiteStore:
                             raise
                         entry["review_error"] = exc.to_dict()
                     items.append(entry)
+                if audit_revalidation:
+                    self._audit(connection, "REQUEST_REVALIDATED", request_id=request_id,
+                                data={"item_ids": [item.item_id for item in request.items], "entrypoint": "local_workbench"})
                 return {"request_id": request_id, "items": items, "observed_at": _now(), "published": False}
         except (sqlite3.Error, _CommitUncertain) as exc:
             raise DomainError("STORE_UNAVAILABLE", "Cannot inspect current ledger") from exc
@@ -737,3 +740,77 @@ class SQLiteStore:
                         "rule_set_id": dataset.rule_set.rule_set_id, "rule_set_version": dataset.rule_set.version}
         except (sqlite3.Error, _CommitUncertain) as exc:
             raise DomainError("STORE_UNAVAILABLE", "Cannot inspect source identity") from exc
+
+    @contextmanager
+    def _readonly(self):
+        """A coherent read snapshot, with SQLite prohibiting accidental writes."""
+        connection = self._connect()
+        try:
+            connection.execute("PRAGMA query_only=ON")
+            connection.execute("BEGIN")
+            yield connection
+        except sqlite3.Error as exc:
+            raise DomainError("STORE_UNAVAILABLE", "Cannot read current ledger") from exc
+        finally:
+            if connection.in_transaction:
+                connection.rollback()
+            connection.close()
+
+    def _public_draft(self, connection, row):
+        draft = self._load_draft(row)
+        last = connection.execute("SELECT created_at FROM audit_events WHERE draft_id=? ORDER BY rowid DESC LIMIT 1", (draft.draft_id,)).fetchone()
+        return {**draft_view(draft, stale_reason=row["stale_reason"]),
+                "material_id": draft.proposal.item.material_id, "channel": draft.proposal.item.channel,
+                "findings": [finding.to_dict() for finding in draft.proposal.review.findings],
+                "last_validated_at": last["created_at"] if last else None}
+
+    def read_request(self, request_id: str) -> dict[str, Any]:
+        """Readonly projection; unlike snapshot(), never invalidates a draft."""
+        with self._readonly() as connection:
+            request = self._request(connection, request_id)
+            items = []
+            for item in request.items:
+                row = self._draft_row(connection, request_id, item.item_id)
+                entry = {"item_id": item.item_id, "material_id": item.material_id, "channel": item.channel,
+                         "time_requirement": item.time_requirement.to_dict(),
+                         "draft": self._public_draft(connection, row) if row else None}
+                try:
+                    review = self._review(connection, item)
+                    entry["review"] = {"review_status": review.status.value, "review_snapshot_id": review.snapshot_id,
+                                       "findings": [finding.to_dict() for finding in review.findings],
+                                       "missing_fields": list(review.missing_fields), "review_coverage": list(review.review_coverage)}
+                except DomainError as exc:
+                    if exc.code == "STORE_UNAVAILABLE":
+                        raise
+                    entry["review_error"] = exc.to_dict()
+                items.append(entry)
+            return {"request_id": request_id, "request": request.to_dict(), "items": items,
+                    "read_at": _now(), "projection": "readonly_persisted_facts", "published": False}
+
+    def read_draft(self, draft_id: str) -> dict[str, Any]:
+        with self._readonly() as connection:
+            row = connection.execute("SELECT * FROM drafts WHERE draft_id=?", (draft_id,)).fetchone()
+            if row is None:
+                raise DomainError("DRAFT_NOT_FOUND", "Draft does not exist")
+            return self._public_draft(connection, row)
+
+    def list_drafts(self) -> list[dict[str, Any]]:
+        with self._readonly() as connection:
+            return [self._public_draft(connection, row) for row in connection.execute("SELECT * FROM drafts ORDER BY rowid DESC LIMIT 200")]
+
+    def catalog_preview(self, channel="douyin") -> dict[str, Any]:
+        identifier(channel, "channel", 32)
+        with self._readonly() as connection:
+            dataset, generation, provenance, conflicts = self._catalog(connection)
+            rows = []
+            for material in dataset.materials:
+                review = evaluate_review(material, dataset.rule_set, channel)
+                rows.append({"material": material.to_dict(), "review_preview": {
+                    "review_status": "SOURCE_CONFLICT" if conflicts.get(material.material_id) else review.status.value,
+                    "findings": [finding.to_dict() for finding in review.findings], "missing_fields": list(review.missing_fields),
+                    "review_coverage": list(review.review_coverage)},
+                    "source_conflicts": conflicts.get(material.material_id, []),
+                    "field_sources": provenance.get(material.material_id, {})})
+            return {"materials": rows, "catalog_generation": generation,
+                    "rule_set_id": dataset.rule_set.rule_set_id, "rule_set_version": dataset.rule_set.version,
+                    "slot_offers": fixture_to_dict(dataset)["slot_offers"], "preview_only": True}
