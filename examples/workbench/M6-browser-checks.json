@@ -1,0 +1,63 @@
+{
+  "stage": "M6",
+  "package_version": "0.6.0",
+  "generated_at": "2026-10-31T02:54:45.761Z",
+  "mode": "mock",
+  "paid_model_calls": 0,
+  "method": "Actual Chrome DevTools against loopback HTTP. Simulated network rejection before first POST delivery; delayed an old GET response to reproduce the reported race.",
+  "checks": [
+    {
+      "check": "edited-input-not-sent-as-old-request",
+      "http_posts": 1,
+      "unresolved_id_preserved": true,
+      "form_time": "20:00",
+      "server_runs": 0,
+      "pending_visible": true,
+      "pending_summary": "REQ-WEB-5b903844f9d04a2eb0c869063d0d2454 · 离线 Mock · 2030-06-01 18:00 · UTC+08:00。当前编辑不会替换这笔原提交。",
+      "error": "原提交结果仍待查询，本次新要求未发送。请先查询原提交；只有点击“重试原提交”才会重试原要求与模式。"
+    },
+    {
+      "check": "explicit-original-retry-then-new-input",
+      "original": {
+        "request": "2030-06-01T18:00:00+08:00",
+        "actual": "2030-06-01T18:00:00+08:00",
+        "operation_cleared": true
+      },
+      "form_time": "20:00",
+      "new_request": "2030-06-01T20:00:00+08:00",
+      "new_draft": "2030-06-01T20:00:00+08:00",
+      "runs": 2
+    },
+    {
+      "check": "late-old-trace-discarded",
+      "older": "RUN-00b5109701644b7dac24d63e07123382",
+      "selected": "RUN-01bedb4f66cd4a318813415a1396528e",
+      "displayed": "RUN-01bedb4f66cd4a318813415a1396528e",
+      "event_run_ids": [
+        "RUN-01bedb4f66cd4a318813415a1396528e"
+      ],
+      "event_count": 22,
+      "duplicate_sequences": 0,
+      "all_events_match": true
+    },
+    {
+      "check": "new-task-invalidates-old-loading",
+      "job_is_empty": true,
+      "event_count": 0,
+      "badge": "尚未运行"
+    },
+    {
+      "check": "mobile-layout-after-fix",
+      "viewport": 390,
+      "document_width": 390,
+      "overflow": false,
+      "form_submit_available": true
+    }
+  ],
+  "screenshot": "M6-pending.png",
+  "limitations": [
+    "Mobile check uses viewport emulation.",
+    "Journal failure and recovery use actual HTTP + injected journal faults in the separate M6 evidence.",
+    "Mode-change regression uses the actual controller in the Node DOM shell, not a paid API call."
+  ]
+}

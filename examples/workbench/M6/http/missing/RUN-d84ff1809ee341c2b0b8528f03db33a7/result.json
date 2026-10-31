@@ -1,0 +1,80 @@
+{
+  "request_id": "REQ-WEB-missing",
+  "items": [
+    {
+      "item_id": "I01",
+      "material_id": "M99",
+      "channel": "douyin",
+      "time_requirement": {
+        "requested_start": "2030-06-01T18:00:00+08:00",
+        "duration_minutes": 30,
+        "mode": "hard",
+        "alternative_window": {
+          "start": "2030-06-01T18:00:00+08:00",
+          "end": "2030-06-01T21:00:00+08:00"
+        }
+      },
+      "draft": null,
+      "review_error": {
+        "code": "MATERIAL_NOT_FOUND",
+        "message": "Material is absent from synthetic catalog",
+        "path": ""
+      },
+      "save_attempt": {
+        "save_status": "NOT_ATTEMPTED",
+        "error_code": null
+      },
+      "review_observed_in_session": false,
+      "status": "NEEDS_INPUT",
+      "incomplete_reasons": [
+        "MATERIAL_NOT_FOUND"
+      ]
+    }
+  ],
+  "observed_at": "2026-10-31T02:53:17.183+00:00",
+  "published": false,
+  "run_id": "RUN-d84ff1809ee341c2b0b8528f03db33a7",
+  "task_status": "NEEDS_INPUT",
+  "business_task_status": "NEEDS_INPUT",
+  "model": {
+    "mode": "mock",
+    "name": "observation-policy",
+    "version": "1.0"
+  },
+  "stop_reason": "MODEL_FINISHED",
+  "limit_kind": null,
+  "execution_status": "FINISHED",
+  "stats": {
+    "model_rounds": 2,
+    "protocol_errors": 0,
+    "tool_attempts": 2,
+    "tool_dispatches": 2,
+    "tool_executions": 2,
+    "per_item_attempts": {
+      "I01": 1
+    },
+    "elapsed_seconds": 0.09795269999995071,
+    "final_revalidations": 1
+  },
+  "limits": {
+    "per_item_tool_limit": 10,
+    "max_tool_attempts": 11,
+    "max_model_rounds": 15,
+    "run_timeout_seconds": 180,
+    "model_timeout_seconds": 30,
+    "protocol_error_limit": 4
+  },
+  "trace_complete": true,
+  "last_tool_observation": {
+    "ok": true,
+    "tool": "finish",
+    "item_id": null,
+    "data": {
+      "stop_reason": "TOOL_SESSION_FINISHED"
+    },
+    "observed_at": "2026-10-31T02:53:17.170+00:00"
+  },
+  "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+  "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+  "react_verified_with_real_model": false
+}

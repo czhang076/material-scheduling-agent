@@ -56,9 +56,10 @@ CREATE TABLE IF NOT EXISTS owner(singleton INTEGER PRIMARY KEY CHECK(singleton=1
 
     @contextmanager
     def _connection(self, *, write=False):
-        connection = sqlite3.connect(self.path, timeout=3, isolation_level=None)
-        connection.row_factory = sqlite3.Row
+        connection = None
         try:
+            connection = sqlite3.connect(self.path, timeout=3, isolation_level=None)
+            connection.row_factory = sqlite3.Row
             connection.execute("PRAGMA foreign_keys=ON")
             if write:
                 connection.execute("BEGIN IMMEDIATE")
@@ -71,9 +72,10 @@ CREATE TABLE IF NOT EXISTS owner(singleton INTEGER PRIMARY KEY CHECK(singleton=1
         except sqlite3.Error:
             raise DomainError("RUN_STORE_UNAVAILABLE", "Cannot access the run journal") from None
         finally:
-            if connection.in_transaction:
-                connection.rollback()
-            connection.close()
+            if connection is not None:
+                if connection.in_transaction:
+                    connection.rollback()
+                connection.close()
 
     @staticmethod
     def _view(row, *, detail=True):

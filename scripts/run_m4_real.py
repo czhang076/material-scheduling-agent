@@ -30,6 +30,8 @@ from run_m2_examples import ROOT, write_json
 
 
 def run():
+    from stage_guard import require_stage
+    require_stage("0.4.0")
     parser = argparse.ArgumentParser()
     parser.add_argument("--env-file", type=Path, required=True)
     parser.add_argument("--out", type=Path)

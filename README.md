@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材的元数据与文案，形成可确认、可追溯的排期草稿。**仅草稿，不接真实发布。**
 
-> M5 已实现本地网页工作台，支持审核、排期、逐项确认与实际执行记录。默认 Mock；M4 的 7 次 DeepSeek 真实路径保留为独立历史证据。测试不自动调用付费模型。仅保存草稿。
+> 当前 M6 / 0.6.0：已修复最终审查发现的提交覆盖、任务卡死、历史记录串线及手册过期。默认 Mock；真实模型实证按原提交保留，不因源码更新重新标记。仅保存草稿。
 
 ## 安装与运行
 
@@ -25,7 +25,7 @@ py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-当前 214 个 unittest 方法，开发环境与独立 wheel 环境分别通过。M5 增加 30 个网页/HTTP/恢复测试和 6 组 HTTP + Mock 业务记录；M4 的 14 组 Mock 与 7 次真实 DeepSeek 运行按 d48e50f 解释。详见 [M5 验收](docs/M5-ACCEPTANCE.md)、[当前测试摘要](examples/evaluation/M5-summary.json)、[HTTP 路径](examples/workbench/http/manifest.json)及 [M4 真实路径](examples/evaluation/M4-real-cases.json)。
+当前 222 个 unittest 方法，开发环境与独立 wheel 环境分别通过；另有7个 Node 网页状态用例，分别计数。Node仅用于开发验证；无Node时跳过其中1个Python桥接方法，不影响项目运行。当前6组HTTP + Mock业务路径及1组终态恢复证据见 [M6验收](docs/M6-ACCEPTANCE.md)、[测试摘要](examples/evaluation/M6-summary.json)及 [实际记录](examples/workbench/M6/manifest.json)。M4七次真实运行固定于d48e50f，M5网页一次真实运行固定于9af839e；本轮未重发付费调用。
 
 ## 本地网页
 
@@ -37,7 +37,9 @@ py -3.13 -m venv .venv
 
 浏览器打开 [本地工作台](http://127.0.0.1:8765)，Ctrl+C 停止。界面默认离线 Mock；启动时追加 `--env-file .env` 后，可在页面明确选择真实模型。浏览页面不会自动调用模型。运行、同步、逐项确认、Trace 下载均读取或操作实际账本；关闭页面不取消后台任务。业务要求改变时新建任务，同一要求可复用任务重试。
 
-界面和恢复边界见 [M5 验收](docs/M5-ACCEPTANCE.md)。无需前端安装或构建；静态资源已经包含在 Python 包中。只用于本地单用户工作，不开放公网。
+未知提交保留原要求和模式；新输入不会自动替换或重发旧要求。先查询原提交，需要重发时明确点击“重试原提交”。运行状态日志暂时写失败会显示状态待保存，存储恢复后显式提交可对账；GET只读。
+
+当前运行与独立安装包验证步骤见 [运行手册](docs/RUNBOOK.md)；修复验收见 [M6](docs/M6-ACCEPTANCE.md)。无需前端安装或构建，静态资源随 Python 包分发。只用于本地单用户工作。
 
 ## 真实模式
 
@@ -102,6 +104,7 @@ src/material_scheduler/
 |实际验证、失败和限制|[03-evaluation](docs/03-evaluation.md)|
 |AI 使用及个人贡献边界|[04-ai-usage](docs/04-ai-usage.md)|
 |设计与开发复盘|[05-retrospective](docs/05-retrospective.md)|
+|M6审查修复与当前验收|[M6-ACCEPTANCE](docs/M6-ACCEPTANCE.md)|
 |M4 配置、协议测试及真实路径|[M4-ACCEPTANCE](docs/M4-ACCEPTANCE.md)|
 |M3 历史离线基线|[M3-ACCEPTANCE](docs/M3-ACCEPTANCE.md)|
 |环境、命令及交接|[RUNBOOK](docs/RUNBOOK.md)|
@@ -109,7 +112,7 @@ src/material_scheduler/
 |模块 / 存储 / 执行循环|[architecture](docs/design/architecture.md) / [persistence](docs/design/persistence.md) / [agent-loop](docs/design/agent-loop.md)|
 |工具 Schema / 提示|[tool-schemas](docs/design/tool-schemas.md) / [model-prompt](docs/design/model-prompt.md)|
 |公开示例参考及历史基线|[REFERENCE-REVIEW](docs/REFERENCE-REVIEW.md) / [P0](docs/P0-ACCEPTANCE.md) / [M1](docs/M1-ACCEPTANCE.md) / [M2](docs/M2-ACCEPTANCE.md)|
-|本地网页与实际交互验收|[M5-ACCEPTANCE](docs/M5-ACCEPTANCE.md) / [workbench](docs/design/workbench.md)|
+|M5网页历史记录 / 当前设计|[M5-ACCEPTANCE](docs/M5-ACCEPTANCE.md) / [workbench](docs/design/workbench.md)|
 |图片与视频扩展设计|[media-extension](docs/design/media-extension.md)|
 
 资料全部合成，运行数据库在忽略的 var/ 内；实际选取的 JSON/Trace 在 examples/，不提交密钥或数据库。真实模式通过 --env-file 显式配置；未配置则明确失败，不降级为 Mock。尚无视觉审核、多人认证、真实发布平台或线上部署。GitHub 远程及最终考核 SHA 尚未交付；当前阶段提交可用 `git log -1` 查看。

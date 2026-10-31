@@ -6,10 +6,18 @@ const fieldNames = {title:"标题",copy_text:"文案",rights_status:"版权状�
 const toolNames = {read_material:"读取素材",lookup_metadata:"补查资料",check_rules:"检查规则",query_slots:"查询时段",save_draft:"保存草稿",finish:"结束决策"};
 const channels = {douyin:"抖音",xiaohongshu:"小红书"};
 const messages = {INVALID_INPUT:"请求格式或时间范围有误，请检查输入。",REQUEST_ID_CONFLICT:"同一任务编号对应的要求已改变，请新建任务。",RUN_BUSY:"已有任务正在执行，请等待它完成。",RUN_MODE_CONFLICT:"此提交已使用另一种模式，请查询原运行。",CONFIRMATION_INCOMPLETE:"请逐项接受当前方案的全部待确认事项。",DRAFT_VERSION_CONFLICT:"草稿版本已变化，本次确认未应用。",STALE_DRAFT:"这份方案已失效，请重新核验并规划。",STALE_REVIEW:"审核资料已变化，旧版本不能继续确认，请重新规划。",SLOT_CONFLICT:"候选时段已出现新占用，请重新规划。",MODEL_CONFIGURATION_ERROR:"真实模型尚未配置，可先使用离线演示。",SESSION_EXPIRED:"本地会话已更新，请重新连接。",CSRF_REJECTED:"本地会话已更新，请重新连接。",RUN_NOT_FOUND:"未查到这次提交，请使用原要求重试。",SAVE_FAILED:"草稿保存失败，已保留此前的成功步骤。",SAVE_OUTCOME_UNKNOWN:"保存回执未知，请先查询账本或复用原任务重试。",TRACE_UNAVAILABLE:"执行记录不完整，请核对账本中的实际草稿。",MODEL_AUTH_ERROR:"模型服务鉴权失败，请核对服务端配置。",MODEL_TIMEOUT:"模型响应超时，已保留实际保存结果。",TOOL_UNAVAILABLE:"工具暂时不可用。",ITEM_LIMIT_REACHED:"该项已到执行上限。",RETRY_LIMIT_REACHED:"已达到相同操作的重试上限。"};
-const state = {csrf:null,catalog:null,drafts:[],runs:[],selected:new Set(["M01"]),job:null,events:[],cursor:0,view:"materials",filter:"all",connected:false,failures:0,timer:null,submitting:false,pending:null,formId:newId("REQ-WEB"),signature:null,confirmation:null,booted:false};
+const state = {csrf:null,catalog:null,drafts:[],runs:[],selected:new Set(["M01"]),job:null,events:[],cursor:0,view:"materials",filter:"all",connected:false,failures:0,timer:null,submitting:false,pending:null,formId:newId("REQ-WEB"),signature:null,confirmation:null,booted:false,loadEpoch:0};
 
 function newId(prefix){return prefix+"-"+crypto.randomUUID().replaceAll("-","");}
 function rememberSubmission(value){try{if(value)localStorage.setItem("yingshu-pending-submission",value);else localStorage.removeItem("yingshu-pending-submission");}catch{}}
+function renderPending(){
+  const pending=state.pending;show("pending-submission",!!pending);if(!pending)return;
+  let request=pending.request;try{if(typeof request==="string")request=JSON.parse(request);}catch{request=null;}
+  const times=(request?.items||[]).slice(0,3).map(item=>stamp(item.time_requirement?.requested_start)).join("、");
+  text("pending-summary",(request?.request_id||"原始 JSON 请求")+" · "+(pending.mode==="real"?"真实模型 · 重试会产生 API 用量":"离线 Mock")+(times?" · "+times:"")+"。当前编辑不会替换这笔原提交。");
+  $("pending-query").disabled=state.submitting;$("pending-retry").disabled=state.submitting;
+}
+async function retryPendingSubmission(){if(state.pending)await submitRequest(state.pending.request,state.pending.mode);}
 function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined&&text!==null)node.textContent=String(text);return node;}
 function text(id,value){$(id).textContent=value;}
 function show(id,visible=true){$(id).classList.toggle("hidden",!visible);}
@@ -98,7 +106,7 @@ function renderRun(){
   const active=["QUEUED","RUNNING"].includes(job.status);text("run-mode-badge",job.mode==="mock"?"离线演示 · Mock":"真实接口 · "+(job.result?.model?.name||"模型"));$("run-mode-badge").className="badge "+(job.mode==="mock"?"amber":"green");text("run-caption",job.request_id+" · "+job.run_id);
   const banner=$("run-status");banner.replaceChildren();show("run-status");banner.className="run-status";let summary="";let kind="";
   if(active){banner.append(el("span","running-dot"));summary=toolEvents().length?"正在根据实际工具结果继续处理…":"任务已接收，等待第一个动作…";}
-  else if(job.status==="INTERRUPTED"){summary="服务已重启，本次运行中断。草稿事实仍保留，请核验后复用原任务重试。";kind="amber";}
+  else if(job.status==="INTERRUPTED"){summary=job.error?.code==="RUN_STATE_UNPERSISTED"?"本次运行已结束，但运行状态尚未可靠保存。草稿事实仍保留；存储恢复后，复用原提交可完成对账。":"服务已重启，本次运行中断。草稿事实仍保留，请核验后复用原任务重试。";kind="amber";}
   else if(job.error){summary=friendly(job.error.code);kind="red";}
   else {const result=job.result;const current=jobItems();const failed=result?.items?.some(item=>["FAILED","UNKNOWN"].includes(item.save_attempt?.save_status));if(failed){const unknown=result.items.some(item=>item.save_attempt?.save_status==="UNKNOWN");summary=unknown?"本次保存回执未知。账本中已有的草稿不代表本次保存已确认成功。":"本次保存未完成，已保留真实审核结果和此前保存的草稿。";kind=unknown?"amber":"red";}
     else if(result?.execution_status==="FAILED"||result?.trace_complete===false){summary="本次执行或证据记录未完整完成。请核对停止原因与账本中的真实草稿。";kind="red";}
@@ -127,27 +135,48 @@ async function confirmDraft(){const current=state.confirmation;if(!current||$("c
 
 async function refreshFacts(){await bootstrap();if(state.job)await loadRun(state.job.run_id,false);}
 async function revalidate(requestId){try{await api("/api/requests/"+encodeURIComponent(requestId)+"/revalidate",{method:"POST",body:{}});toast("已按当前资料和占用重新核验。");await refreshFacts();}catch(error){toast(error.message,true);}}
-async function loadRun(runId,scroll){clearTimeout(state.timer);if(state.job?.run_id!==runId){state.events=[];state.cursor=0;}state.job=await api("/api/runs/"+encodeURIComponent(runId));try{localStorage.setItem("yingshu-last-run",runId);}catch{}
-  for(let page=0;page<15;page++){const data=await api("/api/runs/"+encodeURIComponent(runId)+"/events?after="+state.cursor+"&limit=100");state.events.push(...data.events);state.cursor=data.next_after;if(!data.has_more)break;}
-  state.failures=0;network(true);render();if(scroll)$("execution-card").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});
-  if(["QUEUED","RUNNING"].includes(state.job.status))state.timer=setTimeout(poll,800);else{const data=await api("/api/bootstrap?channel="+encodeURIComponent($("channel").value));state.csrf=data.csrf_token;state.runs=data.runs;state.drafts=data.drafts;state.catalog=data.catalog;render();}
+async function loadRun(runId,scroll){
+  const epoch=state.loadEpoch=(state.loadEpoch||0)+1;clearTimeout(state.timer);
+  const same=state.job?.run_id===runId;let cursor=same?state.cursor:0;const events=new Map((same?state.events:[]).map(event=>[event.sequence,event]));
+  try{
+    const job=await api("/api/runs/"+encodeURIComponent(runId));if(epoch!==state.loadEpoch)return;
+    for(let page=0;page<15;page++){
+      const data=await api("/api/runs/"+encodeURIComponent(runId)+"/events?after="+cursor+"&limit=100");if(epoch!==state.loadEpoch)return;
+      for(const event of data.events){if(event.run_id!==runId)throw new Error("执行记录编号与当前任务不一致，请重新查询。");events.set(event.sequence,event);}
+      cursor=data.next_after;if(!data.has_more)break;
+    }
+    state.job=job;state.events=[...events.values()].sort((a,b)=>a.sequence-b.sequence);state.cursor=cursor;
+    try{localStorage.setItem("yingshu-last-run",runId);}catch{}
+    state.failures=0;network(true);render();if(scroll)$("execution-card").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth",block:"start"});
+    if(["QUEUED","RUNNING"].includes(job.status))state.timer=setTimeout(poll,800);
+    else{const data=await api("/api/bootstrap?channel="+encodeURIComponent($("channel").value));if(epoch!==state.loadEpoch)return;state.csrf=data.csrf_token;state.runs=data.runs;state.drafts=data.drafts;state.catalog=data.catalog;render();}
+  }catch(error){if(epoch===state.loadEpoch)throw error;}
 }
 async function poll(){try{if(!document.hidden&&state.job)await loadRun(state.job.run_id,false);else if(state.job&&["QUEUED","RUNNING"].includes(state.job.status))state.timer=setTimeout(poll,1600);}catch(error){handleReadError(error);}}
 function handleReadError(error){if(error.network||["SESSION_EXPIRED","CSRF_REJECTED"].includes(error.code)){network(false);state.failures++;if(state.failures<5&&state.job)state.timer=setTimeout(poll,Math.min(5000,800*2**state.failures));}else toast(error.message,true);}
-async function submitRequest(requestPayload,mode){if(state.submitting)return;state.submitting=true;show("form-error",false);$("run-button").disabled=true;text("run-button","正在提交…");const pending=state.pending||{request:requestPayload,mode,submission_id:newId("SUB")};state.pending=pending;rememberSubmission(pending.submission_id);try{const data=await api("/api/runs",{method:"POST",body:pending});await loadRun(data.run.run_id,true);state.pending=null;rememberSubmission(null);toast(data.reused?"已找回同一次提交的实际运行。":"任务已接收，正在后台处理。");}catch(error){text("form-error",error.network?"提交结果待查询，请恢复连接后查询或使用原请求重试。":error.message);show("form-error");if(!error.network){state.pending=null;rememberSubmission(null);}}finally{state.submitting=false;$("run-button").disabled=false;$("run-button").replaceChildren(document.createTextNode("审核并生成草稿 "),el("span",null,"→"));}}
-async function reconnect(){try{await bootstrap();if(state.pending){const existing=await api("/api/submissions/"+encodeURIComponent(state.pending.submission_id));state.pending=null;await loadRun(existing.run.run_id,true);show("form-error",false);}else if(state.job)await loadRun(state.job.run_id,false);toast("已恢复连接，并查询实际状态。");}catch(error){if(error.code==="RUN_NOT_FOUND"){text("form-error","未查询到此次提交。点击运行可使用同一操作编号安全重试。");show("form-error");}else handleReadError(error);}}
+async function submitRequest(requestPayload,mode){
+  if(state.submitting)return;
+  if(state.pending&&(state.pending.mode!==mode||JSON.stringify(state.pending.request)!==JSON.stringify(requestPayload))){text("form-error","原提交结果仍待查询，本次新要求未发送。请先查询原提交；只有点击“重试原提交”才会重试原要求与模式。");show("form-error");renderPending();return;}
+  state.submitting=true;show("form-error",false);$("run-button").disabled=true;text("run-button","正在提交…");
+  const pending=state.pending||{request:requestPayload,mode,submission_id:newId("SUB")};state.pending=pending;rememberSubmission(pending.submission_id);renderPending();
+  try{const data=await api("/api/runs",{method:"POST",body:pending});await loadRun(data.run.run_id,true);state.pending=null;rememberSubmission(null);toast(data.reused?"已找回同一次提交的实际运行。":"任务已接收，正在后台处理。");}
+  catch(error){text("form-error",error.network?"提交结果待查询，请恢复连接后查询或明确重试原提交。":error.message);show("form-error");if(!error.network){state.pending=null;rememberSubmission(null);}}
+  finally{state.submitting=false;renderPending();$("run-button").disabled=false;$("run-button").replaceChildren(document.createTextNode("审核并生成草稿 "),el("span",null,"→"));}
+}
+async function reconnect(){try{await bootstrap();if(state.pending){const existing=await api("/api/submissions/"+encodeURIComponent(state.pending.submission_id));await loadRun(existing.run.run_id,true);state.pending=null;rememberSubmission(null);renderPending();show("form-error",false);}else if(state.job)await loadRun(state.job.run_id,false);toast("已恢复连接，并查询实际状态。");}catch(error){if(error.code==="RUN_NOT_FOUND"){text("form-error","未查询到原提交。可明确点击“重试原提交”复用原操作编号；当前新要求不会替换原请求。");show("form-error");renderPending();}else handleReadError(error);}}
 function changeView(view){state.view=view;for(const name of ["materials","drafts","traces"])show(name+"-view",name===view);document.querySelectorAll(".nav-item").forEach(button=>button.classList.toggle("active",button.dataset.view===view));text("page-title",{materials:"素材审核与排期",drafts:"排期草稿",traces:"执行记录"}[view]);text("page-description",{materials:"看清素材风险，确认每一次排期调整。",drafts:"把原始要求、当前建议与确认状态放在一起。",traces:"回到每一个实际动作，核对结果从何而来。"}[view]);}
 
 document.querySelectorAll("[data-view]").forEach(button=>button.addEventListener("click",()=>changeView(button.dataset.view)));
 document.querySelectorAll("[data-close]").forEach(button=>button.addEventListener("click",()=>$(button.dataset.close).close()));
 $("confirm-dialog").addEventListener("close",()=>{state.confirmation=null;});$("confirm-submit").addEventListener("click",confirmDraft);
+$("pending-query").addEventListener("click",reconnect);$("pending-retry").addEventListener("click",retryPendingSubmission);
 $("filters").addEventListener("click",event=>{const button=event.target.closest("[data-filter]");if(!button)return;state.filter=button.dataset.filter;$("filters").querySelectorAll("button").forEach(node=>node.classList.toggle("active",node===button));renderMaterials();});
 $("select-all").addEventListener("change",()=>{const ids=Array.from($("material-rows").children).map(row=>row.dataset.materialId).filter(Boolean);for(const id of ids)$("select-all").checked?state.selected.add(id):state.selected.delete(id);updatePreview();renderMaterials();});
 $("model-mode").addEventListener("change",modeHint);$("json-mode").addEventListener("change",()=>{for(const id of ["target-date","target-time"])$(id).required=!$("json-mode").checked;updatePreview();renderMaterials();});
 for(const input of $("request-form").querySelectorAll("input,select")){if(!["model-mode","json-mode","json-file"].includes(input.id))input.addEventListener("change",()=>{if(input.id==="target-date"){const date=$("target-date").value;$("window-start").value=date+"T18:00";$("window-end").value=date+"T21:00";}updatePreview();if(input.id==="channel")bootstrap().catch(handleReadError);});}
 $("json-file").addEventListener("change",async event=>{const file=event.target.files[0];if(!file)return;if(file.size>1048576){toast("JSON 文件不能超过 1 MiB。",true);return;}$("json-input").value=await file.text();$("json-mode").checked=true;$("json-mode").dispatchEvent(new Event("change"));toast("已导入原始 JSON，提交时由服务端严格校验。");});
 $("request-form").addEventListener("submit",event=>{event.preventDefault();try{submitRequest(requestForSubmit(),$("model-mode").value);}catch(error){text("form-error",error.message);show("form-error");}});
-$("new-request").addEventListener("click",()=>{if(state.submitting){toast("此次提交仍在查询中，请先等待结果。",true);return;}state.formId=newId("REQ-WEB");state.signature=null;state.pending=null;state.job=null;state.events=[];state.cursor=0;clearTimeout(state.timer);$("json-mode").checked=false;$("model-mode").value="mock";modeHint();show("form-error",false);updatePreview();render();toast("已准备新任务，已有草稿仍保留在账本中。");});
+$("new-request").addEventListener("click",()=>{if(state.submitting||state.pending){toast("原提交结果尚未查明，请先查询或明确重试原提交。",true);return;}state.loadEpoch=(state.loadEpoch||0)+1;state.formId=newId("REQ-WEB");state.signature=null;state.pending=null;state.job=null;state.events=[];state.cursor=0;clearTimeout(state.timer);$("json-mode").checked=false;$("model-mode").value="mock";modeHint();show("form-error",false);updatePreview();render();toast("已准备新任务，已有草稿仍保留在账本中。");});
 $("refresh").addEventListener("click",()=>refreshFacts().then(()=>toast("已同步账本。读取操作不会重新运行模型。")).catch(handleReadError));$("reconnect").addEventListener("click",reconnect);
 $("revalidate").addEventListener("click",()=>state.job&&revalidate(state.job.request_id));$("retry-run").addEventListener("click",()=>state.job&&submitRequest(state.job.request,state.job.mode));
 $("download-trace").addEventListener("click",()=>{if(!state.job)return;const link=el("a");link.href="/api/runs/"+encodeURIComponent(state.job.run_id)+"/trace";link.download=state.job.run_id+".jsonl";link.click();});

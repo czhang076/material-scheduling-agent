@@ -1,0 +1,46 @@
+test_terminal_write_failure_is_visible_without_get_mutations (tests.integration.test_workbench.WorkbenchTests.test_terminal_write_failure_is_visible_without_get_mutations) ... Exception in thread Thread-4 (_run):
+Traceback (most recent call last):
+  File "E:\material-scheduling-agent\src\material_scheduler\application\workbench.py", line 63, in _run
+    self.journal.update(run_id, "FINISHED", result=result)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\material-scheduling-agent\tests\integration\test_workbench.py", line 378, in unavailable
+    raise DomainError("RUN_STORE_UNAVAILABLE", "Injected terminal journal write fault")
+material_scheduler.domain.validation.DomainError: Injected terminal journal write fault
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\PYTHON312\Lib\threading.py", line 1044, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "E:\PYTHON312\Lib\threading.py", line 995, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\material-scheduling-agent\src\material_scheduler\application\workbench.py", line 65, in _run
+    self.journal.update(run_id, "FAILED", error=exc.to_dict())
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\material-scheduling-agent\tests\integration\test_workbench.py", line 378, in unavailable
+    raise DomainError("RUN_STORE_UNAVAILABLE", "Injected terminal journal write fault")
+material_scheduler.domain.validation.DomainError: Injected terminal journal write fault
+FAIL
+
+======================================================================
+FAIL: test_terminal_write_failure_is_visible_without_get_mutations (tests.integration.test_workbench.WorkbenchTests.test_terminal_write_failure_is_visible_without_get_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\material-scheduling-agent\tests\integration\test_workbench.py", line 394, in test_terminal_write_failure_is_visible_without_get_mutations
+    self.assertEqual((status, data["status"]), (200, "INTERRUPTED"))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: (200, 'RUNNING') != (200, 'INTERRUPTED')
+
+First differing element 1:
+'RUNNING'
+'INTERRUPTED'
+
+- (200, 'RUNNING')
++ (200, 'INTERRUPTED')
+
+----------------------------------------------------------------------
+Ran 1 test in 0.485s
+
+FAILED (failures=1)

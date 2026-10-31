@@ -1,12 +1,8 @@
 # 环境、命令与交接
 
-## 已验证环境
+当前版本 0.6.0（M6 审查修复）。Python 3.13.x，标准库 SQLite 与 HTTP，零第三方运行依赖；构建依赖 setuptools==82.0.1。Node 是开发验证工具，不是运行网页的依赖。
 
-Python 3.13.x（本机 3.13.12）、标准库 SQLite，无第三方运行依赖；setuptools==82.0.1 构建。M4 开发与独立 wheel 环境均可运行，具体记录见 [M4 验收](M4-ACCEPTANCE.md)。
-
-离线不需要 .env 且不读取模型配置。真实模式显式传 --env-file .env 或使用进程MODEL_变量，缺配置明确失败，不降级为Mock。用户已授权DeepSeek试用，当前有真实路径。
-
-## 当前实际命令
+## 安装与 CLI
 
 在仓库根目录执行：
 
@@ -15,51 +11,68 @@ py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e .
 .\.venv\Scripts\python.exe -m material_scheduler init --data-dir data --db var/scheduler.sqlite3
 .\.venv\Scripts\python.exe -m material_scheduler run --input data/requests/normal.json --mode mock --db var/scheduler.sqlite3 --out var/run-001
-.\.venv\Scripts\python.exe -m material_scheduler inspect --db var/scheduler.sqlite3 --request-id REQ-DESIGN-A01
-.\.venv\Scripts\python.exe -m material_scheduler evaluate --data-dir data --out var/eval-001
 ```
 
-输出目录必须不存在，重复运行需新目录；请求 ID 继续复用。init 是显式导入，会根据最新资料使旧草稿过期。inspect 是重新核验，会改变陈旧草稿状态；不能将它直接用于未来网页的只读 GET。
+输出目录必须不存在；重复执行换证据目录、保留 request_id。init 是显式导入，资料变化可能使草稿失效；日常启动不必再次 init。业务输入是原始请求；examples/inputs/M3-*.json 是带资料与故障的评测封装，不能直接传给 run。
 
-confirm 的实际形状：`python -m material_scheduler confirm --db <账本> --draft-id <实际ID> --expected-version <当前版本> --confirmation-id <本次同意ID> --actor local-user --accept TIME_CHANGE`。每项待确认事项分别传 --accept，不能遗漏或多接受。可用 --note 附用户说明。确认不发布。
+## 本地网页
 
-run 支持收紧 --max-tool-attempts、--max-model-rounds、--per-item-tool-limit、--run-timeout-seconds、--model-timeout-seconds，不允许提高默认值。各项仍须满足 ExecutionLimits 的关联约束。
+```powershell
+.\.venv\Scripts\python.exe -m material_scheduler serve --db var/scheduler.sqlite3 --state-dir var/workbench --port 8765
+```
 
-`examples/inputs/M3-*.json` 是评测封装，含 request、可信资料和可信故障；CLI run 只接受 request 原始结构。示例索引给出每次实际结果、Trace 与清单。
+打开 [本地工作台](http://127.0.0.1:8765)，Ctrl+C 停止服务。默认 Mock。启动命令追加 --env-file .env 后，可在页面显式选择真实模型；浏览和刷新不会调用模型，密钥只在服务端。每个账本使用独立 state-dir，不能混用已有状态目录。
 
-## 退出码和恢复
+未知提交会显示原请求、原时间与原模式。编辑新要求后点击主运行按钮不会重发旧要求；先“查询原提交”，需要重发时明确点击“重试原提交”。同一请求重试使用同一业务身份。原提交未查明时，不通过新建任务绕过未知结果。
 
-|退出码|含义|
-|---|---|
-|0|run 全部可用草稿；或 init/inspect/confirm 操作成功；evaluate 全部满足各自预期|
-|2|业务需补充/确认、规则阻断、没有可用候选或其他业务未完成|
-|3|请求/CLI 参数/身份冲突或已有输出目录|
-|4|工具、提供者、存储、证据故障，或保存 UNKNOWN|
-|5|执行限额、总截止时间或取消|
+正常写入终态期间仍显示执行中。终态日志写入失败后，工作线程已结束但当前进程保留真实结果，以 INTERRUPTED / RUN_STATE_UNPERSISTED / state_persisted=false 显示状态待保存；GET 只读。存储恢复后，显式重新提交原 submission_id 会先保存原终态并查回同一运行；新提交也会先完成这一步，不会永久 RUN_BUSY。写入仍失败时返回503，不注册新请求。进程重启会丢失未持久化结果缓存，原运行按已有启动恢复逻辑标中断，草稿事实仍在；不能把进程内兜底描述为断电恢复。
 
-JSON 中的逐项审核、save_attempt、draft、incomplete_reasons、stop_reason 和 trace_complete 是具体依据。business_task_status 保留最新业务投影；task_status 还受运行失败或限额约束。stop_reason=MODEL_FINISHED 仅表示选择了 finish，不等于业务全部完成。
+## 检查与确认
 
-重复执行保持 request_id；UNKNOWN 不盲目新建请求，使用原身份重新核验。STALE 先重新审核/查询，旧确认不用于新版本。输出文件或 Trace 失败可能发生在提交后，须保留已存草稿并重跑到新证据目录。
+```powershell
+.\.venv\Scripts\python.exe -m material_scheduler inspect --db var/scheduler.sqlite3 --request-id REQ-DESIGN-A01
+```
 
-## 测试和重建
+inspect 会重新核验并可能使草稿过期。网页 GET 使用独立只读投影；显式“重新核验”才会复核并留审计。确认使用实际草稿 ID、当前版本及全部待确认事项，例如：
+
+```powershell
+.\.venv\Scripts\python.exe -m material_scheduler confirm --db var/scheduler.sqlite3 --draft-id <实际草稿ID> --expected-version <当前版本> --confirmation-id C-LOCAL-001 --actor local-user --accept TIME_CHANGE
+```
+
+每项同意分别传 --accept；确认仍复核资料与占用，只形成可用草稿，不发布。actor 是本地审计标签。
+
+## 当前测试与证据复跑
 
 ```powershell
 .\.venv\Scripts\python.exe -m unittest discover -s tests -t . -v
-.\.venv\Scripts\python.exe scripts/run_m4_offline.py
+node --test tests/web/state.test.cjs
+.\.venv\Scripts\python.exe -m material_scheduler evaluate --data-dir data --out var/eval-m6-001
+.\.venv\Scripts\python.exe scripts/run_m6_examples.py var/http-m6-001
 ```
 
-独立 wheel 验证步骤见 [M4-ACCEPTANCE](M4-ACCEPTANCE.md)。M1/M2/M3 脚本在对应阶段提交上重现旧报告；当前用M4脚本。verify_m4不重发付费调用，真实复跑另用run_m4_real.py。
+当前 222 个 unittest 方法，另有7个 Node 状态控制器用例，分别计数。没有 Node 时只跳过 Python 套件内的网页状态桥接方法；Python/网页运行仍不需要 Node。开发完整验收应另运行 Node 用例。全部自动化使用 Mock 或协议替身，不读取本地密钥调用付费服务。
 
-实际数据库在 var/ 内，已忽略。离线评估的注入参数由可信评测器提供，不出现在模型工具参数中。examples/ 仅提交已选取的合成 JSON/JSONL、日志和校验记录。
+复跑输出到新目录，不能覆盖历史例证。M4 记录固定于 d48e50f，M5 固定于 9af839e，不能按当前源码重新解释。M1–M5 专用导出/验证脚本只在对应提交使用；M4 导出与 M4/M5 验证入口已加版本保护，当前版本会在写文件前拒绝。
 
-## 后续和交接
+## 独立 wheel 验证
 
-先读 AGENTS → CONTEXT → STATUS → 需求/总体方案 → 相关设计。M4真实接入已完成，密钥只留本地；M5 本地网页仍待实现，无 serve 命令或线上部署。
+```powershell
+.\.venv\Scripts\python.exe -m pip wheel . --no-deps --wheel-dir var/m6-wheel
+.\.venv\Scripts\python.exe -m venv var/m6-clean-venv
+.\var\m6-clean-venv\Scripts\python.exe -m pip install --no-index --no-deps var/m6-wheel/material_scheduling_agent-0.6.0-py3-none-any.whl
+.\.venv\Scripts\python.exe scripts/verify_m6.py
+```
 
-本地已有阶段提交；无 GitHub 远程或推送。最终仓库 URL、评审访问权限及最终 SHA 留到完整交付阶段。实际投入未连续计时，候选人需如实补记。
+verify_m6 需要上述安装包环境、Node，以及仓库内已提交的 M6 证据。它复核包中源码/资源、两环境测试和历史证据完整性，更新 M6 检查日志；不重发真实模型调用。历史材料不改写。
 
-## 真实模式
+## 退出码与恢复
 
-先按 .env.example 配置本地 .env，再运行 `python -m material_scheduler run --input data/requests/normal.json --db var/scheduler.sqlite3 --mode real --env-file .env --out var/real-001`。服务、模型、token字段及上限在配置中显式记录；同名进程环境优先，不自动展开变量。DeepSeek用非思考模式；其他服务须另行验证。
+run：0 全部可用草稿；2 业务需补充/确认、阻断或其他未完成；3 输入/身份/输出目录错误；4 工具/模型/存储/证据故障或保存未知；5 预算耗尽或取消。evaluate 的0表示各场景符合预期，失败场景仍必须如实失败。serve 正常停止返回STOPPED。
 
-真实run依然使用同一事务和预算保护。终态鉴权/无效请求错误不会反复请求，临时限流或服务失败最多一次恢复。原始真实验证字段null由独立评测补足，不因mode=real就自称达标。详情和官方协议来源见M4验收。
+逐项 save_attempt、draft、incomplete_reasons、stop_reason、execution_status 和 trace_complete 共同说明事实。已有 READY 不能覆盖本次运行故障。UNKNOWN 保留原身份，重新核验；不盲目更换请求再保存。
+
+## 真实模式及交付
+
+真实模式显式运行 run --mode real --env-file .env，或服务带该配置并在网页明确选真实模式；会产生 API 用量。配置与网络边界见 [M4验收](M4-ACCEPTANCE.md)。真实验证基线为历史 M4 七路径和 M5 网页一次正常链路；M6 修复未重发付费调用。
+
+交接先读 AGENTS → CONTEXT → STATUS → 需求/方案 → [M6验收](M6-ACCEPTANCE.md)。数据库与本地配置在忽略的 var/ 和 .env；仓库仅保留合成证据。GitHub URL、评审权限、最终SHA、候选人亲自修改/复跑及实际投入记录仍待补全，不冒充完整交付。

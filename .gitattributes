@@ -7,3 +7,5 @@
 *.yaml text eol=lf
 *.py text eol=lf
 .gitkeep text eol=lf
+# Preserve verbatim assertion output, including whitespace-only diagnostic lines.
+examples/evaluation/*-before-*.txt -whitespace

@@ -1,0 +1,155 @@
+TAP version 13
+# Subtest: network-unknown old input never replaces newly edited requirements
+not ok 1 - network-unknown old input never replaces newly edited requirements
+  ---
+  duration_ms: 4.7824
+  type: 'test'
+  location: 'E:\\material-scheduling-agent\\tests\\web\\state.test.cjs:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (E:\material-scheduling-agent\tests\web\state.test.cjs:32:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: changing real mode to Mock cannot retry the old real operation
+not ok 2 - changing real mode to Mock cannot retry the old real operation
+  ---
+  duration_ms: 1.6896
+  type: 'test'
+  location: 'E:\\material-scheduling-agent\\tests\\web\\state.test.cjs:37:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (E:\material-scheduling-agent\tests\web\state.test.cjs:43:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: an identical retry reuses the operation and clears it only after loading
+ok 3 - an identical retry reuses the operation and clears it only after loading
+  ---
+  duration_ms: 2.7216
+  type: 'test'
+  ...
+# Subtest: explicit old-operation retry is independent of a changed form
+not ok 4 - explicit old-operation retry is independent of a changed form
+  ---
+  duration_ms: 1.3761
+  type: 'test'
+  location: 'E:\\material-scheduling-agent\\tests\\web\\state.test.cjs:55:1'
+  failureType: 'testCodeFailure'
+  error: 'retryPendingSubmission is not defined'
+  code: 'ERR_TEST_FAILURE'
+  name: 'ReferenceError'
+  stack: |-
+    evalmachine.<anonymous>:1:1
+    Script.runInContext (node:vm:149:12)
+    Object.runInContext (node:vm:301:6)
+    Object.run (E:\material-scheduling-agent\tests\web\state.test.cjs:20:32)
+    TestContext.<anonymous> (E:\material-scheduling-agent\tests\web\state.test.cjs:59:11)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+  ...
+# Subtest: late events of A cannot enter selected B
+not ok 5 - late events of A cannot enter selected B
+  ---
+  duration_ms: 2.2143
+  type: 'test'
+  location: 'E:\\material-scheduling-agent\\tests\\web\\state.test.cjs:67:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+        'B',
+    +   'A'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'B'
+  actual:
+    0: 'B'
+    1: 'A'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (E:\material-scheduling-agent\tests\web\state.test.cjs:71:54)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: late metadata of A cannot replace selected B
+not ok 6 - late metadata of A cannot replace selected B
+  ---
+  duration_ms: 1.55
+  type: 'test'
+  location: 'E:\\material-scheduling-agent\\tests\\web\\state.test.cjs:74:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'A' !== 'B'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'B'
+  actual: 'A'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (E:\material-scheduling-agent\tests\web\state.test.cjs:78:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: overlapping refreshes cannot duplicate sequences
+not ok 7 - overlapping refreshes cannot duplicate sequences
+  ---
+  duration_ms: 1.4559
+  type: 'test'
+  location: 'E:\\material-scheduling-agent\\tests\\web\\state.test.cjs:81:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (E:\material-scheduling-agent\tests\web\state.test.cjs:85:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 1
+# fail 6
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 103.9855

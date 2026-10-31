@@ -369,6 +369,99 @@ class WorkbenchTests(LedgerTest):
         self.assertNotIn("sentinel", json.dumps(run))
         self.assertEqual(self.store.counts()["drafts"], 0)
 
+    def fail_terminal_writes(self):
+        original = self.app.journal.update
+        attempts = []
+        def unavailable(run_id, status, **kwargs):
+            attempts.append(status)
+            if status in {"FINISHED", "FAILED"}:
+                raise DomainError("RUN_STORE_UNAVAILABLE", "Injected terminal journal write fault")
+            return original(run_id, status, **kwargs)
+        self.app.journal.update = unavailable
+        self.addCleanup(setattr, self.app.journal, "update", original)
+        status, data, _ = self.submit()
+        self.assertEqual(status, 202, data)
+        self.app._thread.join(5)
+        self.assertFalse(self.app._thread.is_alive())
+        return data["run"]["run_id"], original, attempts
+
+    def test_terminal_write_failure_is_visible_without_get_mutations(self):
+        run_id, original, attempts = self.fail_terminal_writes()
+        before, writes = self.store.counts(), len(attempts)
+        for path in ("/api/runs/" + run_id, "/api/submissions/SUB-1"):
+            status, data, _ = self.http("GET", path)
+            data = data.get("run", data)
+            self.assertEqual((status, data["status"]), (200, "INTERRUPTED"))
+            self.assertEqual(data["error"]["code"], "RUN_STATE_UNPERSISTED")
+            self.assertFalse(data["state_persisted"])
+        boot = self.http("GET", "/api/bootstrap")[1]
+        self.assertEqual(boot["runs"][0]["status"], "INTERRUPTED")
+        self.assertEqual(self.http("GET", "/api/runs")[1]["runs"][0]["status"], "INTERRUPTED")
+        self.assertEqual(self.app.get(run_id)["current"]["items"][0]["draft"]["draft_state"], "READY")
+        self.assertEqual((self.store.counts(), len(attempts)), (before, writes))
+
+    def test_recovered_journal_reconciles_same_submission_without_rerunning(self):
+        run_id, original, _ = self.fail_terminal_writes()
+        self.app.journal.update = original
+        status, data, _ = self.submit()
+        self.assertEqual(status, 200, data)
+        self.assertEqual(data["run"]["run_id"], run_id)
+        self.assertEqual(data["run"]["status"], "FINISHED")
+        self.assertEqual(data["run"]["result"]["task_status"], "READY_DRAFTS")
+        self.assertEqual(len(self.app.journal.list()), 1)
+        self.assertEqual(self.store.counts()["drafts"], 1)
+        status, other, _ = self.submit(request("REQ-RECOVERED-NEXT"), submission="SUB-NEXT")
+        self.assertEqual(status, 202, other)
+        self.finished(other["run"]["run_id"])
+
+    def test_persistent_journal_fault_rejects_new_work_without_registering_it(self):
+        run_id, _, _ = self.fail_terminal_writes()
+        status, data, _ = self.submit(request("REQ-NOT-REGISTERED"), submission="SUB-NEXT")
+        self.assertEqual((status, data["error"]["code"]), (503, "RUN_STORE_UNAVAILABLE"))
+        self.assertEqual(self.store.counts()["requests"], 1)
+        self.assertEqual(self.app.get(run_id)["status"], "INTERRUPTED")
+
+    def test_worker_start_failure_leaves_queryable_failure_and_can_close(self):
+        from unittest.mock import patch
+        with patch("material_scheduler.application.workbench.Thread.start", side_effect=RuntimeError("Injected startup failure")):
+            # Invoke the application directly: the HTTP server also starts threads.
+            with self.assertRaises(DomainError) as caught:
+                self.app.submit({"request": request().to_dict(), "submission_id": "SUB-START", "mode": "mock"})
+        self.assertEqual(caught.exception.code, "RUN_START_FAILED")
+        run = self.app.journal.for_submission("SUB-START")
+        self.assertEqual(run["status"], "FAILED")
+        self.assertEqual(self.store.counts()["drafts"], 0)
+
+    def test_journal_connection_failure_uses_recoverable_domain_error(self):
+        import sqlite3
+        from unittest.mock import patch
+        with patch("material_scheduler.adapters.run_journal.sqlite3.connect", side_effect=sqlite3.OperationalError("Injected open failure")):
+            with self.assertRaises(DomainError) as caught:
+                self.app.journal.list()
+        self.assertEqual(caught.exception.code, "RUN_STORE_UNAVAILABLE")
+
+    def test_terminal_write_in_progress_is_not_reported_as_interrupted(self):
+        entered, release = Event(), Event()
+        original = self.app.journal.update
+        def paused(run_id, status, **kwargs):
+            if status == "FINISHED":
+                entered.set()
+                if not release.wait(4):
+                    raise RuntimeError("Test write was not released")
+            return original(run_id, status, **kwargs)
+        self.app.journal.update = paused
+        self.addCleanup(release.set)
+        status, data, _ = self.submit()
+        self.assertEqual(status, 202)
+        self.assertTrue(entered.wait(2))
+        run_id = data["run"]["run_id"]
+        try:
+            self.assertEqual(self.app.get(run_id)["status"], "RUNNING")
+            self.assertEqual(self.submit(request("REQ-WAITING"), submission="SUB-WAITING")[0], 409)
+        finally:
+            release.set()
+        self.assertEqual(self.finished(run_id)["status"], "FINISHED")
+
     def test_catalog_material_text_is_not_interpreted_and_evidence_uses_codepoints(self):
         material = self.dataset.materials[0]
         changed = replace(material, title='<img src=x onerror="alert(1)">', copy_text="😀全网第一<script>payload</script>")

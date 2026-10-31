@@ -15,6 +15,8 @@ class Workbench:
         self._gate = Lock()
         self._stopping = Event()
         self._thread = None
+        self._terminal_lock = Lock()
+        self._pending_terminal = {}
 
     def submit(self, payload):
         data = object_fields(payload, {"request", "mode", "submission_id"}, set(), "run")
@@ -24,6 +26,9 @@ class Workbench:
         with self._gate:
             if self._stopping.is_set():
                 raise DomainError("SERVER_STOPPING", "Workbench is stopping")
+            # Only an explicit write operation retries journal persistence.
+            # Reads expose the degraded state without changing the ledger.
+            self._recover_terminal()
             previous = self.journal.for_submission(data["submission_id"])
             if previous:
                 self._match(previous, request, data["mode"])
@@ -43,9 +48,10 @@ class Workbench:
             try:
                 self._thread.start()
             except RuntimeError:
-                self.journal.update(run_id, "FAILED", error={"code": "RUN_START_FAILED", "message": "Could not start the run"})
+                self._thread = None
+                self._finish(run_id, "FAILED", error={"code": "RUN_START_FAILED", "message": "Could not start the run"})
                 raise DomainError("RUN_START_FAILED", "Could not start the run") from None
-            return {"run": self.journal.get(run_id), "reused": False}
+            return {"run": self._project(self.journal.get(run_id)), "reused": False}
 
     @staticmethod
     def _match(prior, request, mode):
@@ -60,15 +66,57 @@ class Workbench:
             result = self.run_use_case(self.store, request, model, self.journal.directory / "runs" / run_id,
                                        run_id=run_id, on_event=self.journal.append, cancelled=self._stopping.is_set,
                                        invocation={"entrypoint": "local_workbench", "mode": model.mode})
-            self.journal.update(run_id, "FINISHED", result=result)
+            self._finish(run_id, "FINISHED", result=result)
         except DomainError as exc:
-            self.journal.update(run_id, "FAILED", error=exc.to_dict())
+            self._finish(run_id, "FAILED", error=exc.to_dict())
         except Exception:
-            self.journal.update(run_id, "FAILED", error={"code": "RUN_INTERRUPTED", "message": "Run interrupted; inspect current drafts before retrying"})
+            self._finish(run_id, "FAILED", error={"code": "RUN_INTERRUPTED", "message": "Run interrupted; inspect current drafts before retrying"})
+
+    def _finish(self, run_id, status, *, result=None, error=None):
+        outcome = {"status": status, "result": result, "error": error}
+        with self._terminal_lock:
+            self._pending_terminal[run_id] = outcome
+        try:
+            self._persist_terminal(run_id, outcome)
+        except DomainError:
+            # Keep the actual outcome while this process lives. After a crash,
+            # the existing journal startup recovery marks active rows interrupted.
+            with self._terminal_lock:
+                if self._pending_terminal.get(run_id) is outcome:
+                    outcome["degraded"] = True
+
+    def _persist_terminal(self, run_id, outcome):
+        self.journal.update(run_id, outcome["status"], result=outcome["result"], error=outcome["error"])
+        with self._terminal_lock:
+            if self._pending_terminal.get(run_id) is outcome:
+                del self._pending_terminal[run_id]
+
+    def _recover_terminal(self):
+        with self._terminal_lock:
+            pending = [(run_id, outcome) for run_id, outcome in self._pending_terminal.items() if outcome.get("degraded")]
+        for run_id, outcome in pending:
+            self._persist_terminal(run_id, outcome)
+
+    def _project(self, value):
+        with self._terminal_lock:
+            outcome = self._pending_terminal.get(value["run_id"])
+        if outcome is not None and outcome.get("degraded"):
+            value = {**value, "status": "INTERRUPTED", "state_persisted": False,
+                     "error": {"code": "RUN_STATE_UNPERSISTED", "message": "Worker ended but its terminal state is not durably acknowledged; retry the original submission to reconcile"}}
+            if "result" in value:
+                value["result"] = outcome["result"]
+        return value
+
+    def list_runs(self):
+        return [self._project(value) for value in self.journal.list()]
+
+    def submission(self, submission_id):
+        value = self.journal.for_submission(submission_id)
+        return self._project(value) if value else None
 
     def get(self, run_id):
         identifier(run_id, "run_id")
-        value = self.journal.get(run_id)
+        value = self._project(self.journal.get(run_id))
         value["current"] = self.store.read_request(value["request_id"])
         return value
 

@@ -152,19 +152,19 @@ class Handler(BaseHTTPRequestHandler):
                 raise DomainError("INVALID_INPUT", "Invalid bootstrap query")
             session_id, csrf = self.server.sessions.get(self.headers.get("Cookie"), create=True)
             return self._send(200, {"csrf_token": csrf, "catalog": app.store.catalog_preview(query.get("channel", ["douyin"])[0]),
-                                    "drafts": app.store.list_drafts(), "runs": app.journal.list(),
+                                    "drafts": app.store.list_drafts(), "runs": app.list_runs(),
                                     "real_model": {"available": app.real_model_name is not None, "name": app.real_model_name},
                                     "draft_only": True, "review_coverage": ["metadata", "copy_text"]}, cookie=session_id)
         self.server.sessions.get(self.headers.get("Cookie"))
         identifier_pattern = r"([A-Za-z0-9_-]{1,64})"
         if not write and path == "/api/runs" and not query:
-            return self._send(200, {"runs": app.journal.list()})
+            return self._send(200, {"runs": app.list_runs()})
         if write and path == "/api/runs" and not query:
             result = app.submit(self._body())
             return self._send(200 if result["reused"] else 202, result)
         match = re.fullmatch(r"/api/submissions/" + identifier_pattern, path)
         if not write and match and not query:
-            value = app.journal.for_submission(match[1])
+            value = app.submission(match[1])
             if value is None:
                 raise DomainError("RUN_NOT_FOUND", "Submission has not been registered")
             return self._send(200, {"run": value})

@@ -19,7 +19,7 @@ def source_hashes():
     paths = [ROOT / "pyproject.toml"]
     for directory in ("src", "tests", "scripts", "data"):
         paths.extend(path for path in (ROOT / directory).rglob("*")
-                     if path.suffix in {".py", ".json", ".html", ".css", ".js", ".svg"})
+                     if path.suffix in {".py", ".json", ".html", ".css", ".js", ".cjs", ".svg"})
     return {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
             for path in sorted(paths)}
 

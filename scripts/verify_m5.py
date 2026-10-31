@@ -16,6 +16,8 @@ from run_m5_examples import ROOT, source_hashes
 
 
 def main():
+    from stage_guard import require_stage
+    require_stage("0.5.0")
     python = ROOT / "var/m5-clean-venv" / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
     wheel = ROOT / "var/m5-wheel/material_scheduling_agent-0.5.0-py3-none-any.whl"
     with ZipFile(wheel) as archive:

@@ -16,6 +16,8 @@ from run_m2_examples import ROOT, source_hashes, write_json
 
 
 def main():
+    from stage_guard import require_stage
+    require_stage("0.4.0")
     clean = ROOT / "var/m4-clean-venv"
     clean_python = clean / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
     wheel = ROOT / "var/m4-wheel/material_scheduling_agent-0.4.0-py3-none-any.whl"

@@ -1,0 +1,1043 @@
+[
+  {
+    "method": "POST",
+    "path": "/api/runs",
+    "input": {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "submission_id": "SUB-1",
+      "mode": "mock"
+    },
+    "status": 202,
+    "output": {
+      "run": {
+        "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+        "request_id": "REQ-WEB-save-failure",
+        "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+        "mode": "mock",
+        "status": "QUEUED",
+        "created_at": "2026-10-31T02:53:19.297+00:00",
+        "updated_at": "2026-10-31T02:53:19.297+00:00",
+        "error": null,
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "result": null
+      },
+      "reused": false
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.322+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.389+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.410+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.444+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.496+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.562+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.306+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.629+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "FINISHED",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.643+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ],
+              "findings": [],
+              "missing_fields": []
+            },
+            "save_attempt": {
+              "save_status": "FAILED",
+              "error_code": "SAVE_FAILED"
+            },
+            "review_observed_in_session": true,
+            "status": "FAILED",
+            "incomplete_reasons": [
+              "SAVE_FAILED"
+            ]
+          }
+        ],
+        "observed_at": "2026-10-31T02:53:19.609+00:00",
+        "published": false,
+        "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+        "task_status": "FAILED",
+        "business_task_status": "FAILED",
+        "model": {
+          "mode": "mock",
+          "name": "observation-policy",
+          "version": "1.0"
+        },
+        "stop_reason": "MODEL_FINISHED",
+        "limit_kind": null,
+        "execution_status": "FINISHED",
+        "stats": {
+          "model_rounds": 6,
+          "protocol_errors": 0,
+          "tool_attempts": 6,
+          "tool_dispatches": 6,
+          "tool_executions": 6,
+          "per_item_attempts": {
+            "I01": 5
+          },
+          "elapsed_seconds": 0.269857299999785,
+          "final_revalidations": 1
+        },
+        "limits": {
+          "per_item_tool_limit": 10,
+          "max_tool_attempts": 11,
+          "max_model_rounds": 15,
+          "run_timeout_seconds": 180,
+          "model_timeout_seconds": 30,
+          "protocol_error_limit": 4
+        },
+        "trace_complete": true,
+        "last_tool_observation": {
+          "ok": true,
+          "tool": "finish",
+          "item_id": null,
+          "data": {
+            "stop_reason": "TOOL_SESSION_FINISHED"
+          },
+          "observed_at": "2026-10-31T02:53:19.598+00:00"
+        },
+        "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+        "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+        "react_verified_with_real_model": false
+      },
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.656+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-7e54a77078f2447f9e9bc0580f5020e4",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+      "request_id": "REQ-WEB-save-failure",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "FINISHED",
+      "created_at": "2026-10-31T02:53:19.297+00:00",
+      "updated_at": "2026-10-31T02:53:19.643+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "request_id": "REQ-WEB-save-failure",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ],
+              "findings": [],
+              "missing_fields": []
+            },
+            "save_attempt": {
+              "save_status": "FAILED",
+              "error_code": "SAVE_FAILED"
+            },
+            "review_observed_in_session": true,
+            "status": "FAILED",
+            "incomplete_reasons": [
+              "SAVE_FAILED"
+            ]
+          }
+        ],
+        "observed_at": "2026-10-31T02:53:19.609+00:00",
+        "published": false,
+        "run_id": "RUN-7e54a77078f2447f9e9bc0580f5020e4",
+        "task_status": "FAILED",
+        "business_task_status": "FAILED",
+        "model": {
+          "mode": "mock",
+          "name": "observation-policy",
+          "version": "1.0"
+        },
+        "stop_reason": "MODEL_FINISHED",
+        "limit_kind": null,
+        "execution_status": "FINISHED",
+        "stats": {
+          "model_rounds": 6,
+          "protocol_errors": 0,
+          "tool_attempts": 6,
+          "tool_dispatches": 6,
+          "tool_executions": 6,
+          "per_item_attempts": {
+            "I01": 5
+          },
+          "elapsed_seconds": 0.269857299999785,
+          "final_revalidations": 1
+        },
+        "limits": {
+          "per_item_tool_limit": 10,
+          "max_tool_attempts": 11,
+          "max_model_rounds": 15,
+          "run_timeout_seconds": 180,
+          "model_timeout_seconds": 30,
+          "protocol_error_limit": 4
+        },
+        "trace_complete": true,
+        "last_tool_observation": {
+          "ok": true,
+          "tool": "finish",
+          "item_id": null,
+          "data": {
+            "stop_reason": "TOOL_SESSION_FINISHED"
+          },
+          "observed_at": "2026-10-31T02:53:19.598+00:00"
+        },
+        "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+        "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+        "react_verified_with_real_model": false
+      },
+      "current": {
+        "request_id": "REQ-WEB-save-failure",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-save-failure",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M01",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "findings": [],
+              "missing_fields": [],
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ]
+            }
+          }
+        ],
+        "read_at": "2026-10-31T02:53:19.672+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  }
+]
