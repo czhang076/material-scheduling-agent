@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材的元数据与文案，形成可确认、可追溯的排期草稿。**仅草稿，不接真实发布。**
 
-> 当前0.6.0已完成提交前独立验收：干净安装、全部测试、当前版本真实模型与网页确认闭环。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)。默认Mock，仅保存草稿；GitHub交付及候选人实际投入记录仍待补全。
+> 当前0.6.0已完成独立技术验收，并发布至 [GitHub公开仓库](https://github.com/czhang076/material-scheduling-agent)。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)，评审访问见 [交付说明](docs/GITHUB-DELIVERY.md)。默认Mock，仅保存草稿；候选人实际投入记录仍需本人补录。
 
 ## 安装与运行
 
@@ -105,6 +105,7 @@ src/material_scheduler/
 |AI 使用及个人贡献边界|[04-ai-usage](docs/04-ai-usage.md)|
 |设计与开发复盘|[05-retrospective](docs/05-retrospective.md)|
 |提交前独立严格验收|[FINAL-ACCEPTANCE](docs/FINAL-ACCEPTANCE.md)|
+|GitHub地址、评审访问与提交信息|[GITHUB-DELIVERY](docs/GITHUB-DELIVERY.md)|
 |M6审查修复与当前验收|[M6-ACCEPTANCE](docs/M6-ACCEPTANCE.md)|
 |M4 配置、协议测试及真实路径|[M4-ACCEPTANCE](docs/M4-ACCEPTANCE.md)|
 |M3 历史离线基线|[M3-ACCEPTANCE](docs/M3-ACCEPTANCE.md)|
@@ -116,4 +117,4 @@ src/material_scheduler/
 |M5网页历史记录 / 当前设计|[M5-ACCEPTANCE](docs/M5-ACCEPTANCE.md) / [workbench](docs/design/workbench.md)|
 |图片与视频扩展设计|[media-extension](docs/design/media-extension.md)|
 
-资料全部合成，运行数据库在忽略的 var/ 内；实际选取的 JSON/Trace 在 examples/，不提交密钥或数据库。真实模式通过 --env-file 显式配置；未配置则明确失败，不降级为 Mock。尚无视觉审核、多人认证、真实发布平台或线上部署。GitHub 远程及最终考核 SHA 尚未交付；当前阶段提交可用 `git log -1` 查看。
+资料全部合成，运行数据库在忽略的 var/ 内；实际JSON/Trace在examples/，不提交密钥或数据库。真实模式显式配置，未配置则失败，不降级Mock。无视觉审核、多人认证、真实发布或线上部署。GitHub仓库公开且已匿名验证可读；提交时填写题号1、仓库URL及远程main最新SHA。实际投入与个人贡献由本人如实核对、补录。

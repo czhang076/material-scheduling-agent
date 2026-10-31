@@ -1,0 +1,37 @@
+{
+  "verified_at": "2026-10-31T10:52:07.329163+00:00",
+  "repository_url": "https://github.com/czhang076/material-scheduling-agent",
+  "visibility": "public",
+  "visibility_source": "GitHub creation response and anonymous repository read",
+  "authentication_used_for_read": false,
+  "verified_commit": "cb6fc590f29734c021cde9a6a9a7e77aaa05f5de",
+  "representative_files": [
+    {
+      "path": "README.md",
+      "anonymous_read": true,
+      "content_sha256": "22e78e65741f95acd59666d41404f634545c9dac819c1c6ef5000d45b99ec806"
+    },
+    {
+      "path": "src/material_scheduler/__init__.py",
+      "anonymous_read": true,
+      "content_sha256": "4854a005c7a0918785135b26df52e611758741e21f771948fdcc6b1b7074db9b"
+    },
+    {
+      "path": "examples/final-acceptance/manifest.json",
+      "anonymous_read": true,
+      "content_sha256": "a18cc1fab0038f52056862f71d4c293b4330c1e201f9c27379556485db0b1a0c"
+    },
+    {
+      "path": ".env.example",
+      "anonymous_read": true,
+      "content_sha256": "92b56440f12ebc92c1be13501032c3ea18380d41b965dd2c11a2ddbde37eced6"
+    }
+  ],
+  "private_environment_file_absent": true,
+  "reviewer_account_invitation_required": false,
+  "anonymous_api_limitation": "Shared anonymous REST quota exceeded; raw HTTPS reads and anonymous Git clone are used instead",
+  "anonymous_git_read": true,
+  "git_authorization_header_present": false,
+  "git_read_configuration_isolated": true,
+  "anonymous_branch_head": "cb6fc590f29734c021cde9a6a9a7e77aaa05f5de"
+}

@@ -1,7 +1,7 @@
 # Project working rules
 
 - Read `CONTEXT.md`, `docs/01-requirements.md`, and `docs/STATUS.md` before changes.
-- CURRENT PHASE: M6 review fixes implemented and verified: pending submission identity, terminal persistence recovery, async trace isolation and current documentation. See M6-ACCEPTANCE and STATUS. Candidate contribution records and GitHub delivery remain. No hosted Site or publication. Preserve historical M4 evidence at d48e50f and M5 evidence at 9af839e; never silently relabel them after source changes. Use M6 scripts for current evidence; historical exporters must fail before writes under another package version.
+- CURRENT PHASE: M6 and final technical acceptance complete. User authorized publishing the repository to GitHub and explicitly chose public: https://github.com/czhang076/material-scheduling-agent . Anonymous review access is verified; see GITHUB-DELIVERY and STATUS. Candidate invested time/contribution confirmation remains. No hosted application or actual content publication. Preserve historical evidence and source fingerprints; use fresh output directories for new runs.
 - Empty source/test/data/evidence directories are intentional. Do not fabricate outputs to fill them.
 - `docs/design/` contains proposed contracts, not verified runtime behavior. Keep that distinction explicit.
 - This project saves drafts only. Never add publication endpoints or describe a draft as published.

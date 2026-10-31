@@ -29,4 +29,4 @@ M5阶段测试摘要见 [M5-summary](../examples/evaluation/M5-summary.json)，�
 
 M6审查修复已有独立记录；完整提交仍需候选人真实贡献记录及GitHub交付。原始模型行为如实保存，不通过修改Trace或预设决策日志制造模型效果。
 
-上述M4/M5链接是历史阶段材料，分别固定d48e50f/9af839e。当前M6摘要为 [M6-summary](../examples/evaluation/M6-summary.json)，新业务与恢复记录为 [M6 manifest](../examples/workbench/M6/manifest.json)，修复对应关系与原失败日志见 [M6验收](M6-ACCEPTANCE.md)。当前只检查历史文件与Trace未改，不再要求旧模型运行指纹等于新代码。候选人真实贡献及GitHub交付仍未完成。
+上述M4/M5链接是历史阶段材料，分别固定d48e50f/9af839e。M6摘要为 [M6-summary](../examples/evaluation/M6-summary.json)，恢复记录为 [M6 manifest](../examples/workbench/M6/manifest.json)，修复关系见 [M6验收](M6-ACCEPTANCE.md)。旧模型运行不重新标记为新代码。GitHub后续已公开并验证匿名读取，见 [交付记录](GITHUB-DELIVERY.md)；本人实际投入仍须如实补录。
