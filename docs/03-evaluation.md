@@ -23,7 +23,7 @@
 
 当前 [222项测试日志](../examples/final-acceptance/clean-unittest.txt)、[7项Node测试日志](../examples/final-acceptance/node-state.txt)、[独立安装检查](../examples/final-acceptance/installation.json)、[网页确认与交互检查](../examples/final-acceptance/web/browser-checks.json)均存放在examples。下文M4/M5/M6数字为各阶段原始记录，不能与最终验收重复累计为成功率。
 
-证据中的GitHub未完成字段固定于技术验收时点；后续公开交付已另行验证，见 [交付记录](GITHUB-DELIVERY.md)。候选人实际投入时长尚待本人补录；题面允许AI辅助，并不要求必须另写一段个人代码才能提交，但个人贡献与AI范围必须如实陈述。
+证据中的GitHub、个人用时及完整交付未完成字段固定于技术验收时点，不改写历史快照；后续公开交付已另行验证，见 [交付记录](GITHUB-DELIVERY.md)。候选人随后自报累计投入约4小时（估算，未连续计时），见 [个人投入记录](04-ai-usage.md)。题面允许AI辅助，并不要求必须另写一段个人代码才能提交，但个人贡献与AI范围必须如实陈述。
 
 ## 阶段验证与已知限制
 
@@ -52,6 +52,6 @@ M5阶段测试摘要见 [M5-summary](../examples/evaluation/M5-summary.json)，�
 
 新增测试覆盖会话/同源、严格 JSON、只读查询、明确核验审计、重传/重跑差异、版本确认、资料变化、运行恢复和事件写入失败。浏览器实际发现 STALE_REVIEW 错误映射和当前状态同步问题；补冲突映射和回归后重测成功，见 [M5验收](M5-ACCEPTANCE.md)。
 
-M6审查修复已有独立记录；AI辅助范围和用户实际选择已如实记录，GitHub随后已公开交付。尚待本人补录实际投入时长，不能将Codex操作记为本人亲自操作。原始模型行为如实保存，不通过修改Trace或预设决策日志制造模型效果。
+M6审查修复已有独立记录；AI辅助范围和用户实际选择已如实记录，GitHub随后已公开交付。个人投入已按本人自报约4小时估算补录，不能将Codex操作记为本人亲自操作。原始模型行为如实保存，不通过修改Trace或预设决策日志制造模型效果。
 
-上述M4/M5链接是历史阶段材料，分别固定d48e50f/9af839e。M6摘要为 [M6-summary](../examples/evaluation/M6-summary.json)，恢复记录为 [M6 manifest](../examples/workbench/M6/manifest.json)，修复关系见 [M6验收](M6-ACCEPTANCE.md)。旧模型运行不重新标记为新代码。GitHub后续已公开并验证匿名读取，见 [交付记录](GITHUB-DELIVERY.md)；本人实际投入仍须如实补录。
+上述M4/M5链接是历史阶段材料，分别固定d48e50f/9af839e。M6摘要为 [M6-summary](../examples/evaluation/M6-summary.json)，恢复记录为 [M6 manifest](../examples/workbench/M6/manifest.json)，修复关系见 [M6验收](M6-ACCEPTANCE.md)。旧模型运行不重新标记为新代码。GitHub后续已公开并验证匿名读取，见 [交付记录](GITHUB-DELIVERY.md)；个人投入估算已在AI使用记录中补录。

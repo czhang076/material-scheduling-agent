@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材的元数据与文案，形成可确认、可追溯的排期草稿。**仅草稿，不接真实发布。**
 
-> 当前0.6.0已完成独立技术验收，并发布至 [GitHub公开仓库](https://github.com/czhang076/material-scheduling-agent)。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)，评审访问见 [交付说明](docs/GITHUB-DELIVERY.md)。默认Mock，仅保存草稿；候选人实际投入记录仍需本人补录。
+> 当前0.6.0已完成独立技术验收，并发布至 [GitHub公开仓库](https://github.com/czhang076/material-scheduling-agent)。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)，评审访问见 [交付说明](docs/GITHUB-DELIVERY.md)。默认Mock，仅保存草稿；候选人自报累计投入约4小时（估算，未连续计时），AI辅助与个人贡献见 [使用记录](docs/04-ai-usage.md)。
 
 ## 安装与运行
 
@@ -117,4 +117,4 @@ src/material_scheduler/
 |M5网页历史记录 / 当前设计|[M5-ACCEPTANCE](docs/M5-ACCEPTANCE.md) / [workbench](docs/design/workbench.md)|
 |图片与视频扩展设计|[media-extension](docs/design/media-extension.md)|
 
-资料全部合成，运行数据库在忽略的 var/ 内；实际JSON/Trace在examples/，不提交密钥或数据库。真实模式显式配置，未配置则失败，不降级Mock。无视觉审核、多人认证、真实发布或线上部署。GitHub仓库公开且已匿名验证可读；提交时填写题号1、仓库URL及远程main最新SHA。实际投入与个人贡献由本人如实核对、补录。
+资料全部合成，运行数据库在忽略的 var/ 内；实际JSON/Trace在examples/，不提交密钥或数据库。真实模式显式配置，未配置则失败，不降级Mock。无视觉审核、多人认证、真实发布或线上部署。GitHub仓库公开且已匿名验证可读；提交时填写题号1、仓库URL及远程main最新SHA。个人投入为本人自报约4小时估算；代码、测试和实际运行主要由Codex辅助完成，不描述为本人独立实现。

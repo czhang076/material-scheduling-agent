@@ -14,4 +14,4 @@ M4真实模型7次运行固定于d48e50f，M5网页正常链路1次/5次调用�
 
 M1基线3a23f01、M2基线2d08270、M3基线b68c0a4、M4基线d48e50f、M5基线9af839e。当前阶段提交可用git log -1查看。各阶段证据按对应提交及记录的包指纹解释，不静默复用为新版本结果。
 
-GitHub已发布为 [czhang076/material-scheduling-agent](https://github.com/czhang076/material-scheduling-agent)，公开且已验证匿名Git读取、克隆和代表文件访问。交付说明及验证记录见 [GITHUB-DELIVERY](GITHUB-DELIVERY.md)。最终提交SHA以本轮交付回执和远程main为准。剩余本人实际投入时长及个人贡献记录核对，不宣称已代交招聘系统。
+GitHub已发布为 [czhang076/material-scheduling-agent](https://github.com/czhang076/material-scheduling-agent)，公开且已验证匿名Git读取、克隆和代表文件访问。交付说明及验证记录见 [GITHUB-DELIVERY](GITHUB-DELIVERY.md)。最终提交SHA以本轮交付回执和远程main为准。候选人于2026-10-31自报累计投入约4小时（估算，未连续计时），已补入AI使用记录；个人与AI贡献边界保持原样。题面交付材料已备齐，尚未代交招聘系统。

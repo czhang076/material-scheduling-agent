@@ -1,7 +1,7 @@
 # Project working rules
 
 - Read `CONTEXT.md`, `docs/01-requirements.md`, and `docs/STATUS.md` before changes.
-- CURRENT PHASE: M6 and final technical acceptance complete. User authorized publishing the repository to GitHub and explicitly chose public: https://github.com/czhang076/material-scheduling-agent . Anonymous review access is verified; see GITHUB-DELIVERY and STATUS. Candidate invested time/contribution confirmation remains. No hosted application or actual content publication. Preserve historical evidence and source fingerprints; use fresh output directories for new runs.
+- CURRENT PHASE: M6 and final technical acceptance complete. User authorized publishing the repository to GitHub and explicitly chose public: https://github.com/czhang076/material-scheduling-agent . Anonymous review access is verified; see GITHUB-DELIVERY and STATUS. On 2026-10-31 the candidate self-reported approximately 4 hours of personal involvement, estimated rather than continuously timed; AI and personal contributions remain distinguished in 04-ai-usage. Repository materials are ready for submission; no recruitment-system submission has been performed. No hosted application or actual content publication. Preserve historical evidence and source fingerprints; use fresh output directories for new runs.
 - Empty source/test/data/evidence directories are intentional. Do not fabricate outputs to fill them.
 - `docs/design/` contains proposed contracts, not verified runtime behavior. Keep that distinction explicit.
 - This project saves drafts only. Never add publication endpoints or describe a draft as published.
