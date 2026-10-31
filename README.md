@@ -117,4 +117,4 @@ src/material_scheduler/
 |M5网页历史记录 / 当前设计|[M5-ACCEPTANCE](docs/M5-ACCEPTANCE.md) / [workbench](docs/design/workbench.md)|
 |图片与视频扩展设计|[media-extension](docs/design/media-extension.md)|
 
-资料全部合成，运行数据库在忽略的 var/ 内；实际JSON/Trace在examples/，不提交密钥或数据库。真实模式显式配置，未配置则失败，不降级Mock。无视觉审核、多人认证、真实发布或线上部署。GitHub仓库公开且已匿名验证可读；提交时填写题号1、仓库URL及远程main最新SHA。个人投入为本人自报约4小时估算；代码、测试和实际运行主要由Codex辅助完成，不描述为本人独立实现。
+资料全部合成，运行数据库在忽略的 var/ 内；实际JSON/Trace在examples/，不提交密钥或数据库。真实模式显式配置，未配置则失败，不降级Mock。无视觉审核、多人认证、真实发布或线上部署。GitHub仓库公开且已匿名验证可读；提交时填写题号1、仓库URL及远程main最新SHA。个人投入约4小时（本人估算）；实际参与、AI辅助范围及关键修改统一见 [协作记录](docs/04-ai-usage.md)，设计取舍及改进见 [复盘](docs/05-retrospective.md)。
