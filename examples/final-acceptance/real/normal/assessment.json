@@ -1,0 +1,96 @@
+{
+  "checks": {
+    "real_provider": true,
+    "installed_code_matches": true,
+    "trace_complete": true,
+    "native_response_receipts": true,
+    "observations_change_next_actions": true,
+    "original_requirement_immutable": true,
+    "not_published": true,
+    "tool_budget_respected": true,
+    "no_reservation_overlap": true,
+    "expected_state": true,
+    "actual_one_ready": true,
+    "target_kept": true
+  },
+  "all_passed": true,
+  "ledger": {
+    "counts": {
+      "requests": 1,
+      "drafts": 1,
+      "reservations": 1,
+      "confirmations": 0,
+      "operation_receipts": 1
+    },
+    "overlapping_reservations": 0,
+    "requests": [
+      {
+        "items": [
+          {
+            "channel": "douyin",
+            "item_id": "I01",
+            "material_id": "M01",
+            "time_requirement": {
+              "alternative_window": {
+                "end": "2030-06-01T21:00:00+08:00",
+                "start": "2030-06-01T18:00:00+08:00"
+              },
+              "duration_minutes": 30,
+              "mode": "hard",
+              "requested_start": "2030-06-01T18:00:00+08:00"
+            }
+          }
+        ],
+        "request_id": "REQ-ACCEPT-REAL-normal",
+        "schema_version": "1.0"
+      }
+    ],
+    "drafts": [
+      {
+        "draft_id": "D-ed259cf6c9cb4a27ae987e14532e7961",
+        "version": 1,
+        "state": "READY",
+        "channel": "douyin",
+        "start_utc": "2030-06-01T10:00:00+00:00",
+        "end_utc": "2030-06-01T10:30:00+00:00"
+      }
+    ],
+    "reservations": [
+      {
+        "draft_id": "D-ed259cf6c9cb4a27ae987e14532e7961",
+        "channel": "douyin",
+        "start_utc": "2030-06-01T10:00:00+00:00",
+        "end_utc": "2030-06-01T10:30:00+00:00"
+      }
+    ]
+  },
+  "invocation": {
+    "kind": "actual CLI subprocess",
+    "command": [
+      "E:\\material-scheduling-agent\\var\\strict-acceptance-20261031T084344-12c0c5\\venv\\Scripts\\python.exe",
+      "-I",
+      "-m",
+      "material_scheduler",
+      "run",
+      "--mode",
+      "real",
+      "--env-file",
+      "E:\\material-scheduling-agent\\.env",
+      "--db",
+      "E:\\material-scheduling-agent\\var\\strict-acceptance-20261031T084344-12c0c5\\real-ledgers\\normal.sqlite3",
+      "--input",
+      "E:\\material-scheduling-agent\\examples\\final-acceptance\\real\\normal\\request.json",
+      "--out",
+      "E:\\material-scheduling-agent\\examples\\final-acceptance\\real\\normal\\run",
+      "--max-tool-attempts",
+      "10",
+      "--max-model-rounds",
+      "12",
+      "--run-timeout-seconds",
+      "120"
+    ],
+    "exit_code": 0
+  },
+  "actual_state": "READY_DRAFTS",
+  "exit_code": 0
+}

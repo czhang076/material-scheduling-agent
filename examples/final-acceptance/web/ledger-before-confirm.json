@@ -1,0 +1,15 @@
+{
+  "drafts": 2,
+  "reservations": 1,
+  "confirmations": 0,
+  "draft_states": [
+    [
+      "PENDING_CONFIRMATION",
+      1
+    ],
+    [
+      "READY",
+      1
+    ]
+  ]
+}

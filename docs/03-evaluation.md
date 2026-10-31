@@ -1,6 +1,6 @@
 # 效果验证与限制
 
-M6已修复最终审查4项问题，当前测试与历史模型实证分别记录。
+0.6.0已完成最终独立严格验收，当前结果以 [FINAL-ACCEPTANCE](FINAL-ACCEPTANCE.md)为入口；M4/M5/M6阶段记录保留其原始时间和提交边界。
 
 |验证对象|实际结果|证据边界|
 |---|---|---|
@@ -10,6 +10,7 @@ M6已修复最终审查4项问题，当前测试与历史模型实证分别记�
 |真实DeepSeek|7次运行符合预期，含六项必验和占用变化|实际网络模型动作，有服务回执；是有限合成样本|
 |网页HTTP与交互|6组HTTP + Mock案例、桌面/手机浏览器检查|真实本地服务；Mock不证明模型效果|
 |M6审查回归|另7个Node状态用例、1组终态故障/恢复、实际浏览器复查|外壳测试与真实浏览器分开；本轮未重发付费模型|
+|最终独立真实验收|当前版本8次CLI、2次网页，共51次DeepSeek调用，均符合预期|来自干净安装；有限合成样本；CLI保存失败为明确的可信工具故障注入|
 |生产级调度/真实发布|未实现或验证|无对应结论|
 
 机器记录：[M4-summary](../examples/evaluation/M4-summary.json)、[开发测试](../examples/evaluation/M4-development-tests.txt)、[独立wheel测试](../examples/evaluation/M4-clean_wheel-tests.txt)。真实数据入口为 [M4-real-cases](../examples/evaluation/M4-real-cases.json)，Mock入口为 [M4-mock-cases](../examples/evaluation/M4-mock-cases.json)；两份清单分别关联输入、输出、Trace、运行清单和哈希。细节见 [M4 验收](M4-ACCEPTANCE.md)。

@@ -1,0 +1,109 @@
+{
+  "generated_at": "2026-10-31T08:55:01.696Z",
+  "method": "Actual Chrome with isolated loopback ledger; 2 real web runs. The default Mock double-click control used a separate discarded ledger. Network rejection and response delay are explicitly injected browser transport controls.",
+  "checks": [
+    {
+      "check": "default-mock-double-click-control",
+      "selected_mode": "mock",
+      "actual_mode": "mock",
+      "status": "FINISHED",
+      "run_count": 1,
+      "draft_count": 1,
+      "run_id": "RUN-d22b318e5dd54833b9af37572f61aad2"
+    },
+    {
+      "check": "real-web-normal",
+      "run_id": "RUN-9224250c43eb49ccb39d2ec71198d33a",
+      "mode": "real",
+      "status": "READY_DRAFTS",
+      "draft": "READY",
+      "candidate": "2030-06-01T18:00:00+08:00",
+      "published": false,
+      "tools": [
+        "read_material",
+        "check_rules",
+        "query_slots",
+        "save_draft",
+        "finish"
+      ]
+    },
+    {
+      "check": "real-web-hard-conflict-and-rejections",
+      "run_id": "RUN-958bc35f02894a3e9abfb4127b9bc1b9",
+      "mode": "real",
+      "status": "NEEDS_CONFIRMATION",
+      "original": "2030-06-01T18:00:00+08:00",
+      "candidate": "2030-06-01T19:00:00+08:00",
+      "pending": [
+        "TIME_CHANGE"
+      ],
+      "incomplete": {
+        "status": 409,
+        "code": "CONFIRMATION_INCOMPLETE"
+      },
+      "wrongVersion": {
+        "status": 409,
+        "code": "DRAFT_VERSION_CONFLICT"
+      }
+    },
+    {
+      "check": "real-web-consent-not-preselected",
+      "draft_id": "D-ec9097488f0d4210955de2483f61a978",
+      "version": 1,
+      "all_unchecked": true,
+      "submit_disabled": true
+    },
+    {
+      "check": "explicit-consent-and-idempotent-confirmation",
+      "confirmation_id": "CONF-WEB-847abe18d15e4400a1a9936c99971d55",
+      "confirmation_status": "REUSED",
+      "current": "READY",
+      "current_version": 2,
+      "historical_run": "NEEDS_CONFIRMATION",
+      "published": false,
+      "run_count": 2,
+      "draft_count": 2
+    },
+    {
+      "check": "actual-real-history-isolation",
+      "selected": "RUN-958bc35f02894a3e9abfb4127b9bc1b9",
+      "displayed": "RUN-958bc35f02894a3e9abfb4127b9bc1b9",
+      "event_run_ids": [
+        "RUN-958bc35f02894a3e9abfb4127b9bc1b9"
+      ],
+      "no_duplicates": true,
+      "all_events_belong_to_selected": true
+    },
+    {
+      "check": "refresh-does-not-rerun-model",
+      "runs": 2,
+      "drafts": 2,
+      "restored_run": "RUN-958bc35f02894a3e9abfb4127b9bc1b9",
+      "run_mode": "real",
+      "current": "READY",
+      "form_mode": "mock"
+    },
+    {
+      "check": "mobile",
+      "width": 390,
+      "document_width": 390,
+      "horizontal_page_overflow": false
+    },
+    {
+      "check": "unknown-real-submission-cannot-override-new-mock-input",
+      "http_posts": 1,
+      "original_mode": "real",
+      "visible_mode": "mock",
+      "original_time": "2030-06-01T18:00:00+08:00",
+      "visible_time": "20:00",
+      "original_identity_preserved": true,
+      "actual_server_runs": 2,
+      "error": "原提交结果仍待查询，本次新要求未发送。请先查询原提交；只有点击“重试原提交”才会重试原要求与模式。"
+    }
+  ],
+  "confirmation_origin": "Trusted synthetic local reviewer via the actual confirmation UI, not a model action",
+  "limitations": [
+    "Viewport emulation is not a physical mobile device.",
+    "Browser tools initially could not select an option by its value; that invocation remained Mock and is not counted as a real run. The real runs used a fresh ledger and explicit mode guards."
+  ]
+}

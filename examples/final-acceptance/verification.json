@@ -1,0 +1,12 @@
+{
+  "technical_checks_passed": true,
+  "real_runs": 10,
+  "real_provider_calls": 51,
+  "offline_cases": 14,
+  "offline_runs": 16,
+  "http_mock_traces": 9,
+  "unittest_methods": 222,
+  "node_cases": 7,
+  "github_delivery_verified": false,
+  "candidate_work_hours_verified": false
+}

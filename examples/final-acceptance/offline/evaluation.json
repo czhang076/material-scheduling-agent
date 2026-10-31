@@ -1,0 +1,355 @@
+{
+  "evaluation_mode": "mock",
+  "real_decision_verified": false,
+  "all_passed": true,
+  "cases": [
+    {
+      "case": "normal",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "normal/input.json",
+      "output": "normal/actual.json",
+      "runs": [
+        {
+          "result": "normal/run-1/result.json",
+          "trace": "normal/run-1/trace.jsonl",
+          "manifest": "normal/run-1/manifest.json",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "case": "missing",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "NEEDS_INPUT",
+      "actual_task_status": "NEEDS_INPUT",
+      "input": "missing/input.json",
+      "output": "missing/actual.json",
+      "runs": [
+        {
+          "result": "missing/run-1/result.json",
+          "trace": "missing/run-1/trace.jsonl",
+          "manifest": "missing/run-1/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "risk",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "BLOCKED",
+      "actual_task_status": "BLOCKED",
+      "input": "risk/input.json",
+      "output": "risk/actual.json",
+      "runs": [
+        {
+          "result": "risk/run-1/result.json",
+          "trace": "risk/run-1/trace.jsonl",
+          "manifest": "risk/run-1/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "conflict",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "candidate_changes_with_occupancy": true,
+        "original_retained_and_confirmation_required": true,
+        "pending_not_reserved": true
+      },
+      "expected_task_status": "NEEDS_CONFIRMATION",
+      "actual_task_status": "NEEDS_CONFIRMATION",
+      "input": "conflict/input.json",
+      "output": "conflict/actual.json",
+      "runs": [
+        {
+          "result": "conflict/run-1/result.json",
+          "trace": "conflict/run-1/trace.jsonl",
+          "manifest": "conflict/run-1/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "duplicate",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "same_draft_and_version": true,
+        "reused": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "duplicate/input.json",
+      "output": "duplicate/actual.json",
+      "runs": [
+        {
+          "result": "duplicate/run-1/result.json",
+          "trace": "duplicate/run-1/trace.jsonl",
+          "manifest": "duplicate/run-1/manifest.json",
+          "exit_code": 0
+        },
+        {
+          "result": "duplicate/run-2/result.json",
+          "trace": "duplicate/run-2/trace.jsonl",
+          "manifest": "duplicate/run-2/manifest.json",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "case": "save-failure",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "rollback": true,
+        "failed_attempt": true
+      },
+      "expected_task_status": "FAILED",
+      "actual_task_status": "FAILED",
+      "input": "save-failure/input.json",
+      "output": "save-failure/actual.json",
+      "runs": [
+        {
+          "result": "save-failure/run-1/result.json",
+          "trace": "save-failure/run-1/trace.jsonl",
+          "manifest": "save-failure/run-1/manifest.json",
+          "exit_code": 4
+        }
+      ]
+    },
+    {
+      "case": "tool-recovery",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "tool-recovery/input.json",
+      "output": "tool-recovery/actual.json",
+      "runs": [
+        {
+          "result": "tool-recovery/run-1/result.json",
+          "trace": "tool-recovery/run-1/trace.jsonl",
+          "manifest": "tool-recovery/run-1/manifest.json",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "case": "supplement",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "supplement/input.json",
+      "output": "supplement/actual.json",
+      "runs": [
+        {
+          "result": "supplement/run-1/result.json",
+          "trace": "supplement/run-1/trace.jsonl",
+          "manifest": "supplement/run-1/manifest.json",
+          "exit_code": 0
+        }
+      ]
+    },
+    {
+      "case": "changed-occupancy",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "candidate_changes_with_occupancy": true,
+        "original_retained_and_confirmation_required": true,
+        "pending_not_reserved": true,
+        "same_request_replanned_same_draft": true
+      },
+      "expected_task_status": "NEEDS_CONFIRMATION",
+      "actual_task_status": "NEEDS_CONFIRMATION",
+      "input": "changed-occupancy/input.json",
+      "output": "changed-occupancy/actual.json",
+      "runs": [
+        {
+          "result": "changed-occupancy/run-1/result.json",
+          "trace": "changed-occupancy/run-1/trace.jsonl",
+          "manifest": "changed-occupancy/run-1/manifest.json",
+          "exit_code": 2
+        },
+        {
+          "result": "changed-occupancy/run-2/result.json",
+          "trace": "changed-occupancy/run-2/trace.jsonl",
+          "manifest": "changed-occupancy/run-2/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "confirmation",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "one_user_consent_one_reservation": true
+      },
+      "expected_task_status": "READY_DRAFTS",
+      "actual_task_status": "READY_DRAFTS",
+      "input": "confirmation/input.json",
+      "output": "confirmation/actual.json",
+      "runs": [
+        {
+          "result": "confirmation/run-1/result.json",
+          "trace": "confirmation/run-1/trace.jsonl",
+          "manifest": "confirmation/run-1/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "manual-risk",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "NEEDS_CONFIRMATION",
+      "actual_task_status": "NEEDS_CONFIRMATION",
+      "input": "manual-risk/input.json",
+      "output": "manual-risk/actual.json",
+      "runs": [
+        {
+          "result": "manual-risk/run-1/result.json",
+          "trace": "manual-risk/run-1/trace.jsonl",
+          "manifest": "manual-risk/run-1/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "no-slots",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true
+      },
+      "expected_task_status": "INCOMPLETE",
+      "actual_task_status": "INCOMPLETE",
+      "input": "no-slots/input.json",
+      "output": "no-slots/actual.json",
+      "runs": [
+        {
+          "result": "no-slots/run-1/result.json",
+          "trace": "no-slots/run-1/trace.jsonl",
+          "manifest": "no-slots/run-1/manifest.json",
+          "exit_code": 2
+        }
+      ]
+    },
+    {
+      "case": "limit",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "explicit_bounded_stop": true
+      },
+      "expected_task_status": "INCOMPLETE",
+      "actual_task_status": "INCOMPLETE",
+      "input": "limit/input.json",
+      "output": "limit/actual.json",
+      "runs": [
+        {
+          "result": "limit/run-1/result.json",
+          "trace": "limit/run-1/trace.jsonl",
+          "manifest": "limit/run-1/manifest.json",
+          "exit_code": 5
+        }
+      ]
+    },
+    {
+      "case": "unknown-save",
+      "passed": true,
+      "checks": {
+        "task_status": true,
+        "draft_count": true,
+        "never_published": true,
+        "traces_complete": true,
+        "model_mode_explicit": true,
+        "unknown_not_false_success": true
+      },
+      "expected_task_status": "PARTIAL",
+      "actual_task_status": "PARTIAL",
+      "input": "unknown-save/input.json",
+      "output": "unknown-save/actual.json",
+      "runs": [
+        {
+          "result": "unknown-save/run-1/result.json",
+          "trace": "unknown-save/run-1/trace.jsonl",
+          "manifest": "unknown-save/run-1/manifest.json",
+          "exit_code": 4
+        }
+      ]
+    }
+  ]
+}

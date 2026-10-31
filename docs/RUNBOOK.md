@@ -73,6 +73,8 @@ run：0 全部可用草稿；2 业务需补充/确认、阻断或其他未完成
 
 ## 真实模式及交付
 
-真实模式显式运行 run --mode real --env-file .env，或服务带该配置并在网页明确选真实模式；会产生 API 用量。配置与网络边界见 [M4验收](M4-ACCEPTANCE.md)。真实验证基线为历史 M4 七路径和 M5 网页一次正常链路；M6 修复未重发付费调用。
+真实模式显式运行 run --mode real --env-file .env，或服务带该配置并在网页明确选真实模式；会产生API用量。配置与网络边界见 [M4验收](M4-ACCEPTANCE.md)。旧M4/M5路径保留原提交边界。随后提交前严格验收另跑了当前0.6.0的8次CLI和2次网页真实路径，共51次调用，详见 [最终验收报告](FINAL-ACCEPTANCE.md)。
+
+当前最终证据可执行只读复核：`python examples/final-acceptance/verify_evidence.py`，不会调用付费模型。付费重新生成8条真实CLI路径使用同目录reproduce_real.py，参数和干净环境说明见最终验收报告；始终输出到新目录。
 
 交接先读 AGENTS → CONTEXT → STATUS → 需求/方案 → [M6验收](M6-ACCEPTANCE.md)。数据库与本地配置在忽略的 var/ 和 .env；仓库仅保留合成证据。GitHub URL、评审权限、最终SHA、候选人亲自修改/复跑及实际投入记录仍待补全，不冒充完整交付。

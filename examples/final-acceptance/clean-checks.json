@@ -1,0 +1,43 @@
+{
+  "baseline_commit": "e89b2385a02493c4af5430d638bfdb5bd29b764e",
+  "records": [
+    {
+      "check": "clean-unittest",
+      "command": [
+        "E:\\material-scheduling-agent\\var\\strict-acceptance-20261031T084344-12c0c5\\venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-t",
+        ".",
+        "-v"
+      ],
+      "returncode": 0,
+      "log": "clean-unittest.txt"
+    },
+    {
+      "check": "node-state",
+      "command": [
+        "node",
+        "--test",
+        "tests/web/state.test.cjs"
+      ],
+      "returncode": 0,
+      "log": "node-state.txt"
+    },
+    {
+      "check": "pip-check",
+      "command": [
+        "E:\\material-scheduling-agent\\var\\strict-acceptance-20261031T084344-12c0c5\\venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "returncode": 0,
+      "log": "pip-check.txt"
+    }
+  ]
+}

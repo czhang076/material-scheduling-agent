@@ -2,7 +2,7 @@
 
 帮助内容团队审核素材的元数据与文案，形成可确认、可追溯的排期草稿。**仅草稿，不接真实发布。**
 
-> 当前 M6 / 0.6.0：已修复最终审查发现的提交覆盖、任务卡死、历史记录串线及手册过期。默认 Mock；真实模型实证按原提交保留，不因源码更新重新标记。仅保存草稿。
+> 当前0.6.0已完成提交前独立验收：干净安装、全部测试、当前版本真实模型与网页确认闭环。结果见 [严格验收报告](docs/FINAL-ACCEPTANCE.md)。默认Mock，仅保存草稿；GitHub交付及候选人实际投入记录仍待补全。
 
 ## 安装与运行
 
@@ -25,7 +25,7 @@ py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-当前 222 个 unittest 方法，开发环境与独立 wheel 环境分别通过；另有7个 Node 网页状态用例，分别计数。Node仅用于开发验证；无Node时跳过其中1个Python桥接方法，不影响项目运行。当前6组HTTP + Mock业务路径及1组终态恢复证据见 [M6验收](docs/M6-ACCEPTANCE.md)、[测试摘要](examples/evaluation/M6-summary.json)及 [实际记录](examples/workbench/M6/manifest.json)。M4七次真实运行固定于d48e50f，M5网页一次真实运行固定于9af839e；本轮未重发付费调用。
+当前222个unittest方法、另7个Node网页状态用例分别计数，已从e89b238导出的干净源码重新构建、安装并全部复跑。Node仅用于开发验证，项目运行无需Node。提交前新增8次真实CLI路径、2次真实网页运行，共51次DeepSeek调用，以及14组离线场景16次运行、6组HTTP业务和1组终态恢复。原始证据见 [最终验收清单](examples/final-acceptance/manifest.json)。M4/M5/M6旧证据保持原样，不重新标记为新运行。
 
 ## 本地网页
 
@@ -104,6 +104,7 @@ src/material_scheduler/
 |实际验证、失败和限制|[03-evaluation](docs/03-evaluation.md)|
 |AI 使用及个人贡献边界|[04-ai-usage](docs/04-ai-usage.md)|
 |设计与开发复盘|[05-retrospective](docs/05-retrospective.md)|
+|提交前独立严格验收|[FINAL-ACCEPTANCE](docs/FINAL-ACCEPTANCE.md)|
 |M6审查修复与当前验收|[M6-ACCEPTANCE](docs/M6-ACCEPTANCE.md)|
 |M4 配置、协议测试及真实路径|[M4-ACCEPTANCE](docs/M4-ACCEPTANCE.md)|
 |M3 历史离线基线|[M3-ACCEPTANCE](docs/M3-ACCEPTANCE.md)|

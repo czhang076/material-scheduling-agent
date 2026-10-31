@@ -1,0 +1,57 @@
+{
+  "checks": {
+    "real_provider": true,
+    "installed_code_matches": true,
+    "trace_complete": true,
+    "native_response_receipts": true,
+    "observations_change_next_actions": true,
+    "original_requirement_immutable": true,
+    "not_published": true,
+    "tool_budget_respected": true,
+    "no_reservation_overlap": true,
+    "failed_save_explicit": true,
+    "rollback": true,
+    "actual_failed_tool": true
+  },
+  "all_passed": true,
+  "ledger": {
+    "counts": {
+      "requests": 1,
+      "drafts": 0,
+      "reservations": 0,
+      "confirmations": 0,
+      "operation_receipts": 0
+    },
+    "overlapping_reservations": 0,
+    "requests": [
+      {
+        "items": [
+          {
+            "channel": "douyin",
+            "item_id": "I01",
+            "material_id": "M01",
+            "time_requirement": {
+              "alternative_window": {
+                "end": "2030-06-01T21:00:00+08:00",
+                "start": "2030-06-01T18:00:00+08:00"
+              },
+              "duration_minutes": 30,
+              "mode": "hard",
+              "requested_start": "2030-06-01T18:00:00+08:00"
+            }
+          }
+        ],
+        "request_id": "REQ-ACCEPT-REAL-save-failure",
+        "schema_version": "1.0"
+      }
+    ],
+    "drafts": [],
+    "reservations": []
+  },
+  "invocation": {
+    "kind": "installed application use case",
+    "fault_injected": true
+  },
+  "actual_state": "FAILED",
+  "exit_code": 4
+}

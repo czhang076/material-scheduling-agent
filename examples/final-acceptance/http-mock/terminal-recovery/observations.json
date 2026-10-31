@@ -1,0 +1,762 @@
+{
+  "degraded": {
+    "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+    "request_id": "REQ-TEST",
+    "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+    "mode": "mock",
+    "status": "INTERRUPTED",
+    "created_at": "2026-10-31T08:53:13.573+00:00",
+    "updated_at": "2026-10-31T08:53:13.582+00:00",
+    "error": {
+      "code": "RUN_STATE_UNPERSISTED",
+      "message": "Worker ended but its terminal state is not durably acknowledged; retry the original submission to reconcile"
+    },
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "REQ-TEST",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "request_id": "REQ-TEST",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-6b537c22eb6f4540a5020352b8c81f75",
+            "request_id": "REQ-TEST",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T18:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "CREATED",
+            "error_code": null,
+            "operation_id": "OP-aa8f9c15981241aa8d28eb0a43949d83",
+            "operation_version": 1
+          },
+          "review_observed_in_session": true,
+          "status": "READY",
+          "incomplete_reasons": []
+        }
+      ],
+      "observed_at": "2026-10-31T08:53:13.855+00:00",
+      "published": false,
+      "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+      "task_status": "READY_DRAFTS",
+      "business_task_status": "READY_DRAFTS",
+      "model": {
+        "mode": "mock",
+        "name": "observation-policy",
+        "version": "1.0"
+      },
+      "stop_reason": "MODEL_FINISHED",
+      "limit_kind": null,
+      "execution_status": "FINISHED",
+      "stats": {
+        "model_rounds": 5,
+        "protocol_errors": 0,
+        "tool_attempts": 5,
+        "tool_dispatches": 5,
+        "tool_executions": 5,
+        "per_item_attempts": {
+          "I01": 4
+        },
+        "elapsed_seconds": 0.24387680000290857,
+        "final_revalidations": 1
+      },
+      "limits": {
+        "per_item_tool_limit": 10,
+        "max_tool_attempts": 11,
+        "max_model_rounds": 15,
+        "run_timeout_seconds": 180,
+        "model_timeout_seconds": 30,
+        "protocol_error_limit": 4
+      },
+      "trace_complete": true,
+      "last_tool_observation": {
+        "ok": true,
+        "tool": "finish",
+        "item_id": null,
+        "data": {
+          "stop_reason": "TOOL_SESSION_FINISHED"
+        },
+        "observed_at": "2026-10-31T08:53:13.840+00:00"
+      },
+      "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+      "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+      "react_verified_with_real_model": false
+    },
+    "state_persisted": false,
+    "current": {
+      "request_id": "REQ-TEST",
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-TEST",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-6b537c22eb6f4540a5020352b8c81f75",
+            "request_id": "REQ-TEST",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "READY",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O18",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T18:30:00+08:00"
+            },
+            "pending_confirmations": [],
+            "required_confirmations": [],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false,
+            "material_id": "M01",
+            "channel": "douyin",
+            "findings": [],
+            "last_validated_at": "2026-10-31T08:53:13.790+00:00"
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "findings": [],
+            "missing_fields": [],
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ]
+          }
+        }
+      ],
+      "read_at": "2026-10-31T08:53:13.892+00:00",
+      "projection": "readonly_persisted_facts",
+      "published": false
+    }
+  },
+  "listing": {
+    "runs": [
+      {
+        "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+        "request_id": "REQ-TEST",
+        "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+        "mode": "mock",
+        "status": "INTERRUPTED",
+        "created_at": "2026-10-31T08:53:13.573+00:00",
+        "updated_at": "2026-10-31T08:53:13.582+00:00",
+        "error": {
+          "code": "RUN_STATE_UNPERSISTED",
+          "message": "Worker ended but its terminal state is not durably acknowledged; retry the original submission to reconcile"
+        },
+        "state_persisted": false
+      }
+    ]
+  },
+  "submission_lookup": {
+    "run": {
+      "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+      "request_id": "REQ-TEST",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "INTERRUPTED",
+      "created_at": "2026-10-31T08:53:13.573+00:00",
+      "updated_at": "2026-10-31T08:53:13.582+00:00",
+      "error": {
+        "code": "RUN_STATE_UNPERSISTED",
+        "message": "Worker ended but its terminal state is not durably acknowledged; retry the original submission to reconcile"
+      },
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-TEST",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "request_id": "REQ-TEST",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": {
+              "draft_id": "D-6b537c22eb6f4540a5020352b8c81f75",
+              "request_id": "REQ-TEST",
+              "item_id": "I01",
+              "version": 1,
+              "draft_state": "READY",
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "candidate": {
+                "offer_id": "O18",
+                "offer_revision": 1,
+                "channel": "douyin",
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T18:30:00+08:00"
+              },
+              "pending_confirmations": [],
+              "required_confirmations": [],
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "confirmation": null,
+              "stale_reason": null,
+              "published": false
+            },
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ],
+              "findings": [],
+              "missing_fields": []
+            },
+            "save_attempt": {
+              "save_status": "CREATED",
+              "error_code": null,
+              "operation_id": "OP-aa8f9c15981241aa8d28eb0a43949d83",
+              "operation_version": 1
+            },
+            "review_observed_in_session": true,
+            "status": "READY",
+            "incomplete_reasons": []
+          }
+        ],
+        "observed_at": "2026-10-31T08:53:13.855+00:00",
+        "published": false,
+        "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+        "task_status": "READY_DRAFTS",
+        "business_task_status": "READY_DRAFTS",
+        "model": {
+          "mode": "mock",
+          "name": "observation-policy",
+          "version": "1.0"
+        },
+        "stop_reason": "MODEL_FINISHED",
+        "limit_kind": null,
+        "execution_status": "FINISHED",
+        "stats": {
+          "model_rounds": 5,
+          "protocol_errors": 0,
+          "tool_attempts": 5,
+          "tool_dispatches": 5,
+          "tool_executions": 5,
+          "per_item_attempts": {
+            "I01": 4
+          },
+          "elapsed_seconds": 0.24387680000290857,
+          "final_revalidations": 1
+        },
+        "limits": {
+          "per_item_tool_limit": 10,
+          "max_tool_attempts": 11,
+          "max_model_rounds": 15,
+          "run_timeout_seconds": 180,
+          "model_timeout_seconds": 30,
+          "protocol_error_limit": 4
+        },
+        "trace_complete": true,
+        "last_tool_observation": {
+          "ok": true,
+          "tool": "finish",
+          "item_id": null,
+          "data": {
+            "stop_reason": "TOOL_SESSION_FINISHED"
+          },
+          "observed_at": "2026-10-31T08:53:13.840+00:00"
+        },
+        "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+        "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+        "react_verified_with_real_model": false
+      },
+      "state_persisted": false
+    }
+  },
+  "new_work_during_fault": {
+    "status": 503,
+    "body": {
+      "error": {
+        "code": "RUN_STORE_UNAVAILABLE",
+        "message": "Injected terminal journal write fault",
+        "path": ""
+      },
+      "published": false
+    }
+  },
+  "recovered_original": {
+    "run": {
+      "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+      "request_id": "REQ-TEST",
+      "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+      "mode": "mock",
+      "status": "FINISHED",
+      "created_at": "2026-10-31T08:53:13.573+00:00",
+      "updated_at": "2026-10-31T08:53:13.901+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-TEST",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "request_id": "REQ-TEST",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": {
+              "draft_id": "D-6b537c22eb6f4540a5020352b8c81f75",
+              "request_id": "REQ-TEST",
+              "item_id": "I01",
+              "version": 1,
+              "draft_state": "READY",
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "candidate": {
+                "offer_id": "O18",
+                "offer_revision": 1,
+                "channel": "douyin",
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T18:30:00+08:00"
+              },
+              "pending_confirmations": [],
+              "required_confirmations": [],
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "confirmation": null,
+              "stale_reason": null,
+              "published": false
+            },
+            "review": {
+              "review_status": "PASS",
+              "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+              "review_coverage": [
+                "metadata",
+                "copy_text"
+              ],
+              "findings": [],
+              "missing_fields": []
+            },
+            "save_attempt": {
+              "save_status": "CREATED",
+              "error_code": null,
+              "operation_id": "OP-aa8f9c15981241aa8d28eb0a43949d83",
+              "operation_version": 1
+            },
+            "review_observed_in_session": true,
+            "status": "READY",
+            "incomplete_reasons": []
+          }
+        ],
+        "observed_at": "2026-10-31T08:53:13.855+00:00",
+        "published": false,
+        "run_id": "RUN-ed8f0a336114400087a87b7ebcb68e95",
+        "task_status": "READY_DRAFTS",
+        "business_task_status": "READY_DRAFTS",
+        "model": {
+          "mode": "mock",
+          "name": "observation-policy",
+          "version": "1.0"
+        },
+        "stop_reason": "MODEL_FINISHED",
+        "limit_kind": null,
+        "execution_status": "FINISHED",
+        "stats": {
+          "model_rounds": 5,
+          "protocol_errors": 0,
+          "tool_attempts": 5,
+          "tool_dispatches": 5,
+          "tool_executions": 5,
+          "per_item_attempts": {
+            "I01": 4
+          },
+          "elapsed_seconds": 0.24387680000290857,
+          "final_revalidations": 1
+        },
+        "limits": {
+          "per_item_tool_limit": 10,
+          "max_tool_attempts": 11,
+          "max_model_rounds": 15,
+          "run_timeout_seconds": 180,
+          "model_timeout_seconds": 30,
+          "protocol_error_limit": 4
+        },
+        "trace_complete": true,
+        "last_tool_observation": {
+          "ok": true,
+          "tool": "finish",
+          "item_id": null,
+          "data": {
+            "stop_reason": "TOOL_SESSION_FINISHED"
+          },
+          "observed_at": "2026-10-31T08:53:13.840+00:00"
+        },
+        "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+        "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+        "react_verified_with_real_model": false
+      }
+    },
+    "reused": true
+  },
+  "next_run": {
+    "run_id": "RUN-d81c6939374448708d421542111a656f",
+    "request_id": "REQ-RECOVERED-NEXT",
+    "payload_hash": "104b71562f719cb12aa0111584fe4c5a485297ee2bb54723dfcd40d702eafa26",
+    "mode": "mock",
+    "status": "FINISHED",
+    "created_at": "2026-10-31T08:53:13.945+00:00",
+    "updated_at": "2026-10-31T08:53:14.310+00:00",
+    "error": null,
+    "request": {
+      "schema_version": "1.0",
+      "request_id": "REQ-RECOVERED-NEXT",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "request_id": "REQ-RECOVERED-NEXT",
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-33184587e0af4e30a82a901234ac8edc",
+            "request_id": "REQ-RECOVERED-NEXT",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "PENDING_CONFIRMATION",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O19",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T19:00:00+08:00",
+              "end": "2030-06-01T19:30:00+08:00"
+            },
+            "pending_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "required_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ],
+            "findings": [],
+            "missing_fields": []
+          },
+          "save_attempt": {
+            "save_status": "CREATED",
+            "error_code": null,
+            "operation_id": "OP-b911a1d7fe7142978e80cd2317db3a1b",
+            "operation_version": 1
+          },
+          "review_observed_in_session": true,
+          "status": "NEEDS_CONFIRMATION",
+          "incomplete_reasons": []
+        }
+      ],
+      "observed_at": "2026-10-31T08:53:14.275+00:00",
+      "published": false,
+      "run_id": "RUN-d81c6939374448708d421542111a656f",
+      "task_status": "NEEDS_CONFIRMATION",
+      "business_task_status": "NEEDS_CONFIRMATION",
+      "model": {
+        "mode": "mock",
+        "name": "observation-policy",
+        "version": "1.0"
+      },
+      "stop_reason": "MODEL_FINISHED",
+      "limit_kind": null,
+      "execution_status": "FINISHED",
+      "stats": {
+        "model_rounds": 6,
+        "protocol_errors": 0,
+        "tool_attempts": 6,
+        "tool_dispatches": 6,
+        "tool_executions": 6,
+        "per_item_attempts": {
+          "I01": 5
+        },
+        "elapsed_seconds": 0.28859060000104364,
+        "final_revalidations": 1
+      },
+      "limits": {
+        "per_item_tool_limit": 10,
+        "max_tool_attempts": 11,
+        "max_model_rounds": 15,
+        "run_timeout_seconds": 180,
+        "model_timeout_seconds": 30,
+        "protocol_error_limit": 4
+      },
+      "trace_complete": true,
+      "last_tool_observation": {
+        "ok": true,
+        "tool": "finish",
+        "item_id": null,
+        "data": {
+          "stop_reason": "TOOL_SESSION_FINISHED"
+        },
+        "observed_at": "2026-10-31T08:53:14.260+00:00"
+      },
+      "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+      "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+      "react_verified_with_real_model": false
+    },
+    "current": {
+      "request_id": "REQ-RECOVERED-NEXT",
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-RECOVERED-NEXT",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M01",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "item_id": "I01",
+          "material_id": "M01",
+          "channel": "douyin",
+          "time_requirement": {
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "duration_minutes": 30,
+            "mode": "hard",
+            "alternative_window": {
+              "start": "2030-06-01T18:00:00+08:00",
+              "end": "2030-06-01T21:00:00+08:00"
+            }
+          },
+          "draft": {
+            "draft_id": "D-33184587e0af4e30a82a901234ac8edc",
+            "request_id": "REQ-RECOVERED-NEXT",
+            "item_id": "I01",
+            "version": 1,
+            "draft_state": "PENDING_CONFIRMATION",
+            "requested_start": "2030-06-01T18:00:00+08:00",
+            "candidate": {
+              "offer_id": "O19",
+              "offer_revision": 1,
+              "channel": "douyin",
+              "start": "2030-06-01T19:00:00+08:00",
+              "end": "2030-06-01T19:30:00+08:00"
+            },
+            "pending_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "required_confirmations": [
+              "TIME_CHANGE"
+            ],
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "confirmation": null,
+            "stale_reason": null,
+            "published": false,
+            "material_id": "M01",
+            "channel": "douyin",
+            "findings": [],
+            "last_validated_at": "2026-10-31T08:53:14.209+00:00"
+          },
+          "review": {
+            "review_status": "PASS",
+            "review_snapshot_id": "c147e76b6f067e630bb12a17931e54e0445fd913f414bd527559ab8a9b2f6acb",
+            "findings": [],
+            "missing_fields": [],
+            "review_coverage": [
+              "metadata",
+              "copy_text"
+            ]
+          }
+        }
+      ],
+      "read_at": "2026-10-31T08:53:14.334+00:00",
+      "projection": "readonly_persisted_facts",
+      "published": false
+    }
+  },
+  "checks": {
+    "worker_ended": true,
+    "degraded_not_running": true,
+    "actual_draft_preserved": true,
+    "all_read_views_consistent": true,
+    "get_does_not_retry_writes": true,
+    "persistent_fault_explicit_failure": true,
+    "same_submission_reconciles_same_run": true,
+    "next_request_no_longer_busy": true
+  }
+}

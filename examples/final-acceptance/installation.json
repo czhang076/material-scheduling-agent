@@ -1,0 +1,8 @@
+{
+  "source_commit": "e89b2385a02493c4af5430d638bfdb5bd29b764e",
+  "source_archive_sha256": "6a99a635396325b59336ef149cb2d879fbbf088056c879ba7716413da541f73c",
+  "wheel_sha256": "889c781146ff651f84bef33ed5941d29b54034b230e09810a00c285055cba009",
+  "isolated_installed_package": "E:\\material-scheduling-agent\\var\\strict-acceptance-20261031T084344-12c0c5\\venv\\Lib\\site-packages\\material_scheduler",
+  "package_files_checked": 39,
+  "all_package_files_match": true
+}

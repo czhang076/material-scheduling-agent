@@ -14,4 +14,5 @@
 - Offline policy decisions are Mock. Do not claim model effectiveness from Mock or HTTP stub tests.
 - All fixtures are synthetic. Never commit `.env`, credentials, live databases, or private data.
 - Run the standard-library test suite and regenerate example evidence after behavioral changes.
+- Final independent acceptance for application baseline e89b238 lives in examples/final-acceptance and docs/FINAL-ACCEPTANCE.md: fresh installed package, 8 real CLI + 2 real web runs. Preserve raw results and traces; derived assessments do not alter runtime facts. Read-only verification uses examples/final-acceptance/verify_evidence.py; reproduce_real.py performs paid calls only when explicitly executed.
 - Keep `docs/STATUS.md` and evaluation evidence honest about unfinished work.

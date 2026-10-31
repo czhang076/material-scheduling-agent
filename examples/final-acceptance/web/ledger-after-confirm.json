@@ -1,0 +1,41 @@
+{
+  "drafts": [
+    {
+      "draft_id": "D-8e34d474cf90460fa3ff969cf66bf72d",
+      "version": 1,
+      "state": "READY",
+      "channel": "douyin",
+      "start_utc": "2030-06-01T10:00:00+00:00",
+      "end_utc": "2030-06-01T10:30:00+00:00"
+    },
+    {
+      "draft_id": "D-ec9097488f0d4210955de2483f61a978",
+      "version": 2,
+      "state": "READY",
+      "channel": "douyin",
+      "start_utc": "2030-06-01T11:00:00+00:00",
+      "end_utc": "2030-06-01T11:30:00+00:00"
+    }
+  ],
+  "reservations": [
+    {
+      "draft_id": "D-8e34d474cf90460fa3ff969cf66bf72d",
+      "channel": "douyin",
+      "start_utc": "2030-06-01T10:00:00+00:00",
+      "end_utc": "2030-06-01T10:30:00+00:00"
+    },
+    {
+      "draft_id": "D-ec9097488f0d4210955de2483f61a978",
+      "channel": "douyin",
+      "start_utc": "2030-06-01T11:00:00+00:00",
+      "end_utc": "2030-06-01T11:30:00+00:00"
+    }
+  ],
+  "confirmations": [
+    {
+      "confirmation_id": "CONF-WEB-847abe18d15e4400a1a9936c99971d55",
+      "draft_id": "D-ec9097488f0d4210955de2483f61a978",
+      "result_version": 2
+    }
+  ]
+}

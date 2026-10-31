@@ -1,0 +1,648 @@
+[
+  {
+    "method": "POST",
+    "path": "/api/runs",
+    "input": {
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "submission_id": "SUB-1",
+      "mode": "mock"
+    },
+    "status": 202,
+    "output": {
+      "run": {
+        "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+        "request_id": "REQ-WEB-missing",
+        "payload_hash": "87477a03a093cb1f24a9f10f708b915199575e8f2f0bae2945a62524398907a5",
+        "mode": "mock",
+        "status": "QUEUED",
+        "created_at": "2026-10-31T08:53:10.365+00:00",
+        "updated_at": "2026-10-31T08:53:10.365+00:00",
+        "error": null,
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-missing",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M99",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "result": null
+      },
+      "reused": false
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-59794c9254154c868235bb77fd96e67b",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+      "request_id": "REQ-WEB-missing",
+      "payload_hash": "87477a03a093cb1f24a9f10f708b915199575e8f2f0bae2945a62524398907a5",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T08:53:10.365+00:00",
+      "updated_at": "2026-10-31T08:53:10.374+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-missing",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-missing",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M99",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            }
+          }
+        ],
+        "read_at": "2026-10-31T08:53:10.401+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-59794c9254154c868235bb77fd96e67b",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+      "request_id": "REQ-WEB-missing",
+      "payload_hash": "87477a03a093cb1f24a9f10f708b915199575e8f2f0bae2945a62524398907a5",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T08:53:10.365+00:00",
+      "updated_at": "2026-10-31T08:53:10.374+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-missing",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-missing",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M99",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            }
+          }
+        ],
+        "read_at": "2026-10-31T08:53:10.417+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-59794c9254154c868235bb77fd96e67b",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+      "request_id": "REQ-WEB-missing",
+      "payload_hash": "87477a03a093cb1f24a9f10f708b915199575e8f2f0bae2945a62524398907a5",
+      "mode": "mock",
+      "status": "RUNNING",
+      "created_at": "2026-10-31T08:53:10.365+00:00",
+      "updated_at": "2026-10-31T08:53:10.374+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": null,
+      "current": {
+        "request_id": "REQ-WEB-missing",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-missing",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M99",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            }
+          }
+        ],
+        "read_at": "2026-10-31T08:53:10.522+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-59794c9254154c868235bb77fd96e67b",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+      "request_id": "REQ-WEB-missing",
+      "payload_hash": "87477a03a093cb1f24a9f10f708b915199575e8f2f0bae2945a62524398907a5",
+      "mode": "mock",
+      "status": "FINISHED",
+      "created_at": "2026-10-31T08:53:10.365+00:00",
+      "updated_at": "2026-10-31T08:53:10.534+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            },
+            "save_attempt": {
+              "save_status": "NOT_ATTEMPTED",
+              "error_code": null
+            },
+            "review_observed_in_session": false,
+            "status": "NEEDS_INPUT",
+            "incomplete_reasons": [
+              "MATERIAL_NOT_FOUND"
+            ]
+          }
+        ],
+        "observed_at": "2026-10-31T08:53:10.500+00:00",
+        "published": false,
+        "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+        "task_status": "NEEDS_INPUT",
+        "business_task_status": "NEEDS_INPUT",
+        "model": {
+          "mode": "mock",
+          "name": "observation-policy",
+          "version": "1.0"
+        },
+        "stop_reason": "MODEL_FINISHED",
+        "limit_kind": null,
+        "execution_status": "FINISHED",
+        "stats": {
+          "model_rounds": 2,
+          "protocol_errors": 0,
+          "tool_attempts": 2,
+          "tool_dispatches": 2,
+          "tool_executions": 2,
+          "per_item_attempts": {
+            "I01": 1
+          },
+          "elapsed_seconds": 0.09780279999904451,
+          "final_revalidations": 1
+        },
+        "limits": {
+          "per_item_tool_limit": 10,
+          "max_tool_attempts": 11,
+          "max_model_rounds": 15,
+          "run_timeout_seconds": 180,
+          "model_timeout_seconds": 30,
+          "protocol_error_limit": 4
+        },
+        "trace_complete": true,
+        "last_tool_observation": {
+          "ok": true,
+          "tool": "finish",
+          "item_id": null,
+          "data": {
+            "stop_reason": "TOOL_SESSION_FINISHED"
+          },
+          "observed_at": "2026-10-31T08:53:10.488+00:00"
+        },
+        "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+        "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+        "react_verified_with_real_model": false
+      },
+      "current": {
+        "request_id": "REQ-WEB-missing",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-missing",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M99",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            }
+          }
+        ],
+        "read_at": "2026-10-31T08:53:10.543+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "path": "/api/runs/RUN-59794c9254154c868235bb77fd96e67b",
+    "input": null,
+    "status": 200,
+    "output": {
+      "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+      "request_id": "REQ-WEB-missing",
+      "payload_hash": "87477a03a093cb1f24a9f10f708b915199575e8f2f0bae2945a62524398907a5",
+      "mode": "mock",
+      "status": "FINISHED",
+      "created_at": "2026-10-31T08:53:10.365+00:00",
+      "updated_at": "2026-10-31T08:53:10.534+00:00",
+      "error": null,
+      "request": {
+        "schema_version": "1.0",
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            }
+          }
+        ]
+      },
+      "result": {
+        "request_id": "REQ-WEB-missing",
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            },
+            "save_attempt": {
+              "save_status": "NOT_ATTEMPTED",
+              "error_code": null
+            },
+            "review_observed_in_session": false,
+            "status": "NEEDS_INPUT",
+            "incomplete_reasons": [
+              "MATERIAL_NOT_FOUND"
+            ]
+          }
+        ],
+        "observed_at": "2026-10-31T08:53:10.500+00:00",
+        "published": false,
+        "run_id": "RUN-59794c9254154c868235bb77fd96e67b",
+        "task_status": "NEEDS_INPUT",
+        "business_task_status": "NEEDS_INPUT",
+        "model": {
+          "mode": "mock",
+          "name": "observation-policy",
+          "version": "1.0"
+        },
+        "stop_reason": "MODEL_FINISHED",
+        "limit_kind": null,
+        "execution_status": "FINISHED",
+        "stats": {
+          "model_rounds": 2,
+          "protocol_errors": 0,
+          "tool_attempts": 2,
+          "tool_dispatches": 2,
+          "tool_executions": 2,
+          "per_item_attempts": {
+            "I01": 1
+          },
+          "elapsed_seconds": 0.09780279999904451,
+          "final_revalidations": 1
+        },
+        "limits": {
+          "per_item_tool_limit": 10,
+          "max_tool_attempts": 11,
+          "max_model_rounds": 15,
+          "run_timeout_seconds": 180,
+          "model_timeout_seconds": 30,
+          "protocol_error_limit": 4
+        },
+        "trace_complete": true,
+        "last_tool_observation": {
+          "ok": true,
+          "tool": "finish",
+          "item_id": null,
+          "data": {
+            "stop_reason": "TOOL_SESSION_FINISHED"
+          },
+          "observed_at": "2026-10-31T08:53:10.488+00:00"
+        },
+        "prompt_sha256": "841f1570eccda312463d462d83f48d8bb5e665d667c96980c7da1db8e30cdd49",
+        "tools_sha256": "b01f67b2b8eab92b8703641f96fcbf7a60e1f4ebc6b07e6ad3350856f372f2ac",
+        "react_verified_with_real_model": false
+      },
+      "current": {
+        "request_id": "REQ-WEB-missing",
+        "request": {
+          "schema_version": "1.0",
+          "request_id": "REQ-WEB-missing",
+          "items": [
+            {
+              "item_id": "I01",
+              "material_id": "M99",
+              "channel": "douyin",
+              "time_requirement": {
+                "requested_start": "2030-06-01T18:00:00+08:00",
+                "duration_minutes": 30,
+                "mode": "hard",
+                "alternative_window": {
+                  "start": "2030-06-01T18:00:00+08:00",
+                  "end": "2030-06-01T21:00:00+08:00"
+                }
+              }
+            }
+          ]
+        },
+        "items": [
+          {
+            "item_id": "I01",
+            "material_id": "M99",
+            "channel": "douyin",
+            "time_requirement": {
+              "requested_start": "2030-06-01T18:00:00+08:00",
+              "duration_minutes": 30,
+              "mode": "hard",
+              "alternative_window": {
+                "start": "2030-06-01T18:00:00+08:00",
+                "end": "2030-06-01T21:00:00+08:00"
+              }
+            },
+            "draft": null,
+            "review_error": {
+              "code": "MATERIAL_NOT_FOUND",
+              "message": "Material is absent from synthetic catalog",
+              "path": ""
+            }
+          }
+        ],
+        "read_at": "2026-10-31T08:53:10.570+00:00",
+        "projection": "readonly_persisted_facts",
+        "published": false
+      }
+    }
+  }
+]
