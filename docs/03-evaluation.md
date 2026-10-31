@@ -2,6 +2,31 @@
 
 0.6.0已完成最终独立严格验收，当前结果以 [FINAL-ACCEPTANCE](FINAL-ACCEPTANCE.md)为入口；M4/M5/M6阶段记录保留其原始时间和提交边界。
 
+## 当前版本的题面验收入口
+
+以下均来自最终独立验收的实际DeepSeek调用。输入为CLI请求；各目录的input.json另含完整合成资料及可信故障配置。输出和Trace为原始运行文件，未按预期改写。
+
+|验收点|实际结果|输入 / 实际输出 / Trace|
+|---|---|---|
+|正常排期|18:00可用，READY_DRAFTS；一份草稿、一条预留|[输入](../examples/final-acceptance/real/normal/request.json) / [输出](../examples/final-acceptance/real/normal/run/result.json) / [Trace](../examples/final-acceptance/real/normal/run/trace.jsonl)|
+|信息缺失|补查后仍不足，NEEDS_INPUT；无草稿|[输入](../examples/final-acceptance/real/missing/request.json) / [输出](../examples/final-acceptance/real/missing/run/result.json) / [Trace](../examples/final-acceptance/real/missing/run/trace.jsonl)|
+|阻断风险|M03版权风险，BLOCKED；无草稿|[输入](../examples/final-acceptance/real/blocked-risk/request.json) / [输出](../examples/final-acceptance/real/blocked-risk/run/result.json) / [Trace](../examples/final-acceptance/real/blocked-risk/run/trace.jsonl)|
+|人工确认风险|M04形成待确认草稿；模型未自行确认|[输入](../examples/final-acceptance/real/manual-risk/request.json) / [输出](../examples/final-acceptance/real/manual-risk/run/result.json) / [Trace](../examples/final-acceptance/real/manual-risk/run/trace.jsonl)|
+|时段冲突|18:00被占用后再查19:00；保留硬性18:00要求，TIME_CHANGE待确认|[输入](../examples/final-acceptance/real/conflict/request.json) / [输出](../examples/final-acceptance/real/conflict/run/result.json) / [Trace](../examples/final-acceptance/real/conflict/run/trace.jsonl)|
+|重复提交|重跑normal同一请求，REUSED；草稿ID/版本不变、仍只有一份|[输入](../examples/final-acceptance/real/duplicate/request.json) / [输出](../examples/final-acceptance/real/duplicate/run/result.json) / [Trace](../examples/final-acceptance/real/duplicate/run/trace.jsonl)|
+|更换占用后重复|在conflict账本新增19:00占用后，模型建议20:00；沿用草稿ID、增加版本、仍待确认|[输入](../examples/final-acceptance/real/changed-occupancy/request.json) / [输出](../examples/final-acceptance/real/changed-occupancy/run/result.json) / [Trace](../examples/final-acceptance/real/changed-occupancy/run/trace.jsonl)|
+|保存失败|可信工具注入持久写入故障；真实模型观察失败后重试并停止，FAILED；事务回滚、无草稿或预留|[输入](../examples/final-acceptance/real/save-failure/request.json) / [输出](../examples/final-acceptance/real/save-failure/run/result.json) / [Trace](../examples/final-acceptance/real/save-failure/run/trace.jsonl)|
+
+各目录assessment.json记录独立账本核对结果，汇总见 [8条真实CLI路径](../examples/final-acceptance/real/manifest.json)。保存失败的 [合成资料及故障配置](../examples/final-acceptance/real/save-failure/input.json)由可信验收入口注入，不由模型设置。失败场景“验收通过”表示如实失败。
+
+调用上限的实际负向案例见 [limit输入](../examples/final-acceptance/offline/limit/input.json)、[输出](../examples/final-acceptance/offline/limit/run-1/result.json)及 [Trace](../examples/final-acceptance/offline/limit/run-1/trace.jsonl)：第3次工具调用后明确返回INCOMPLETE / LIMIT_REACHED。该例为离线流程验证，不作为真实模型效果证明。
+
+当前 [222项测试日志](../examples/final-acceptance/clean-unittest.txt)、[7项Node测试日志](../examples/final-acceptance/node-state.txt)、[独立安装检查](../examples/final-acceptance/installation.json)、[网页确认与交互检查](../examples/final-acceptance/web/browser-checks.json)均存放在examples。下文M4/M5/M6数字为各阶段原始记录，不能与最终验收重复累计为成功率。
+
+证据中的GitHub未完成字段固定于技术验收时点；后续公开交付已另行验证，见 [交付记录](GITHUB-DELIVERY.md)。候选人实际投入时长尚待本人补录；题面允许AI辅助，并不要求必须另写一段个人代码才能提交，但个人贡献与AI范围必须如实陈述。
+
+## 阶段验证与已知限制
+
 |验证对象|实际结果|证据边界|
 |---|---|---|
 |确定性、SQLite、循环、CLI与对抗、网页|222个方法，两环境分别通过|M6新增8个方法；不按环境重复计数|
@@ -27,6 +52,6 @@ M5阶段测试摘要见 [M5-summary](../examples/evaluation/M5-summary.json)，�
 
 新增测试覆盖会话/同源、严格 JSON、只读查询、明确核验审计、重传/重跑差异、版本确认、资料变化、运行恢复和事件写入失败。浏览器实际发现 STALE_REVIEW 错误映射和当前状态同步问题；补冲突映射和回归后重测成功，见 [M5验收](M5-ACCEPTANCE.md)。
 
-M6审查修复已有独立记录；完整提交仍需候选人真实贡献记录及GitHub交付。原始模型行为如实保存，不通过修改Trace或预设决策日志制造模型效果。
+M6审查修复已有独立记录；AI辅助范围和用户实际选择已如实记录，GitHub随后已公开交付。尚待本人补录实际投入时长，不能将Codex操作记为本人亲自操作。原始模型行为如实保存，不通过修改Trace或预设决策日志制造模型效果。
 
 上述M4/M5链接是历史阶段材料，分别固定d48e50f/9af839e。M6摘要为 [M6-summary](../examples/evaluation/M6-summary.json)，恢复记录为 [M6 manifest](../examples/workbench/M6/manifest.json)，修复关系见 [M6验收](M6-ACCEPTANCE.md)。旧模型运行不重新标记为新代码。GitHub后续已公开并验证匿名读取，见 [交付记录](GITHUB-DELIVERY.md)；本人实际投入仍须如实补录。
